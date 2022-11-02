@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+#containerGrid{
+    width: 100%;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 1rem;
+    border: 2px solid red;
+}
+
+.containerCard{
+    height: 45%;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid blue;
+}
+
+.containerImageCard{
+    width: 40%;
+    height: 80%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imageCard{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.containerDescriptionCard{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    color: whitesmoke;
+    background-color: black;
+}
+
+.descriptionCard{
+    display: inline;
+    margin: 2rem 0;
+    line-height: 1.8rem;
+}

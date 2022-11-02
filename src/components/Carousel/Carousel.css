@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#containerCarousel{
+    height: 100vh;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+}

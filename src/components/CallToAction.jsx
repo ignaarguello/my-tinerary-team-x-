@@ -1,0 +1,12 @@
+import React from 'react'
+import { Link as LinkRouter } from 'react-router-dom';
+
+export default function CallToAction(props) {
+    let {name, id} = props
+    console.log(name);
+  return (
+        <LinkRouter to={name}>
+          <button className='button-goto' id={id}>GO TO {name.toUpperCase()}</button>
+        </LinkRouter>
+  )
+}

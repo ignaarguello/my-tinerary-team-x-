@@ -14,7 +14,7 @@ let hotels = [
     },
     {
         id: "hotel2",
-        name: "Brisa Barra Hotel",
+        name: "Hotel Brisa Barra",
         photo: [
             'https://rialehoteis.com.br/wp-content/uploads/2022/01/brisa_barra-_029.jpg',
             'https://novo-hu.s3.amazonaws.com/reservas/ota/prod/hotel/2830/brisa-barra-hotel-001_20200521164516.jpg',
@@ -40,7 +40,7 @@ let hotels = [
     },
     {
         id: "hotel4",
-        name: "Hampton by Hilton Istanbul Arnavutkoy",
+        name: "Hotel Hampton by Hilton Istanbul Arnavutkoy",
         photo: [
             'https://www.bilginconsulting.com/wp-content/uploads/2020/12/Screen-Shot-2020-11-20-at-10.36.10-1170x650.png',
             'https://imgcy.trivago.com/c_lfill,d_dummy.jpeg,e_sharpen:60,f_auto,h_360,q_auto,w_360/itemimages/58/05/5805434_v3.jpeg',
@@ -53,14 +53,14 @@ let hotels = [
     }
     ,{
         id: "hotel5",
-        name: "Hollander Hotel - Downtown St. Petersburg",
+        name: "Hotel Hollander - Downtown St. Petersburg",
         photo: [
             'https://myareanetwork-photos.s3.amazonaws.com/bizlist_photos/f/196037_1488032547.jpg?0',
             'https://images.squarespace-cdn.com/content/v1/588e85e046c3c4023d8bbbc3/1610733548618-Y522LWZIVGP54FDP27FE/POOLSIDE+2.jpeg?format=1000w',
             'https://images.squarespace-cdn.com/content/v1/588e85e046c3c4023d8bbbc3/1610735514250-DVM9O1AL7BKDMQGOIZFJ/Fireplace.jpeg',
         ],
         capacity: 43000,
-        description:"Este hotel boutique está ubicado en el centro de San Petersburgo y ofrece WiFi gratuito, restaurante y pileta climatizada al aire libre con bar. El Museo Dalí está a 1,6 km.",
+        description:"Located in the center of Saint Petersburg, this boutique hotel offers free Wi-Fi, a restaurant and a heated outdoor pool with a bar. The Dalí Museum is 1.6 km away.",
         citiId: "saintpetersburg",
         userId:"adm1",
     }
@@ -79,7 +79,7 @@ let hotels = [
     },
     {
         id: "hotel7", 
-        name: "Kadoya Hotel - Tokio",
+        name: "Hotel Kadoya - Tokio",
         photo: [
             'https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_627,q_auto,w_1200/itemimages/10/28/1028662_v3.jpeg',
             'https://www.kayak.es/rimg/himg/8e/7a/e6/expediav2-660192-e53983-756429.jpg?width=1366&height=768&crop=true',
@@ -92,7 +92,7 @@ let hotels = [
     },
     {
         id: "hotel8", 
-        name: "Sheraton Mall of the Emirates Hotel, Dubai",
+        name: "Hotel Sheraton Mall of the Emirates, Dubai",
         photo: [
             'https://www.mydubai.com.au/wp-content/uploads/sites/23/2018/07/sheraton-dubai-mall-of-the-emirates-1.jpg',
             'https://assets.cntraveller.in/photos/60b9fb65db1b6a2d639cf065/4:3/w_1024,h_768,c_limit/Sheraton-Dubai-Mall-of-the-Emirates-Hotel-1297089966-1366x768.jpg',
@@ -105,7 +105,7 @@ let hotels = [
     },
     {
         id: "hotel9",
-        name: "The Theatre at Ace Hotel",
+        name: "Hotel The Theatre at Ace",
         photo: [
             'https://d3emaq2p21aram.cloudfront.net/media/cache/venue_carousel/uploads/2017/03/the-theatre-at-ace-hotel-15.jpg',
             'https://www.historictheatrephotos.com/Resources/Theatre-Photos/Theatre-At-Ace-Hotel-Los-Angeles/Photos/Auditorium/Balcony_from_right.JPG',
@@ -118,7 +118,7 @@ let hotels = [
     },
     {
         id: "hotel10", 
-        name: "Radisson Blu Hotel, Nairobi Upper Hill",
+        name: "Hotel Radisson Blu, Nairobi Upper Hill",
         photo: [
             'https://images.trvl-media.com/lodging/13000000/12010000/12009800/12009760/261519ca.jpg?impolicy=resizecrop&rw=670&ra=fit',
             'https://media.radissonhotels.net/image/radisson-blu-hotel-nairobi-upper-hill/reception/16256-114178-f62751494_3xl.jpg?impolicy=CustomCrop&cwidth=800&cheight=610',
@@ -131,7 +131,7 @@ let hotels = [
     },
     {
         id: "hotel11", 
-        name: "Sheraton Charles de Gaulle, Ad Doqi A.Dokki",
+        name: "Hotel Sheraton Charles de Gaulle, Ad Doqi A.Dokki",
         photo: [
             'https://cache.marriott.com/content/dam/marriott-renditions/PARSI/parsi-aerial-view-0233-hor-feat.jpg',
             'https://pix10.agoda.net/hotelImages/993/99347/99347_17102505500058277650.jpg?ca=6&ce=1&s=1024x768',
@@ -144,7 +144,7 @@ let hotels = [
     },
     {
         id: "hotel12", 
-        name: "Papillo Hotel Roma",
+        name: "Hotel Papillo Roma",
         photo: [
             'https://cf.bstatic.com/xdata/images/hotel/max1024x768/24317764.jpg?k=21fc01eca1b6e1759b8775c58fc96346326ae9a638b9452423fc60796445cc62&o=&hp=1',
             'https://d1vp8nomjxwyf1.cloudfront.net/wp-content/uploads/sites/503/2019/01/10101241/hotel_papillo_slide_01.jpg',

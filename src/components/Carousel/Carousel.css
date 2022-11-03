@@ -12,6 +12,16 @@
     flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
+    background-image: url(https://cdn.discordapp.com/attachments/1036655527377248287/1037845101667426424/fondo1_-_Editado.png);
+    background-size: contain;
+
+}
+
+:root{
+    --color-primario: #24265D;
+    --naranja: #F68712;
+    --celeste: #51ADE5;
+    --azul-claro: #2C3892;
 }
 
 @media screen and (min-width:320px) and (max-width:768px) {
@@ -30,6 +40,7 @@
       font-size: 11px;
       text-align: center;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--azul-claro);
   }
 
   .imageCard{
@@ -90,6 +101,10 @@
       font-size: 15px;
       margin-top: 20px;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--azul-claro);
+      padding: 5px;
+      border-radius: 20px;
+      color: var(--celeste);
   }
 
 }

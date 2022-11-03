@@ -4,14 +4,55 @@ import ArrowLeft from './Arrows/ArrowLeft'
 import CardCarousel from './Cards/CardsCarousel'
 import cities from '../../cities'
 import hotels from '../../hotels'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Carousel.css'
 
 export default function Carousel() {
   
     let [numeroAIncrementar, setNumeroAIncrementar] = useState(0)
-    let nextCard = () => numeroAIncrementar<hotels.length-2 ? setNumeroAIncrementar(numeroAIncrementar+2) : setNumeroAIncrementar(0)
-    let previousCard = () => numeroAIncrementar > 0 ? setNumeroAIncrementar(numeroAIncrementar-2) : setNumeroAIncrementar(hotels.length-2)
+    let [id, setId] = useState(0)
+
+    
+    useEffect(()=>{
+      let idInterval = setInterval(()=>{
+        nextCard()
+        console.log('=> Vuelta del efect')
+        console.log('=> Numero a incrementar', numeroAIncrementar)
+    },4000)
+
+      console.log('ID interval =>', idInterval)
+      setId(idInterval)
+      console.log('ID', id)
+      return clearInterval(id)
+    },[numeroAIncrementar])
+    
+      
+    //Function Next Card
+    function nextCard(){
+      if(numeroAIncrementar<hotels.length-2){
+        setNumeroAIncrementar(numeroAIncrementar+2)
+      } 
+      else{
+        setNumeroAIncrementar(0)
+      } 
+      console.log(' Next() ejecutandose')
+      clearInterval(id)
+    }
+    
+    //Function Previous Card
+    function previousCard(){
+      if(numeroAIncrementar > 0){
+        setNumeroAIncrementar(numeroAIncrementar-2)
+      }else{
+        setNumeroAIncrementar(hotels.length-2)
+      }
+      console.log('se ejecuto prev')
+      clearInterval(id)
+    }
+    
+    
+
+
 
     return (
     <div id='containerCarousel'>

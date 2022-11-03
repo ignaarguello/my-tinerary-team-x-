@@ -1,10 +1,10 @@
 import './App.css';
-import Carousel from './components/Carousel/Carousel';
+import Home2 from './pages/Home2';
 
 function App() {
   return (
     <div className="App">
-      <Carousel/>
+      <Home2/>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import { Component } from 'react';
 import './App.css';
 
 // importo las paginas de componentes
-import Home1 from './pages/Home1'
+import Home1 from './pages/Home1/Home1'
 
 function App() {
   return (

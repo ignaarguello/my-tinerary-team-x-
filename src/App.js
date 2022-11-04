@@ -5,12 +5,14 @@ import { Component } from 'react';
 import './App.css';
 
 // importo las paginas de componentes
-import Home1 from './pages/Home1/Home1'
+import Home2 from './pages/Home2';
+import Home1 from './pages/Home1/Home1';
 
 function App() {
   return (
     <>
       <Home1 />
+      <Home2 />
 
       {/* <Routes>
         <Route path="/cities" element={<Cities />}/>

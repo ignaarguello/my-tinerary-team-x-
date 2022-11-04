@@ -1,4 +1,5 @@
-let cities = [{
+let cities = [
+    {
         id: 'buenosaires',
         name: 'Buenos Aires',
         continent: 'South America',
@@ -95,6 +96,8 @@ let cities = [{
         userId: '',
     }
 ]
+
+export default cities
 /*
 1- Buenos aires (id: buenosaires)
 2- Rio de Janeiro (id: riodejaneiro)

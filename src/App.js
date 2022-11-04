@@ -7,8 +7,6 @@ import './App.css';
 // importo las paginas de componentes
 import Home from './pages/Home'
 
-
-
 function App() {
   return (
     <>

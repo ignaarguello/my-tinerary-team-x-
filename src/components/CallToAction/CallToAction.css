@@ -2,7 +2,7 @@
     background: none;
     padding: 10px;
     color: var(--color-primario);
-    border: 2px solid black;
+    border: 2px solid var(--color-primario);
     border-radius: 10px;
     font-size: 20px;
     cursor: pointer;

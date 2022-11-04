@@ -1,11 +1,18 @@
+:root{
+    --color-primario: #24265D;
+    --naranja: #F68712;
+    --celeste: #51ADE5;
+    --azul-claro: #2C3892;
+}
+
 /* --- NAVBAR --- */
 
 .nav{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    background: linear-gradient(to bottom, white 25%, rgba(128, 128, 128, 0) 75%);
-    height: 15%;
+    background: linear-gradient(to bottom, black -20%,var(--color-primario) 25%, var(--naranja) 70%, white 150%);
+    height: 15vh;
 }
 
 .logo-img{

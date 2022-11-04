@@ -15,12 +15,11 @@
     #containerFooter{
         border: 2px solid var(--azul-claro);
         width: 100%;
-        height: 9rem;
+        height: 16vh;
         display: flex;
         justify-content: center;
         align-items: center;
         background-color: var(--azul-claro);
-        margin-top: 2rem;
     }
 
     #containerLogo{

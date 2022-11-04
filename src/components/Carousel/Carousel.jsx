@@ -12,12 +12,11 @@ export default function Carousel() {
     let [numeroAIncrementar, setNumeroAIncrementar] = useState(0)
     let [id, setId] = useState(0)
 
-    
     useEffect(()=>{
       let idInterval = setInterval(()=>{
         nextCard()
-        console.log('=> Vuelta del efect')
-        console.log('=> Numero a incrementar', numeroAIncrementar)
+        console.log('=> Vuelta del UseEffect')
+        console.log('=> Numeroa incrementar', numeroAIncrementar)
     },4000)
 
       console.log('ID interval =>', idInterval)
@@ -38,7 +37,6 @@ export default function Carousel() {
       console.log(' Next() ejecutandose')
       clearInterval(id)
     }
-    
     //Function Previous Card
     function previousCard(){
       if(numeroAIncrementar > 0){
@@ -49,11 +47,6 @@ export default function Carousel() {
       console.log('se ejecuto prev')
       clearInterval(id)
     }
-    
-    
-
-
-
     return (
     <div id='containerCarousel'>
         <ArrowRight evento={nextCard}/>

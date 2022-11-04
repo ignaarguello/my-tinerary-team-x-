@@ -54,6 +54,10 @@
         color: whitesmoke;
     }
 
+    #containerFooter{
+        height: 22vh;
+    }
+
     #containerButtons{
         /* border: 2px solid red; */
         width: 100%;

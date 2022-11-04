@@ -1,0 +1,69 @@
+.box-signup{
+    width: 100%;
+    background-image: url(https://www.aseguratuviaje.com.ar/images/img2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-signup p{
+    font-size: 1rem;
+    font-style: italic;
+    color: white;
+}
+
+.box-signup h2{
+    font-size: 2.5rem;
+    color: white;
+}
+
+form{
+    width: 25%;
+}
+
+.box-inputs{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+}
+
+.box-submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding-top: .6rem;
+    width: 100%;
+    text-align: center;
+}
+
+.box-submit h6{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.register, .access-google {
+    background-color: white;
+    border: 1px solid black;
+    padding: .6rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.signin-redirect{
+    background-color: white;
+    border: 1px solid black;
+    padding: .6rem 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.signin-redirect:hover, .register:hover, .access-google:hover{
+    font-weight: bold;
+    box-shadow: inset 0 -5px 10px var(--naranja);
+}

@@ -1,0 +1,9 @@
+.name-input, .lastname-input, .email-input, .country-input, .age-input, .password-input{
+    background-color: var(--naranja);
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1.3rem;
+    padding: .6rem;
+    color: var(--color-primario);
+}

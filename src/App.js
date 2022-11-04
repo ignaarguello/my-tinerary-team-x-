@@ -6,11 +6,14 @@ import './App.css';
 
 // importo las paginas de componentes
 import Home from './pages/Home'
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
     <>
-      <Home />
+      {/* <Home /> */}
+      <NotFound />
+
       {/* <Routes>
         <Route path="/cities" element={<Cities />}/>
         <Route path="/hotels" element={<Hotels />}/>

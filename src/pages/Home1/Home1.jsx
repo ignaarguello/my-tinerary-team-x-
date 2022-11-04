@@ -1,16 +1,15 @@
 import React from 'react'
-import NavBar from '../components/NavBar'
-import CallToAction from '../components/CallToAction'
-import AutoToTop from '../components/AutoToTop'
+import NavBar from '../../components/NavBar/NavBar'
+import CallToAction from '../../components/CallToAction/CallToAction'
+import AutoToTop from '../../components/AutoToTop/AutoToTop'
+import '../Home1/Home1.css'
 
 export default function Home1() {
   return (
     <div className='home1'>
-        <AutoToTop />
-          <NavBar />
           <main className='main'>
             <div className='logo-central'>
-              <img src='https://cdn.discordapp.com/attachments/1036655527377248287/1037749498547535982/logo-completo-sf.png' alt='My Tinerary logo and slogan' />
+              <img src='https://cdn.discordapp.com/attachments/1036655527377248287/1037824600941273198/logo-completo-sf.png' alt='My Tinerary logo and slogan' />
             </div>
             <div className='container-buttons-goto'>
               <CallToAction id='but-cities' name='cities'/>

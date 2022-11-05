@@ -5,10 +5,27 @@ import { Component } from 'react';
 import './App.css';
 
 // importo las paginas de componentes
+import Home from './pages/Home'
+import NotFound from './pages/NotFound';
+import SingIn from './pages/SingIn';
 
 function App() {
   return (
     <>
+      {/* <Home /> */}
+      {/* <NotFound /> */}
+      <SingIn />
+
+      {/* <Routes>
+        <Route path="/cities" element={<Cities />}/>
+        <Route path="/hotels" element={<Hotels />}/>
+        <Route path="/index" element={<Main />}/>
+        <Route path="/signin element={<SignIn />}/>
+        <Route path="/signup element={<SignUp />}/>
+        <Route path="/newcity element={<NewCity />}/>
+        <Route path="/newhotel element={<NewHotel />}/>
+        <Route path="/notfound element={<NotFound />}/>
+      </Routes> */}
     </>
   )
 }

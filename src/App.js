@@ -7,12 +7,14 @@ import './App.css';
 // importo las paginas de componentes
 import Home from './pages/Home'
 import NotFound from './pages/NotFound';
+import SingIn from './pages/SingIn';
 
 function App() {
   return (
     <>
       {/* <Home /> */}
-      <NotFound />
+      {/* <NotFound /> */}
+      <SingIn />
 
       {/* <Routes>
         <Route path="/cities" element={<Cities />}/>

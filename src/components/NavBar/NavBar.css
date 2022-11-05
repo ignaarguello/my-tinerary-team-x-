@@ -71,6 +71,11 @@
         background-color: transparent;
         font-weight: bold;
         font-style: italic;
+        padding: 0;
+    }
+
+    .logo-user, .logo-search{
+        width: 30px;
     }
 }
 

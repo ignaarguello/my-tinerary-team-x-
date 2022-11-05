@@ -5,9 +5,7 @@ import { useRef, useState } from 'react'
 export default function SingInComponent() {
     const nameRef = useRef()
     const passwordRef = useRef()
-
-
-
+    
     const handleSubmit = (event)=>{
       event.preventDefault()
       console.log(nameRef.current.value)
@@ -17,11 +15,8 @@ export default function SingInComponent() {
 
       localStorage.setItem('Usuario', JSON.stringify(data))
     }
-
-
-
-
-  return (
+    
+    return (
     <div id='containerSign-In'>
         <div id='containerForm-Sing-In'>
           <h1 id='title-Sign-In'>Welcome</h1>

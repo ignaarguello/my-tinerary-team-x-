@@ -11,8 +11,8 @@ export default function Footer() {
             <h2 id='titleMyTinerary'>My Tineary app</h2>
             <h3 id='Slogan'>Your best partner in the travel</h3>
             <div id='containerButtons'>
-                <button className='BtnFooter'>Cities</button>
-                <button className='BtnFooter'>Hotels</button>
+                <div className='BtnFooter'>Cities</div>
+                <div className='BtnFooter'>Hotels</div>
             </div>
         </div>
         <div id='containerSocialMedia'>

@@ -1,6 +1,6 @@
 import React from 'react'
 import './SingInComponent.css'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 
 export default function SingInComponent() {
     const nameRef = useRef()

@@ -12,6 +12,11 @@
 }
 
 @media screen and (min-width:320px) {
+
+    #containerGeneral{
+        background-image: url(https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+        background-size: cover;
+    }
     .containerCards{
         /* border: 5px solid red; */
         min-height: 84vh;
@@ -20,15 +25,14 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-image: url(https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
-        background-size: cover;
     }
 
     .Imagen-BackToTop{
-        margin-left: 5.4rem;
+        margin-left: 4.5rem;
         margin-top: 5rem;
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 2rem;
+        height: 2rem;
+        background-color: var(--naranja);
     }
     
     .card{
@@ -82,6 +86,29 @@
         letter-spacing: 1px;
         margin: 1.2rem 0;
     }
+
+    #containerSelectSearchBar{
+        min-height: 20vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .ItemSearch{
+        padding: 5px;
+        width: 60%;
+        border-radius: 20px;
+    }
+
+    #searchBarHotels{
+        border: none;
+    }
+
+    .capacityHotels{
+        color: var(--naranja);
+    }
 }
 
 @media screen and (min-width:768px) {
@@ -95,9 +122,23 @@
     .card{
         width: 40%;
     }
+
+    .Imagen-BackToTop{
+        margin-left: 4rem;
+        margin-top: 5rem;
+        width: 1.8rem;
+        height: 1.8rem;
+        background-color: var(--naranja);
+    }
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width:1024px) {
+    .containerCards{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
     .card{
         width: 30%;
     }
@@ -112,12 +153,24 @@
 
     .btnCardHotels{
         margin: 2rem 0;
+        font-size: .6rem;
+    }
+    .Imagen-BackToTop{
+        margin-left: 3.5rem;
+        margin-top: 5rem;
+        width: 2rem;
+        height: 2rem;
+        background-color: var(--naranja);
     }
 }
 
 @media screen and (min-width:1024px) {
+    .containerCards{
+        gap: 5rem;
+    }
+
     .card{
-        width: 35%;
+        width: 20%;
     }
 
     .titleCardHotels{
@@ -135,10 +188,11 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-around;
+        gap: 1rem;
     }
 
     .card{
-        width: 30%;
+        width: 25%;
         transition: .7s ease;
     }
 
@@ -148,13 +202,13 @@
     }
     
     .titleCardHotels{
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         color: var(--naranja);
     }
 
     .descriptionCardHotels{
         font-size: 1rem;
-        line-height: 2.2rem;
+        line-height: 2.1rem;
     }
 
     .btnCardHotels{

@@ -9,11 +9,12 @@ import SignUp from './pages/SignUp/SignUp'
 import Layout from './layout/Layout/Layout';
 import Cities from './pages/Cities/Cities';
 import SingIn from './pages/SingIn'
+import CitiesDetails from './pages/CitiesDetails/CitiesDetails';
 
 function App() {
   return (
     <>
-    <Layout>
+    <Layout> 
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/cities" element={<Cities />}/>
@@ -21,7 +22,7 @@ function App() {
         <Route path="/index" element={<Home />}/>
         <Route path="/signin" element={<SingIn />}/>
         <Route path="/signup" element={<SignUp />}/>
-        {/* <Route path="/newcity" element={<NewCity />}/> */}
+        <Route path="/citiesdetails" element={<CitiesDetails />}/>
         {/* <Route path="/newhotel" element={<NewHotel />}/> */}
         {/* <Route path="/notfound" element={<NotFound />}/> */}
       </Routes>

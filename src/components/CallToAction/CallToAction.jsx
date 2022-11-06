@@ -7,7 +7,7 @@ export default function CallToAction(props) {
     console.log(name);
   return (
         <LinkRouter to={name}>
-          <button className='button-goto' id={id}>GO TO {name.toUpperCase()}</button>
+          <button className='button-goto' id={id}>GO TO {name.toUpperCase().slice(1)}</button>
         </LinkRouter>
   )
 }

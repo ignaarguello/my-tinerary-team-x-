@@ -10,6 +10,8 @@ import Home from './pages/Home'
 import NotFound from './pages/NotFound';
 import SingIn from './pages/SingIn';
 import Hotels from './pages/Hotels';
+import Cities from './pages/Cities/Cities'
+import SignUp from './pages/SignUp/SignUp'
 
 
 function App() {
@@ -21,17 +23,17 @@ function App() {
       
 
     <Layout>
-      <Hotels />
-        {/* <Routes>
+        <Routes>
+          <Route path="/" element={<Home />}/>
           <Route path="/cities" element={<Cities />}/>
           <Route path="/hotels" element={<Hotels />}/>
-          <Route path="/index" element={<Main />}/>
-          <Route path="/signin element={<SignIn />}/>
-          <Route path="/signup element={<SignUp />}/>
-          <Route path="/newcity element={<NewCity />}/>
-          <Route path="/newhotel element={<NewHotel />}/>
-          <Route path="/notfound element={<NotFound />}/>
-        </Routes> */}
+          <Route path="/index" element={<Home />}/>
+          <Route path="/signin" element={<SingIn />}/>
+          <Route path="/signup" element={<SignUp />}/>
+          {/* <Route path="/newcity" element={<NewCity />}/>
+          <Route path="/newhotel" element={<NewHotel />}/> */}
+          <Route path="/*" element={<NotFound />}/>
+        </Routes>
       </Layout>
     </>
   )

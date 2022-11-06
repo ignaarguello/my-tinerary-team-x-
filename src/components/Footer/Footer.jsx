@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <div id='containerFooter'>
         <div id='containerLogo'>
-            <img src="./img/logo.png" alt="" id='logoFooter'/>
+            <img src='./img/logo.png' alt="" id='logoFooter'/>
         </div>
         <div id='containerSlogan'>
             <h2 id='titleMyTinerary'>My Tineary app</h2>

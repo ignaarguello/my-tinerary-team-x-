@@ -5,6 +5,8 @@ import Footer from '../../components/Footer/Footer'
 import ScrollToTop from '../../components/ScrollToTop/ScrollToTop'
 import '../Layout/Layout.css'
 
+import './Layout.css'
+
 export default function Layout(props) {
   return (
     <div className='layout'>

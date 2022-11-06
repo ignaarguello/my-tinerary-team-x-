@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router-dom';
-import { Component } from 'react';
 
 // importo la hoja de estilos
 import './App.css';
@@ -9,18 +8,18 @@ import Home from './pages/Home'
 import SignUp from './pages/SignUp/SignUp'
 import Layout from './layout/Layout/Layout';
 import Cities from './pages/Cities/Cities';
-
-
+import SingIn from './pages/SingIn'
 
 function App() {
   return (
     <>
     <Layout>
       <Routes>
+        <Route path="/" element={<Home />}/>
         <Route path="/cities" element={<Cities />}/>
         {/* <Route path="/hotels" element={<Hotels />}/> */}
         <Route path="/index" element={<Home />}/>
-        {/* <Route path="/signin" element={<SignIn />}/> */}
+        <Route path="/signin" element={<SingIn />}/>
         <Route path="/signup" element={<SignUp />}/>
         {/* <Route path="/newcity" element={<NewCity />}/> */}
         {/* <Route path="/newhotel" element={<NewHotel />}/> */}

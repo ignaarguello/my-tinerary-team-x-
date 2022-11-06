@@ -1,15 +1,17 @@
 import React from 'react'
-import '../CityCard/CityCard.css'
+import '../CityHotel/CityHotel.css'
 
-export default function CityCard(props) {
-    let {image, name, continent} = props
-return (
-    <div className='card-container'>
-        <img src={image} alt='' className='imageCard'/>
-        <div id='ContenedorButtonName'>
-            <h2 className='titleCard'>{name}</h2>
-            <p>{continent}</p>
+export default function CityHotel(props) {
+
+    let {photo,name,continent, population} = props;
+
+    return (
+        <div className='card'>
+                <img className='imageCardHotels' src={photo} alt={name} />
+                <h2 className='titleCardHotels'>{name}</h2>
+                <p className='descriptionCardHotels'>{continent}</p>
+                <p className='capacityHotels'>Population - {population} </p>
+                <div className='btnCardHotels'>Discover +</div>
         </div>
-    </div>
-)
+        )
 }

@@ -1,20 +1,50 @@
 import React from 'react'
-import '../Cities/Cities.css'
-import CitiesSearchBar from '../../components/CitiesSearchBar/CitiesSearchBar'
-import EachCard from '../../components/EachCard'
-import AllCheckbox from '../../components/AllCheckbox'
+import cities from '../../cities'
+import SearchBar from '../../components/SearchBar/SearchBar'
+import CityCard from '../../components/CityCard/CityCard'
+import { useState } from 'react'
 
 export default function Cities() {
-  return (
-        <div className='cities-container'>
-            <CitiesSearchBar className='cities-search' type='text' placeholder='Find your favourite city...' />
-            {/* <ul>
-              {cities.filter( (cities) => cities.name.toLowerCase().includes(searched)).map( (cities) => (
-                <li key={cities.id} > {cities.name} </li>
-              ) ) }
-            </ul> */}
-            <AllCheckbox />
-            <EachCard />
-        </div>
-  )
+  let [citiess,setcities]=useState([])
+  let [newcities,setNewcities]=useState([])
+  let [print,setPrint]=useState(false)
+
+  let aplied={}
+
+  function onFilterValueSelected(FilterValue,especialist){
+
+    aplied[especialist] = FilterValue;
+    
+    console.log(aplied)
+    
+    for(let date in aplied){
+        
+        if(date==="searchBar"){
+            if(aplied["searchBar"] !== ''){
+                setNewcities(newcities.filter(element=>element.name.toLowerCase().includes(aplied[date].toLowerCase())))
+            } 
+            
+            newcities=cities
+            console.log('lpm', newcities)
+        }
+        
+        if(newcities.length===0){
+            console.log("vacio")
+        }
+    }
+    setPrint(true)
+}
+
+return (
+  <div id='containerGeneral'>
+    <div className='containerInputs'>
+        <SearchBar functionFilter={onFilterValueSelected}/>
+    </div>
+      <div className='containerCards'>
+        {(!print)
+        ? cities.map(hotel=><CityCard key={hotel?.id} name={hotel?.name} description={hotel?.continent} image={hotel?.photo} capacity={hotel?.population}/>)
+        : newcities.map(hotel=><CityCard key={hotel?.id} name={hotel?.name} description={hotel?.continent} image={hotel?.photo} capacity={hotel?.population}/>)}
+      </div>
+  </div>
+)
 }

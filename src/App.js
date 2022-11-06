@@ -8,13 +8,16 @@ import './App.css';
 import Home from './pages/Home'
 import NotFound from './pages/NotFound';
 import SingIn from './pages/SingIn';
+import Hotels from './pages/Hotels';
+
 
 function App() {
   return (
     <>
       {/* <Home /> */}
       {/* <NotFound /> */}
-      <SingIn />
+      {/* <SingIn /> */}
+      <Hotels />
 
       {/* <Routes>
         <Route path="/cities" element={<Cities />}/>

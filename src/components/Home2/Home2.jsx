@@ -5,8 +5,6 @@ import ScrollToTop from '../../components/ScrollToTop/ScrollToTop';
 
 export default function Home2() {
   return (
-    <div>
         <Carousel/>
-    </div>
   )
 }

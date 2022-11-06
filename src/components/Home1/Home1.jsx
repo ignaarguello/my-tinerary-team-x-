@@ -1,8 +1,8 @@
 import React from 'react'
-import NavBar from '../../components/NavBar/NavBar'
-import CallToAction from '../../components/CallToAction/CallToAction'
-import AutoToTop from '../../components/AutoToTop/AutoToTop'
-import '../Home1/Home1.css'
+import NavBar from '../NavBar/NavBar'
+import CallToAction from '../CallToAction/CallToAction'
+import AutoToTop from '../AutoToTop/AutoToTop'
+import './Home1.css'
 
 export default function Home1() {
   return (

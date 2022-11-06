@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-primario: #24265D;
+    --naranja: #F68712;
+    --celeste: #51ADE5;
+    --azul-claro: #2C3892;
+}
+
+
+@media screen and (min-width:320px) {
+    #containerCardDetails{
+        border: 2px solid red;
+        min-height: 69vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #cardGeneral{
+        border: 2px solid green;
+        width: 80%;
+        height: 80%;
+    }
+}

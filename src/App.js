@@ -17,10 +17,11 @@ function App() {
     <>
     <Layout>
       <Routes>
+        <Route path="/" element={<Home />}/>
         <Route path="/cities" element={<Cities />}/>
         {/* <Route path="/hotels" element={<Hotels />}/> */}
         <Route path="/index" element={<Home />}/>
-        {/* <Route path="/signin" element={<SignIn />}/> */}
+        <Route path="/signin" element={<SignIn />}/>
         <Route path="/signup" element={<SignUp />}/>
         {/* <Route path="/newcity" element={<NewCity />}/> */}
         {/* <Route path="/newhotel" element={<NewHotel />}/> */}

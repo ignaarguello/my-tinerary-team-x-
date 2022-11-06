@@ -1,11 +1,13 @@
 import React from 'react'
-import '../CityHotel/CityHotel.css'
 
-export default function CityCard(props) {
 
-    let {img,name,continent, population} = props;
+//componente donde creo la CARD completa de detalles
 
-    return (
+function CitiesDet(props) {
+
+  let {img,name,continent, population} = props;
+  return (
+    <>
         <div className='card'>
                 <img className='imageCardHotels' src={img} alt={name} />
                 <h2 className='titleCardHotels'>{name}</h2>
@@ -13,5 +15,8 @@ export default function CityCard(props) {
                 <p className='capacityHotels'>Population - {population} </p>
                 <div className='btnCardHotels'>Discover +</div>
         </div>
-        )
+    </>
+  )
 }
+
+export default CitiesDet

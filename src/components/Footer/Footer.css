@@ -15,7 +15,7 @@
     #containerFooter{
         border: 2px solid var(--azul-claro);
         width: 100%;
-        height: 16vh;
+        height: 24vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -41,6 +41,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: .7rem;
     }
 
     #titleMyTinerary{
@@ -64,12 +65,15 @@
     }
 
     .BtnFooter{
-        padding: 3px;
-        width: 30%;
-        background: none;
+        padding: 3.5px;
+        width: 35%;
+        background-color: var(--naranja);
         border-radius: 10px;
-        color: var(--celeste);
-        font-weight: bold;
+        color: white;
+        font-weight: 400;
+        text-align: center;
+        font-size: 13px;
+        cursor: pointer;
     }
 
     #containerSocialMedia{
@@ -123,5 +127,10 @@
         box-shadow: 1px 1px 20px black;
         background-color: var(--azul-claro);
     }
+}
 
+@media screen and (min-width:1440px) {
+    .BtnFooter{
+        width: 25%;
+    }
 }

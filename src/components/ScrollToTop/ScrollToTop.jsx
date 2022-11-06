@@ -27,8 +27,8 @@ export default function ScrollToTop() {
       {ScrollToTop && (
           <div className='BtnToTop' style={{
               position:"fixed",
-              bottom:"50px",
-              right:"50px",
+              bottom:"80px",
+              right:"33px",
               height:"50px",
               width:"50px",
               fontSize:"50px",

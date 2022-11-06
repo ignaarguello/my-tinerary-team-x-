@@ -4,9 +4,9 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 
 // importo las paginas de componentes
+import Layout from './layout/Layout/Layout';
 import Home from './pages/Home'
 import SignUp from './pages/SignUp/SignUp'
-import Layout from './layout/Layout/Layout';
 import Cities from './pages/Cities/Cities';
 import SingIn from './pages/SingIn'
 import CitiesDetails from './pages/CitiesDetails/CitiesDetails';

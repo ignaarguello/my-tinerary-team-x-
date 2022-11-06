@@ -25,5 +25,5 @@
 
 .Imagen-BackToTop:hover{
     transform: scale(1.4);
-    background-color: var(--celeste);
+    background-color: var(--azul-claro);
 }

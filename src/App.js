@@ -8,14 +8,16 @@ import './App.css';
 import Home from './pages/Home'
 import SignUp from './pages/SignUp/SignUp'
 import Layout from './layout/Layout/Layout';
+import Cities from './pages/Cities/Cities';
 
 
 
 function App() {
   return (
     <>
+    <Layout>
       <Routes>
-        {/* <Route path="/cities" element={<Cities />}/> */}
+        <Route path="/cities" element={<Cities />}/>
         {/* <Route path="/hotels" element={<Hotels />}/> */}
         <Route path="/index" element={<Home />}/>
         {/* <Route path="/signin" element={<SignIn />}/> */}
@@ -24,6 +26,7 @@ function App() {
         {/* <Route path="/newhotel" element={<NewHotel />}/> */}
         {/* <Route path="/notfound" element={<NotFound />}/> */}
       </Routes>
+    </Layout>
     </>
   )
 }

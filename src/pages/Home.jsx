@@ -5,9 +5,9 @@ import Home2 from './Home2/Home2'
 
 export default function Home() {
   return (
-    <Layout>
+    <>
         <Home1 />
         <Home2 />
-    </Layout>
+    </>
   )
 }

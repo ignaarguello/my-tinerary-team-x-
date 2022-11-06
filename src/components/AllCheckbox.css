@@ -1,0 +1,6 @@
+.checkbox-container{
+    display: flex;
+    gap: 1rem;
+    color: red;
+    background-color: yellow;
+}

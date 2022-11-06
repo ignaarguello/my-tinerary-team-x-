@@ -27,6 +27,12 @@ export default function BoxSignUp() {
     localStorage.setItem('user-registered', JSON.stringify(data))
     alert("Welcome to MyTinerary!")
 
+    nameInputElement.current.value=''
+    lastnameInputElement.current.value=''
+    emailInputElement.current.value=''
+    countryInputElement.current.value=''
+    ageInputElement.current.value=''
+    passwordInputElement.current.value=''
   }
 
 

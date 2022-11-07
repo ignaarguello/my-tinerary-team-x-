@@ -44,8 +44,8 @@ return (
     </div>
       <div className='containerCards'>
         {(!print)
-        ? cities.map(each=><CityCard key={each?.id} name={each?.name} continent={each?.continent} img={each?.photo} population={each?.population}/>)
-        : newcities.map(each=><CityCard key={each?.id} name={each?.name} continent={each?.continent} img={each?.photo} population={each?.population}/>)}
+        ? cities.map(each=><CityCard key={each?.id} id={each?.id} name={each?.name} continent={each?.continent} img={each?.photo} population={each?.population}/>)
+        : newcities.map(each=><CityCard key={each?.id} id={each?.id} name={each?.name} continent={each?.continent} img={each?.photo} population={each?.population}/>)}
       </div>
   </div>
 )

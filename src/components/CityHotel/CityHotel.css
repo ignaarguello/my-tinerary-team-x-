@@ -85,6 +85,7 @@
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         letter-spacing: 1px;
         margin: 1.2rem 0;
+        text-decoration: none;
     }
 
     #containerSelectSearchBar{
@@ -191,10 +192,7 @@
         gap: 1rem;
     }
 
-    .card{
-        width: 25%;
-        transition: .7s ease;
-    }
+    
 
     .card:hover{
         background-color: rgba(0, 0, 0, 0.87);

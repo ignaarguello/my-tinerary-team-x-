@@ -24,9 +24,9 @@ function App() {
         <Route path="/index" element={<Home />}/>
         <Route path="/signin" element={<SingIn />}/>
         <Route path="/signup" element={<SignUp />}/>
-        <Route path="/citiesdetails" element={<CitiesDetails />}/>
+        <Route path="/cities/:cityid" element={<CitiesDetails />}/>
         {/* <Route path="/newhotel" element={<NewHotel />}/> */}
-        <Route path="/notfound" element={<NotFound />}/>
+        <Route path="/*" element={<NotFound />}/>
       </Routes>
     </Layout>
     </>

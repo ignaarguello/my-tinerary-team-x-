@@ -3,9 +3,10 @@ import cities from '../../cities'
 import SearchBar from '../../components/SearchBar/SearchBar'
 import CityCard from '../../components/CityCard/CityCard'
 import { useState } from 'react'
+import AllCheckbox from '../../components/AllCheckbox'
 
 export default function Cities() {
-  let [citiess,setcities]=useState([])
+
   let [newcities,setNewcities]=useState([])
   let [print,setPrint]=useState(false)
 
@@ -39,11 +40,12 @@ return (
   <div id='containerGeneral'>
     <div className='containerInputs'>
         <SearchBar functionFilter={onFilterValueSelected}/>
+        <AllCheckbox />
     </div>
       <div className='containerCards'>
         {(!print)
-        ? cities.map(hotel=><CityCard key={hotel?.id} name={hotel?.name} description={hotel?.continent} image={hotel?.photo} capacity={hotel?.population}/>)
-        : newcities.map(hotel=><CityCard key={hotel?.id} name={hotel?.name} description={hotel?.continent} image={hotel?.photo} capacity={hotel?.population}/>)}
+        ? cities.map(each=><CityCard key={each?.id} id={each?.id} name={each?.name} continent={each?.continent} img={each?.photo} population={each?.population}/>)
+        : newcities.map(each=><CityCard key={each?.id} id={each?.id} name={each?.name} continent={each?.continent} img={each?.photo} population={each?.population}/>)}
       </div>
   </div>
 )

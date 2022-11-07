@@ -1,7 +1,5 @@
 import React from 'react'
 import './HotelDetailsComponent.css'
-import hotels from '../../hotels'
-import { useParams } from 'react-router-dom'
 
 export default function HotelDetailsComponent(props) {
   let {image, name, description, capacity} = props
@@ -9,7 +7,7 @@ export default function HotelDetailsComponent(props) {
     <div id='containerCardDetails'>
         <div className='cardGeneral'>
             <div className='containerImageCardDetails'>
-                <img className='imageCardDetails' src={image} alt="" />
+                <img className='imageCardDetails' src={image} alt={name} />
             </div>
             <div className='bodyCardDetails'>
                 <h2 className='titleCardDetails'>{name}</h2>

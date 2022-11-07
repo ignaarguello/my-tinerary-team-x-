@@ -30,6 +30,7 @@ export default function HotelsDetails() {
           <div id='containerAllDetails'>
             <h1 className='titleHotelDetails'>Hotel Details</h1>
             <HotelDetailsComponent image={findHotel.photo} name={findHotel.name} description={findHotel.description} capacity={findHotel.capacity}  />
+            <h2 className='titleNotHaveShows'>Ops, This hotel does not have shows</h2>
           </div>
           }
     </div>

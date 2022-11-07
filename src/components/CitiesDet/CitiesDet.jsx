@@ -17,7 +17,6 @@ function CitiesDet(props) {
             <div className='bodyCardDetails'>
                 <h2 className='titleCardDetails'>{name}</h2>
                 <p className='descriptionCardDetails'>{continent}</p>
-                <p className='capacityCardDetails'>{population}</p>
                 <p className='cityCardDetails'>Population - {population}</p>
                 <div className='btnCardDetails'>View Comments</div>
             </div>

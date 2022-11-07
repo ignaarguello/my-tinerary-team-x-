@@ -8,7 +8,7 @@ export default function NotFoundComponent() {
         <div id='containerTitles'>
             <h1 className='title404'>Oops, Error 404...</h1>
             <h2 className='titleSorry'>Sorry, an error occurred, please try again.</h2>
-            <CallToAction name='Home' id='btn-home'/>
+            <CallToAction name='/home' id='btn-home'/>
         </div>
     </div>
   )

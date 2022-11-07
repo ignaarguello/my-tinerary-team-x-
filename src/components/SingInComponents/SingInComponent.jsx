@@ -24,11 +24,11 @@ export default function SingInComponent() {
                 <form onSubmit={handleSubmit} id='form-Sign-In'>
                   <div className='container-Inputs'>
                       <label htmlFor="input-name-SI" className='labelForm-SI'>Email Adress:</label>
-                      <input type="email" name='input-name-SI' id='input-name'className='input-SI' placeholder='Email' ref={nameRef} />
+                      <input type="email" name='input-name-SI' id='input-name' className='input-SI' placeholder='Email' ref={nameRef} />
                     </div>
                     <div className='container-Inputs'>
                       <label htmlFor="input-password-SI" className='labelForm-SI' required>Password:</label>
-                      <input type="password" name='input-password-SI' id='input-password'className='input-SI' required placeholder='Password' ref={passwordRef}/>
+                      <input type="password" name='input-password-SI' id='input-password' className='input-SI' required placeholder='Password' ref={passwordRef}/>
                     </div>
                     <div className='container-Inputs'>
                       <input type="submit" name='input-submit-SI' id='input-submit-SI' value='Sign In' />

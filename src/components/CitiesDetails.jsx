@@ -6,9 +6,9 @@ import cities from '../cities'
 
 function CitiesDetails() {
   return (
-    <>
+    <div className='cityd-container'>
       <CitiesDet key={cities?.id} name={cities?.name} continent={cities?.continent} img={cities?.photo} population={cities?.population}/>)
-    </>
+    </div>
   )
 }
 

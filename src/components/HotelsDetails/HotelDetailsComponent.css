@@ -11,19 +11,157 @@
     --azul-claro: #2C3892;
 }
 
-
 @media screen and (min-width:320px) {
     #containerCardDetails{
-        border: 2px solid red;
-        min-height: 69vh;
+        /* border: 2px solid red; */
+        min-height: 50vh;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    #cardGeneral{
-        border: 2px solid green;
-        width: 80%;
-        height: 80%;
+    .cardGeneral{
+        /* border: 2px solid green; */
+        width: 95%;
+        height: 35vh;
+        background-color: black;
+        color: white;
+        display: flex;
+        text-align: center;
+        border-radius: 10px;
+    }
+
+    .imageCardDetails{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .containerImageCardDetails{
+        /* border: 2px solid blue; */
+        width: 40%;
+        height: 100%;
+        display: flex;
+    }
+
+    .bodyCardDetails{
+        /* border: 2px solid salmon; */
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 8px;
+        align-items: center;
+    }
+
+    .titleCardDetails{
+        font-size: 9px;
+        color: var(--naranja);
+        margin-top: 3px;
+    }
+
+    .descriptionCardDetails{
+        font-size: 10px;
+        color: white;
+    }
+
+    .capacityCardDetails{
+        color: var(--naranja);
+    }
+
+    .cityCardDetails{
+        font-size: 9px;
+        color: var(--celeste);
+        font-weight: bold;
+    }
+
+    .titlePopuparTinearies{
+        /* border: 2px solid brown; */
+        text-align: center;
+        margin: .5rem 0;
+        color: var(--color-primario);
+    }
+
+    .titleHotelDetails{
+        /* border: 2px solid brown; */
+        text-align: center;
+        color: var(--color-primario);
+        padding-top: 1rem;
+    }
+
+    #containerAllDetails{
+        /* border: 5px solid green; */
+        background-image: url(https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+        background-size: cover;
+    }
+
+    .btnCardDetails{
+        /* border: 2px solid red; */
+        padding: 4px;
+        font-size: 12px;
+        border-radius: 15px;
+        width: 75%;
+        background-color: var(--naranja);
+        color: white;
+    }
+}
+
+@media screen and (min-width:768px){
+    #containerCardDetails{
+        align-items: flex-start;
+    }
+    
+    .cardGeneral{
+        margin-top: 4rem;
+        height: 25rem;
+    }
+
+    .bodyCardDetails{
+        align-items: center;
+        justify-content: center;
+    }
+
+    .titleCardDetails{
+        font-size: 15px;
+    }
+
+    .descriptionCardDetails{
+        font-size: 13px;
+    }
+
+    .capacityCardDetails{
+        letter-spacing: 1px;
+    }
+
+    .cityCardDetails{
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    .btnCardDetails{
+        /* border: 2px solid red; */
+        width: 45%;
+        cursor: pointer;
+    }
+} 
+
+@media screen and (min-width:1024px){
+    .btnCardDetails{
+        /* border: 2px solid red; */
+        width: 35%;
+        transition: .5s ease;
+        cursor: pointer;
+    }
+
+    .btnCardDetails:hover{
+        background-color: var(--color-primario);
+    }
+}
+
+@media screen and (min-width:1440px){
+    .btnCardDetails{
+        /* border: 2px solid red; */
+        width: 25%;
+        margin-top: 1rem;
     }
 }

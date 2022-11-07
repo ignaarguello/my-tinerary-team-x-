@@ -12,7 +12,8 @@ import SingIn from './pages/SingIn';
 import SignUp from './pages/SignUp';
 import Hotels from './pages/Hotels';
 import HotelsDetails from './pages/HotelsDetails';
-
+import Cities from './pages/Cities/Cities'
+import NewHotel from './pages/NewHotel';
 
 function App() {
   return (
@@ -24,8 +25,9 @@ function App() {
             <Route path="/signin" element={<SingIn />}/>
             <Route path="/signup" element={<SignUp />}/>
             <Route path="/hotels" element={<Hotels />}/>
-            <Route path="home/hotels" element={<Hotels />}/>
+            <Route path="/cities" element={<Cities />}/>
             <Route path="hotels/details" element={<HotelsDetails />}/>
+            <Route path="hotels/:id" element={<HotelsDetails />}/>
         </Routes>
       </Layout>
   )

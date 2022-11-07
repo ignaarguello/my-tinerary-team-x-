@@ -12,6 +12,7 @@ import SingIn from './pages/SingIn'
 import CitiesDetails from './pages/CitiesDetails/CitiesDetails';
 import Hotels from './pages/Hotels';
 import NotFound from './pages/NotFound'
+import HotelsDetails from './pages/HotelsDetails'
 
 function App() {
   return (
@@ -19,12 +20,14 @@ function App() {
     <Layout> 
       <Routes>
         <Route path="/" element={<Home />}/>
+        <Route path="/home" element={<Home />}/>
         <Route path="/cities" element={<Cities />}/>
         <Route path="/hotels" element={<Hotels />}/>
-        <Route path="/index" element={<Home />}/>
         <Route path="/signin" element={<SingIn />}/>
         <Route path="/signup" element={<SignUp />}/>
         <Route path="/cities/:cityid" element={<CitiesDetails />}/>
+        <Route path="hotels/:id" element={<HotelsDetails />}/>
+        <Route path="hotels/details" element={<HotelsDetails />}/>
         {/* <Route path="/newhotel" element={<NewHotel />}/> */}
         <Route path="/*" element={<NotFound />}/>
       </Routes>

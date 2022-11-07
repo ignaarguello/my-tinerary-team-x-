@@ -74,8 +74,8 @@ export default function Hotels() {
         </div>
         <div className='containerCards'>
         {(!print)
-        ? hotels.map(hotel=><CityHotel key={hotel?.id} name={hotel?.name} description={hotel?.description} image={hotel?.photo[0]} capacity={hotel?.capacity}/>)
-        : newHotels.map(hotel=><CityHotel key={hotel?.id} name={hotel?.name} description={hotel?.description} image={hotel?.photo[0]} capacity={hotel?.capacity}/>)}
+        ? hotels.map(hotel=><CityHotel key={hotel?.id} name={hotel?.name} description={hotel?.description} image={hotel?.photo[0]} capacity={hotel?.capacity} id={hotel?.id}/>)
+        : newHotels.map(hotel=><CityHotel key={hotel?.id} name={hotel?.name} description={hotel?.description} image={hotel?.photo[0]} capacity={hotel?.capacity} id={hotel?.id}/>)}
         </div>
     </div>
   )

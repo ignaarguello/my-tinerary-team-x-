@@ -1,9 +1,10 @@
 import React from 'react'
 import './CityHotel.css'
+import { Link as LinkRouter  } from 'react-router-dom';
 
 export default function CityHotel(props) {
 
-    let {image,name,description, capacity} = props;
+        let {image,name,description, capacity, id} = props;
 
     return (
         <div className='card'>
@@ -11,7 +12,9 @@ export default function CityHotel(props) {
                 <h2 className='titleCardHotels'>{name}</h2>
                 <p className='descriptionCardHotels'>{description}</p>
                 <p className='capacityHotels'>Capacity - {capacity} </p>
-                <div className='btnCardHotels'>Discover +</div>
+                <LinkRouter className='btnCardHotels' to={id}>
+                        <div>Discover +</div>
+                </LinkRouter>
         </div>
         )
 }

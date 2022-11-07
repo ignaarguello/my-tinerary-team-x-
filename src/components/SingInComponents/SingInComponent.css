@@ -13,18 +13,23 @@
 
 @media screen and (min-width:320px) {
     #containerSign-In{
+        /* border: 2px solid red; */
         width: 100%;
         min-height: 70vh;
         background-image: url(https://www.aseguratuviaje.com.ar/images/img2.jpg);
         background-size: cover;
+        display: flex;
+        justify-content: center;
     }
 
     #containerForm-Sing-In{
-       /*  border: 2px solid green; */
+        /* border: 2px solid green; */
+        width: 100%;
         height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
     }
 
     #title-Sign-In{
@@ -39,10 +44,12 @@
     }
 
     #form-Sign-In{
-        /* border: 3px solid brown; */
+       /*  border: 3px solid brown; */
         height: 100%;
+        width: 100%;
         display: flex;
         flex-direction: column;
+        justify-content: center;
         gap: 1rem;
     }
 
@@ -68,7 +75,7 @@
     }
 
     .input-SI{
-        width: 95%;
+        width: 75%;
         padding: .5rem;
         border-radius: 5px;
         border: 1px solid black;
@@ -84,7 +91,7 @@
     }
 
     #containerButtonGoogle{
-        width: 65%;
+        width: 50%;
         border-radius: 20px;
         background-color: #202124;
         display: flex;
@@ -94,6 +101,7 @@
         padding: 8px;
         color: white;
         font-size: 15px;
+        gap: 1rem;
     }
     
     .logoGoogle{
@@ -106,7 +114,7 @@
 
 @media screen and (min-width:768px) {
     .input-SI{
-        width: 50%;
+        width: 45%;
     }
 
     #input-submit-SI{
@@ -139,6 +147,6 @@
     }
 
     #containerButtonGoogle{
-        width: 13%;
+        width: 12%;
     }
 }

@@ -7,7 +7,7 @@ export default function NavBar() {
     <>
       <nav className='nav'>
         <div className='logo-nav'>
-        <LinkRouter to='/index'> 
+        <LinkRouter to='/Home'> 
           <img className='logo-img' src='https://cdn.discordapp.com/attachments/1036655527377248287/1037749498925039747/logo-simple-sf.png' alt='my tinerary logo'/>
         </LinkRouter>
         </div>

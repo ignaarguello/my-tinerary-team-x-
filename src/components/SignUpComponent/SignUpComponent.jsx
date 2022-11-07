@@ -1,8 +1,8 @@
 import React from 'react'
-import '../SignUp/SignUp.css'
-import BoxSignUp from '../../components/BoxSignUp/BoxSignUp'
+import './SignUpComponent.css'
+import BoxSignUp from '../BoxSignUp/BoxSignUp'
 
-export default function SignUp() {
+export default function SignUpComponent() {
   return (
         <div className='signup-container'>
             <BoxSignUp />

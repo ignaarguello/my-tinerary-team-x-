@@ -42,7 +42,7 @@ export default function BoxSignUp() {
         <LinkRouter to='/signin'><button type='submit' value='signin-redirect' id='signin-redirect' className='signin-redirect'>Sign In</button></LinkRouter>
         <p>Don't have an account yet?</p>
         <h2>Register now</h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className='box-inputs'>
               <InputsSignUp ref={nameInputElement} type='text' className='name-input' id='name' name='name' placeholder='First name:'/>
               <InputsSignUp ref={lastnameInputElement} type='text' className='lastname-input' id='lastname' name='lastname' placeholder='Last name:'/>
@@ -52,7 +52,7 @@ export default function BoxSignUp() {
               <InputsSignUp ref={passwordInputElement} type='password' className='password-input' id='password' name='password' placeholder='Password:'/>
             </div>
             <div className='box-submit'>
-              <LinkRouter to='/'><button type='submit' onClick={handleSubmit} className='register'>Sign Up</button></LinkRouter>
+              <button type='submit'  className='register'>Sign Up</button>
               <h6>or</h6>
               <LinkRouter to='/'><button type='submit' className='access-google'>Access with Google</button></LinkRouter>
             </div>

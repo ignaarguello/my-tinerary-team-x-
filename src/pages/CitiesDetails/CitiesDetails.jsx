@@ -15,11 +15,13 @@ function CitiesDetails() {
   console.log(activityFound);
 
   return (
-    <>
+
     <div id='containerAllDetails'>
       {activityFound.length !== 0 ?
       <>
+      <h1 className='titleHotelDetails'>{cityFound.name} Details</h1>
       <CitiesDet key={cityFound.id} name={cityFound.name} continent={cityFound.continent} img={cityFound.photo} population={cityFound.population}/>
+      <h2 className='titlePopuparTinearies'>Popular Tineraries</h2>
       <div className='containerActivities'>
         <ActivitiesDetails photo={activityFound[0].photo[0]} price={activityFound[0].price} duration={activityFound[0].duration} name={activityFound[0].name} />
         <ActivitiesDetails photo={activityFound[1].photo[1]} price={activityFound[1].price} duration={activityFound[1].duration} name={activityFound[1].name} />
@@ -27,10 +29,14 @@ function CitiesDetails() {
       
       </>
       :
+      <>
+      <h1 className='titleHotelDetails'>{cityFound.name} Details</h1>
       <CitiesDet key={cityFound.id} name={cityFound.name} continent={cityFound.continent} img={cityFound.photo} population={cityFound.population}/>
+      <h2 className='titleNotHaveShows'>Ooops, This city does not have shows</h2>
+      </>
     }
     </div>
-    </>
+
   )
 }
 

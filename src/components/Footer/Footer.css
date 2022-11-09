@@ -93,6 +93,10 @@
 }
 
 @media screen and (min-width:768px) {
+    #containerFooter{
+        height: 30vh;
+        padding: 1rem;
+    }
     #logoFooter{
         width: 5rem;
         height: 5rem;

@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useRef } from 'react'
+import axios from 'axios'
+import { BASE_URL } from '../api/url'
+import { useState } from 'react'
 
 export default function NewCity() {
     const nameRef = useRef()
@@ -8,25 +11,38 @@ export default function NewCity() {
     const continentRef = useRef()
     const idRef = useRef()
     
+    let [dataUlt, setDataUlt] = useState(null)
+
     const handleSubmit = (event)=>{
     event.preventDefault()
 
     const data = {
         name: nameRef.current?.value,
-        photos: photoRef.current?.value,
-        population: populationRef.current?.value,
         continent: continentRef.current?.value,
-        cityId: idRef.current?.value 
+        photo: photoRef.current?.value,
+        population: populationRef.current?.value,
+        userId: idRef.current?.value 
     }
 
-    localStorage.setItem('NewCity', JSON.stringify(data))
+    setDataUlt(data)
+    console.log('set data desde funcion', data);
+    event.target.reset()
+  }
 
-    nameRef.current.value=''
-    photoRef.current.value=''
-    populationRef.current.value=''
-    continentRef.current.value=''
-    populationRef.current.value=''
-    }
+  console.log('SETEO DATA DE FUERA', dataUlt);
+
+  useEffect( () => {
+    axios.get(`${BASE_URL}/cities`)
+      .then(response => console.log(response.data.response))
+      .catch (err => console.log(err))
+    }, [])
+
+  useEffect( () => {
+    axios.post(`${BASE_URL}/cities`, dataUlt)
+      .then(response => console.log(response.data.response))
+      .catch (err => console.log(err))
+    }, [dataUlt])
+
   return (
     <div id='containerSign-In'>
         <div id='containerForm-Sing-In'>
@@ -38,8 +54,8 @@ export default function NewCity() {
                       <input type="text" name='input-name-SI' id='input-name'className='input-SI' placeholder='Name' ref={nameRef}  />
                     </div>
                     <div className='container-Inputs'>
-                      <label htmlFor="input-password-SI" className='labelForm-SI' required>Photos:</label>
-                      <input type="file" name='input-password-SI' id='input-photos'className='input-SI' required placeholder='Photos' ref={photoRef}/>
+                      <label htmlFor="input-password-SI" className='labelForm-SI' required>Photo URL:</label>
+                      <input type="text" name='input-password-SI' id='input-photos'className='input-SI' required placeholder='Photo URL' ref={photoRef}/>
                     </div>
                     <div className='container-Inputs'>
                       <label htmlFor="input-password-SI" className='labelForm-SI' required>Population:</label>
@@ -51,7 +67,7 @@ export default function NewCity() {
                     </div>
                     <div className='container-Inputs'>
                       <label htmlFor="input-password-SI" className='labelForm-SI' required>Id:</label>
-                      <input type="text" name='input-password-SI' id='input-cityId'className='input-SI' required placeholder='City ID' ref={idRef}/>
+                      <input type="text" name='input-password-SI' id='input-userId'className='input-SI' required placeholder='City ID' ref={idRef}/>
                     </div>
                     <div className='container-Inputs'>
                       <input type="submit" name='input-submit-SI' id='input-submit-SI' value='Create New City' />

@@ -2,6 +2,7 @@ import React from 'react'
 import './CityHotel.css'
 import { Link as LinkRouter  } from 'react-router-dom';
 
+
 export default function CityHotel(props) {
 
         let {image,name,description, capacity, id} = props;

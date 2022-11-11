@@ -1,0 +1,152 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-primario: #24265D;
+    --naranja: #F68712;
+    --celeste: #51ADE5;
+    --azul-claro: #2C3892;
+}
+
+@media screen and (min-width:320px) {
+    #containerSign-In{
+        /* border: 2px solid red; */
+        width: 100%;
+        min-height: 70vh;
+        background-image: url(https://www.aseguratuviaje.com.ar/images/img2.jpg);
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+    }
+
+    #containerForm-Sing-In{
+        /* border: 2px solid green; */
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #title-Sign-In{
+        margin-top: 3rem;
+        color: var(--naranja);
+    }
+
+    #containerForm-Sign-In{
+        /* border: 2px solid blue; */
+        width: 100%;
+        height: 100%;
+    }
+
+    #form-Sign-In{
+       /*  border: 3px solid brown; */
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .container-Inputs{
+        /* border: 2px solid greenyellow; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .Imagen-BackToTop{
+        margin-right: .5rem;
+        margin-bottom: 10rem;
+    }
+
+    .labelForm-SI{
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        margin: 10px 0;
+    }
+
+    .input-SI{
+        width: 75%;
+        padding: .5rem;
+        border-radius: 5px;
+        border: 1px solid black;
+    }
+
+    #input-submit-SI{
+        width: 50%;
+        padding: .4rem;
+        border-radius: 30px;
+        color: var(--naranja);
+        background-color: var(--color-primario);
+        font-weight: bold;
+    }
+
+    #containerButtonGoogle{
+        width: 50%;
+        border-radius: 20px;
+        background-color: #202124;
+        display: flex;
+        justify-content: center;
+        justify-content: space-around;
+        align-items: center;
+        padding: 8px;
+        color: white;
+        font-size: 15px;
+        gap: 1rem;
+    }
+    
+    .logoGoogle{
+        width: 22px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 20px;
+        padding:4px;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .input-SI{
+        width: 45%;
+    }
+
+    #input-submit-SI{
+        width: 20%;
+    }
+
+    #containerButtonGoogle{
+        width: 25%;
+    }
+
+    .Imagen-BackToTop{
+        margin-right: .5rem;
+        margin-bottom: 20rem;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .input-SI{
+        width: 35%;
+    }
+
+    #containerButtonGoogle{
+        width: 20%;
+    }
+}
+
+@media screen and (min-width:1440px) {
+    .input-SI{
+        width: 25%;
+    }
+
+    #containerButtonGoogle{
+        width: 12%;
+    }
+}

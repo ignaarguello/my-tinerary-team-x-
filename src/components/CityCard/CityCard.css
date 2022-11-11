@@ -147,6 +147,7 @@
     }
     .card-city{
         width: 30%;
+        transition: .5s ease;
     }
 
     .titleCardHotels{

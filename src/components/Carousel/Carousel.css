@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Raleway:ital@1&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -24,7 +26,7 @@
     --azul-claro: #2C3892;
 }
 
-@media screen and (min-width:320px) and (max-width:768px) {
+@media screen and (min-width:320px) {
   #containerGrid{
       width: 100%;
       min-height: 100vh;
@@ -40,7 +42,11 @@
       font-size: 11px;
       text-align: center;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: var(--azul-claro);
+      background-color: black;
+      color: var(--naranja);
+      padding: 5px;
+      border-radius: 20px;
+      margin: 10px 0;
   }
 
   .imageCard{
@@ -59,9 +65,34 @@
       display: none;
   }
 
- /*  #ContenedorButtonName{
-    border: 3px solid red;
-  } */
+  .Imagen-BackToTop{
+      width: 3.5rem !important;
+  }
+}
+
+@media screen and (min-width:768px) {
+    #containerGrid{
+        /* border: 2PX SOLID RED; */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 15rem;
+    }
+
+    .containerCard{
+        /* border: 4px solid brown; */
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .Imagen-BackToTop{
+        /* border: 3px solid green; */
+        margin-bottom: 14rem !important;
+        margin-left: 4.5rem !important;
+    }
 }
 
 @media screen and (min-width:1024px) {
@@ -73,6 +104,7 @@
       justify-content: center;
       align-items: center;
       padding: 2rem;
+      margin: 3rem 0;
   }
   
   .containerCard{
@@ -98,13 +130,21 @@
   }
   
   .titleCard{
-      font-size: 15px;
+      font-size: 12px;
       margin-top: 20px;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--azul-claro);
-      padding: 5px;
+      padding: 7px;
       border-radius: 20px;
-      color: var(--celeste);
+      background-color: black;
+      color: var(--naranja);
+      transition: .7s ease;
+  }
+
+  .titleCard:hover{
+      background-color:rgba(0, 0, 0, 0.842);
+      color: rgb(16, 154, 235);
+      font-family: 'Raleway', sans-serif;
+      cursor: pointer;
   }
 
 }

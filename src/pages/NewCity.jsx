@@ -46,7 +46,7 @@ export default function NewCity() {
   return (
     <div id='containerSign-In'>
         <div id='containerForm-Sing-In'>
-          <h1 id='title-Sign-In'>New Hotel</h1>
+          <h1 id='title-Sign-In'>New City</h1>
             <div id='containerForm-Sign-In'>
                 <form onSubmit={handleSubmit} id='form-Sign-In'>
                   <div className='container-Inputs'>
@@ -66,8 +66,8 @@ export default function NewCity() {
                       <input type="text" name='input-password-SI' id='input-description'className='input-SI' required placeholder='Continent' ref={continentRef}/>
                     </div>
                     <div className='container-Inputs'>
-                      <label htmlFor="input-password-SI" className='labelForm-SI' required>Id:</label>
-                      <input type="text" name='input-password-SI' id='input-userId'className='input-SI' required placeholder='City ID' ref={idRef}/>
+                      <label htmlFor="input-password-SI" className='labelForm-SI' required>Your ID:</label>
+                      <input type="text" name='input-password-SI' id='input-userId'className='input-SI' required placeholder='User ID' ref={idRef}/>
                     </div>
                     <div className='container-Inputs'>
                       <input type="submit" name='input-submit-SI' id='input-submit-SI' value='Create New City' />

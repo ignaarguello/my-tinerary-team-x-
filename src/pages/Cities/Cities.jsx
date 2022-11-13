@@ -6,12 +6,11 @@ import axios from 'axios'
 
 export default function Cities() {
 
+  
   let [cities, setCities] = useState([])
   let [checked, setChecked] = useState([])
-  let [search, setSearch] = useState([])
+  let [search, setSearch] = useState('')
   let [filteredCities, setFilteredCities] = useState([])
-  //let [busqueda, setBusqueda] = useState([])
-  //let names = cities.map(city => city.name)
 
   // console.log(names);
   let allcities = cities.map((city)=>city.continent)
@@ -24,27 +23,32 @@ export default function Cities() {
     .catch (err => console.log(err.message))
     }, [])
 
-  function listen(value){
-    // console.log("ESTE ES EL VALUE:  ", value.target.value);
-    if(value.target.checked){
-      if(value.target.type === "checkbox"){
-        setChecked(checked.concat("&continent="+value.target.value))
-      }
-    } else {
-      setChecked(checked.filter(element => element !== "&continent="+value.target.value))
-    }
 
-    if (value.target.type === "text"){
-      setSearch(value.target.value)
-      // let results = cities
-      // if (!results){
-      //   setBusqueda(cities.filter(city => city.name.toLowerCase().includes(search.toLowerCase())))
-      // }
+  useEffect( () => {
+    let checkQuery = checked.slice()
+    if (checked.length > 0){
+      checkQuery = checked.join('&continent=')
     }
+    axios.get(`${BASE_URL}/cities?name=${search}&continent=${checkQuery}`)
+    .then(response => setFilteredCities(response.data.response))
+    .catch (err => console.log(err.message))
+    }, [search, checked])
+  
+  let checkFunction = (e) => {
+    let auxArray = [...checked]
+    if(e.target.checked){
+      auxArray.push(e.target.value)
+    } else {
+      auxArray = auxArray.filter( ele => ele !== e.target.value)
+    }
+    setChecked(auxArray)
   }
 
-  //let test = names.filter(city => city.toLowerCase().includes(search))
-  // console.log('Results :', results)
+  let inputFunction = (e) => {
+    setSearch(e.target.value.trim())
+  }
+  // console.log("SEARCH: ",search)
+  // console.log("CHECKED: ",checked)
   
   useEffect( () => {
     axios.get(`${BASE_URL}/cities?name=${search}${checked.join('')}`)
@@ -52,24 +56,24 @@ export default function Cities() {
     .catch (err => console.log(err))
   }, [checked,search])
 
-  // console.log("CHECKED: ", checked)
-  // console.log("search: ", search)
-  // console.log("FILTER: ", filteredCities)
-
 return (
   <div id='containerGeneral'>
     <div className='containerInputs'>
-    <input className='inputSearch' type="text" onChange={listen} placeholder="Search.."/>
+    <input className='inputSearch' type="text" onChange={inputFunction} placeholder="Search.."/>
     <div className="checkbox-container">
     {eachContinent.map(e => {
           return(
-            <label key={e}><input onClick={listen} type="checkbox" id={e} value={e}/>{e}</label>
+            <label key={e}><input onClick={checkFunction} type="checkbox" id={e} value={e}/>{e}</label>
           )
         })}
     </div>
     </div>
       <div className='containerCards'>
-        {filteredCities.map(each=><CityCard key={each?._id} id={each?._id} name={each?.name} continent={each?.continent} img={each?.photo} population={each?.population}/>)}
+      {
+        (filteredCities.length > 0)
+        ? filteredCities.map(each=><CityCard key={each?._id} id={each?._id} name={each?.name} continent={each?.continent} img={each?.photo} population={each?.population}/>)
+        : <CityCard name="City not found" continent="Try again" img="https://dinahosting.com/blog/cont/uploads/2021/03/error-404.jpg" population="0"/>
+      }
       </div>
   </div>
 )

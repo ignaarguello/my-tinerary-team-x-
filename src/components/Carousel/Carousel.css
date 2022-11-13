@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Raleway:ital@1&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#containerCarousel{
+  /*   border: 2px solid seagreen; */
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://cdn.discordapp.com/attachments/1036655527377248287/1037845101667426424/fondo1_-_Editado.png);
+    background-size: contain;
+
+}
+
+:root{
+    --color-primario: #24265D;
+    --naranja: #F68712;
+    --celeste: #51ADE5;
+    --azul-claro: #2C3892;
+}
+
+@media screen and (min-width:320px) {
+  #containerGrid{
+      width: 100%;
+      min-height: 100vh;
+  }
+  
+  .containerCard{
+      height: 50%;
+      display: flex;
+      flex-direction: column;
+  }
+
+  .titleCard{
+      font-size: 11px;
+      text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: black;
+      color: var(--naranja);
+      padding: 5px;
+      border-radius: 20px;
+      margin: 10px 0;
+  }
+
+  .imageCard{
+      margin-top: 23px ;
+      object-fit: cover;
+      width: 100%;
+      height: 8rem;
+  }
+
+  .containerImageCard{
+      width: 100%;
+      height: 100%;
+  }
+
+  .Hide320{
+      display: none;
+  }
+
+  .Imagen-BackToTop{
+      width: 3.5rem !important;
+  }
+}
+
+@media screen and (min-width:768px) {
+    #containerGrid{
+        /* border: 2PX SOLID RED; */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 15rem;
+    }
+
+    .containerCard{
+        /* border: 4px solid brown; */
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .Imagen-BackToTop{
+        /* border: 3px solid green; */
+        margin-bottom: 14rem !important;
+        margin-left: 4.5rem !important;
+    }
+}
+
+@media screen and (min-width:1024px) {
+  #containerGrid{
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      margin: 3rem 0;
+  }
+  
+  .containerCard{
+      display: flex;
+      justify-content: center;
+      justify-content: space-evenly;
+      height: 50%;
+      width: 100%;
+  }
+
+  .containerCard1{
+      margin-top: 3rem;
+  }
+  
+  .containerImageCard{
+      width: 40%;
+  }
+  
+  .imageCard{
+      object-fit: cover;
+      width: 100%;
+      height: 80%;
+  }
+  
+  .titleCard{
+      font-size: 12px;
+      margin-top: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 7px;
+      border-radius: 20px;
+      background-color: black;
+      color: var(--naranja);
+      transition: .7s ease;
+  }
+
+  .titleCard:hover{
+      background-color:rgba(0, 0, 0, 0.842);
+      color: rgb(16, 154, 235);
+      font-family: 'Raleway', sans-serif;
+      cursor: pointer;
+  }
+
+}
+

@@ -1,0 +1,22 @@
+.name-input, .lastname-input, .email-input, .country-input, .age-input, .password-input{
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1.3rem;
+    padding: .6rem;
+    color: var(--color-primario);
+}
+
+@media screen and (max-width: 1000px) {
+    .name-input, .lastname-input, .email-input, .country-input, .age-input, .password-input{
+        font-size: 1rem;
+        padding: .6rem;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .name-input, .lastname-input, .email-input, .country-input, .age-input, .password-input{
+
+    }
+}

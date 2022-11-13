@@ -1,0 +1,9 @@
+.cities-container{
+    background-image: url(https://cdn.discordapp.com/attachments/1036655527377248287/1037845101667426424/fondo1_-_Editado.png);
+    background-attachment: fixed;
+    min-height: 69vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}

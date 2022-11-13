@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-primario: #24265D;
+    --naranja: #F68712;
+    --celeste: #51ADE5;
+    --azul-claro: #2C3892;
+}
+
+@media screen and (min-width:320px) {
+    #containerFooter{
+        border: 2px solid var(--azul-claro);
+        width: 100%;
+        height: 24vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--azul-claro);
+    }
+
+    #containerLogo{
+        height: 100%;
+        width: 35%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #logoFooter{
+        width: 3.6rem;
+        height: 3.6rem;
+    }
+
+    #containerSlogan{
+        /* border: 2px solid blue; */
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: .7rem;
+    }
+
+    #titleMyTinerary{
+        font-size: .9rem;
+        margin-top: .3rem;
+        color: var(--celeste);
+    }
+
+    #Slogan{
+        font-size: .8rem;
+        color: whitesmoke;
+    }
+
+    #containerButtons{
+        /* border: 2px solid red; */
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: .4rem;
+    }
+
+    .BtnFooter{
+        padding: 3.5px;
+        width: 35%;
+        background-color: var(--naranja);
+        border-radius: 10px;
+        color: white;
+        font-weight: 400;
+        text-align: center;
+        font-size: 13px;
+        cursor: pointer;
+    }
+
+    #containerSocialMedia{
+        width: 30%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .PathFooter{
+        width: 25px;
+        height: 25px;
+    }
+}
+
+@media screen and (min-width:768px) {
+    #containerFooter{
+        height: 30vh;
+        padding: 1rem;
+    }
+    #logoFooter{
+        width: 5rem;
+        height: 5rem;
+    }
+
+    #titleMyTinerary{
+        font-size: 1.8rem;
+        margin-top: .3rem;
+    }
+
+    #Slogan{
+        font-size: 1.2rem;
+        margin-top: .5rem;
+    }
+
+    .BtnFooter{
+        margin-top: 1rem;
+        padding: 5px;
+        width: 40%;
+        border-radius: 20px;
+    }
+
+    .PathFooter{
+        width: 32px;
+        height: 32px;
+        transition: .5s ease;
+    }
+
+    .PathFooter:hover{
+        transform: scale(1.2);
+        border-radius: 60%;
+        box-shadow: 1px 1px 20px black;
+        background-color: var(--azul-claro);
+    }
+}
+
+@media screen and (min-width:1440px) {
+    .BtnFooter{
+        width: 25%;
+    }
+}

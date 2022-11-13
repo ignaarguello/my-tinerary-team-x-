@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-primario: #24265D;
+    --naranja: #F68712;
+    --celeste: #51ADE5;
+    --azul-claro: #2C3892;
+}
+
+
+@media screen and (min-width:320px) {
+   .select{
+       /* border: 2px solid blue; */
+       width: 50%;
+       padding: 4px;
+       border-radius: 15px;
+       margin-top: 3rem;
+   }
+}
+
+@media screen and (min-width:768px){
+    .select{
+        width: 30%;
+    }
+} 
+
+@media screen and (min-width:1024px){
+    .select{
+        width: 25%;
+    }
+} 
+
+@media screen and (min-width:1440px){
+    .select{
+        width: 20%;
+    }
+} 

@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-primario: #24265D;
+    --naranja: #F68712;
+    --celeste: #51ADE5;
+    --azul-claro: #2C3892;
+}
+
+.BtnToTop{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Imagen-BackToTop{
+    border: 2px solid black;
+    border-radius: 50%;
+    transition: .5s ease;
+    width: 50rem !important;
+}
+
+.Imagen-BackToTop:hover{
+    transform: scale(1.4);
+    background-color:rgb(16, 154, 235);
+}

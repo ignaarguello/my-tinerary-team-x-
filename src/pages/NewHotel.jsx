@@ -15,8 +15,6 @@ export default function NewHotel() {
 
     let [dataFinal, setDataFinal] = useState(null)
 
-
-
     const handleSubmit = (event)=>{
       console.log(nameRef.current.value)
       console.log(photoRef.current.value)
@@ -33,19 +31,13 @@ export default function NewHotel() {
         userId:userIdRef.current?.value,
         citiId:citiIdRef.current?.value ,
       }
-
-
-
-
-       setDataFinal(data)
+      
+      setDataFinal(data)
        console.log('set data desde funcion', data)
        event.preventDefault()
        event.target.reset()
     }
     
-    console.log('SETEO A DATA fuera', dataFinal)
-
-
     useEffect(()=>{
       axios.get(`${BASE_URL}/hotels`)
       .then(response => console.log(response))
@@ -57,8 +49,6 @@ export default function NewHotel() {
       .then(res => console.log(res))
     },[dataFinal])
     
-
-
   return (
     <div id='containerSign-In'>
         <div id='containerForm-Sing-In'>

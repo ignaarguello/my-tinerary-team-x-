@@ -26,7 +26,7 @@ export default function Cities() {
             } 
             
             newcities=cities
-            console.log('lpm', newcities)
+            console.log('cities', newcities)
         }
         
         if(newcities.length===0){

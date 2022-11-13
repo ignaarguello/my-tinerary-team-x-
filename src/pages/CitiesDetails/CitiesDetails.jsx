@@ -1,6 +1,5 @@
 import React from 'react'
 import CitiesDet from '../../components/CitiesDet/CitiesDet'
-import activities from '../../activities'
 import './CitiesDetails.css'
 import { useParams } from 'react-router-dom'
 import ActivitiesDetails from '../../components/ActivitiesDetails/ActivitiesDetails'
@@ -11,6 +10,7 @@ import axios from 'axios'
 
 function CitiesDetails() {
 
+  let {cityid} = useParams()
   let [cityFound, setCityFound] = useState([])
   let [itineraries, setItineraries] = useState([])
 
@@ -26,13 +26,6 @@ function CitiesDetails() {
     .catch(err => console.log(err.message))
   }, [])
 
-  // console.log("CITY FOUND: ",   cityFound)
-
-  let {cityid} = useParams()
-  // console.log(cityid);
-
-  //let activityFound = activities.filter( e => e.citiId === cityFound.id)
-  //console.log(activityFound);
 
   return (
 
@@ -52,7 +45,6 @@ function CitiesDetails() {
       <h2 className='titleNotHaveShows'>Ooops, this city does not have activities :(</h2>
     }
     </div>
-
   )
 }
 

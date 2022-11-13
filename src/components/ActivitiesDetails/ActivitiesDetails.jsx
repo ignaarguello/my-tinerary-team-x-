@@ -2,7 +2,7 @@ import React from 'react'
 import './ActivitiesDetails.css'
 
 export default function ActivitiesDetails(props) {
-    let {photo, price, duration, name} = props
+    let {photo, price, duration, name, description} = props
 
     return (
     <div id='containerShowDetails'>
@@ -12,6 +12,7 @@ export default function ActivitiesDetails(props) {
             </div>
             <div className='bodyCardShow'>
                 <h2 className='titleCardShow'>{name}</h2>
+                <p className='dateCardShow'>{description}</p>
                 <p className='dateCardShow'>Duration - {duration} HS</p>
                 <p className='priceCardShow'>Price - {price} USD </p>
             </div>

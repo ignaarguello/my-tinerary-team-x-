@@ -74,6 +74,7 @@
         text-align: center;
         font-size: 13px;
         cursor: pointer;
+        text-decoration: none;
     }
 
     #containerSocialMedia{
@@ -102,6 +103,11 @@
         height: 5rem;
     }
 
+    #logoFooter:hover{
+        transform: scale(1.5, 1.5);
+        transition: ease-in-out .8s;
+    }
+
     #titleMyTinerary{
         font-size: 1.8rem;
         margin-top: .3rem;
@@ -117,6 +123,11 @@
         padding: 5px;
         width: 40%;
         border-radius: 20px;
+    }
+
+    .BtnFooter:hover{
+        background-color: var(--color-primario);
+        transition: ease-in-out .3s;
     }
 
     .PathFooter{

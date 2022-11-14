@@ -48,24 +48,26 @@ form{
 }
 
 .register, .access-google {
-    background-color: white;
-    border: 1px solid black;
     padding: .6rem;
-    border-radius: 5px;
+    border-radius: 30px;
+    color: var(--naranja);
+    background-color: var(--color-primario);
+    font-weight: bold;
     cursor: pointer;
 }
 
 .signin-redirect{
-    background-color: white;
-    border: 1px solid black;
-    padding: .6rem 2rem;
-    border-radius: 5px;
+    padding: .4rem 1.5rem;
+    border-radius: 30px;
+    color: var(--naranja);
+    background-color: var(--color-primario);
+    font-weight: bold;
     cursor: pointer;
 }
 
 .signin-redirect:hover, .register:hover, .access-google:hover{
-    font-weight: bold;
-    box-shadow: inset 0 -5px 10px var(--naranja);
+    font-style: italic;
+    box-shadow: inset 0 -1px 5px var(--naranja);
 }
 
 @media screen and (max-width: 1000px) {

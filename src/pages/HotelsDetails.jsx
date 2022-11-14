@@ -1,38 +1,54 @@
 import React from 'react'
 import HotelDetailsComponent from '../components/HotelsDetails/HotelDetailsComponent'
 import ShowDetails from '../components/ShowDetails/ShowDetails'
-import { useParams } from 'react-router-dom'
-import hotels from '../hotels'
-import shows from '../shows'
+import { useEffect, useState } from 'react';
+import { BASE_URL } from '../api/url';
+import { useParams } from 'react-router-dom';
+import axios from 'axios'
+
+
 
 export default function HotelsDetails() {
-  let {id} = useParams()
 
-  let findHotel = hotels.find(e => e.id === id)
-  console.log(findHotel)
+    let {hotelId} = useParams()
+    let [hotelFound, setHotelFound] = useState([])
+    let [showFound, setShowFound] = useState([])
 
-  let findShow = shows.filter(e => e.hotelId === findHotel.id)
-  console.log(findShow)
+  useEffect(()=>{
+    axios.get(`${BASE_URL}/hotels/${hotelId}`)
+    .then(response => setHotelFound(response.data.user_find[0]))
+  },[])
+
+  useEffect( () => {
+    axios.get(`${BASE_URL}/shows?hotelId=${hotelId}`)
+    .then(response => setShowFound(response.data.response))
+    .catch(err => console.log(err.message))
+  }, [])
+
+  console.log('Hotel', hotelFound)
+  console.log('Show', showFound)
 
   return (
-    <div>
-        {findShow.length !== 0 ? 
-          <div id='containerAllDetails'>
-          <h1 className='titleHotelDetails'>Hotel Details</h1>
-          <HotelDetailsComponent image={findHotel.photo[2]} name={findHotel.name} description={findHotel.description} capacity={findHotel.capacity}  />
-          <h2 className='titlePopuparTinearies'>Popular Tineraries</h2>
-          <div id='containerShowsGeneral'>
-            <ShowDetails image={findShow[0].photo} name={findShow[0].name} date={findShow[0].date} price={findShow[0].price} />
-            <ShowDetails image={findShow[1].photo} name={findShow[1].name} date={findShow[1].date} price={findShow[1].price} />
-          </div>
-          </div>
-          :
-          <div id='containerAllDetails'>
-            <h1 className='titleHotelDetails'>Hotel Details</h1>
-            <HotelDetailsComponent image={findHotel.photo} name={findHotel.name} description={findHotel.description} capacity={findHotel.capacity}  />
-            <h2 className='titleNotHaveShows'>Ops, This hotel does not have shows</h2>
-          </div>
-          }
+
+  <div id='containerAllDetails'>
+      <h1 className='titleHotelDetails'>Hotel Details</h1>
+      <HotelDetailsComponent image={hotelFound.photo} name={hotelFound.name} description={hotelFound.description} capacity={hotelFound.capacity}  />
+    {showFound.length !== 0 ? 
+     <>
+     <h2 className='titlePopuparTinearies'>Popular Tineraries</h2>
+     <div id='containerShowsGeneral'>
+       {showFound.map(each =>
+          <ShowDetails image={each.photo} name={each.name} date={each.date} price={each.price} />
+        )}
     </div>
+     </>
+      :
+     <h2 className='titleNotHaveShows'>Ops, This hotel does not have shows</h2>
+    }
+   </div>
   )
 }
+
+
+
+

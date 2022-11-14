@@ -2,11 +2,11 @@ import React from 'react'
 import './SearchBar.css'
 
 export default function SearchBar(props) {
-    let { evento, type } = props
+    let {functionFilter} = props
     
     return (
         <>
-        <input className='inputSearch' type={type} onChange={evento} placeholder="Search.."/>
+        <input className='inputSearch' type='search' onChange={functionFilter} placeholder="Search.."/>
         </>
         )
     }

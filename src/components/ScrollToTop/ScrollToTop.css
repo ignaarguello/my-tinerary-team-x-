@@ -21,9 +21,10 @@
     border: 2px solid black;
     border-radius: 50%;
     transition: .5s ease;
+    width: 50rem !important;
 }
 
 .Imagen-BackToTop:hover{
     transform: scale(1.4);
-    background-color: var(--azul-claro);
+    background-color:rgb(16, 154, 235);
 }

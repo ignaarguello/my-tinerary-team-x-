@@ -28,8 +28,6 @@ export default function HotelsDetails() {
   console.log('Hotel', hotelFound)
   console.log('Show', showFound)
 
-
-
   return (
 
   <div id='containerAllDetails'>

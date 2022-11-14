@@ -13,7 +13,7 @@ export default function CityHotel(props) {
                 <h2 className='titleCardHotels'>{name}</h2>
                 <p className='descriptionCardHotels'>{description}</p>
                 <p className='capacityHotels'>Capacity - {capacity} </p>
-                <LinkRouter className='btnCardHotels' to={id}>
+                <LinkRouter to={id} className='btnCardHotels'>
                         <div>Discover +</div>
                 </LinkRouter>
         </div>

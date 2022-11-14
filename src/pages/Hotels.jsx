@@ -7,53 +7,47 @@ import {BASE_URL} from '../api/api'
 import axios from 'axios'
 
 
-
 export default function Hotels() {
 
-    let [dataUlt, setDataUlt] = useState([]);
+    let [dataHotels, setDataHotels] = useState([])
+    let valueSelect = '/'
+    let [valueSearch, setValueSearch] = useState([])
 
-    useEffect( () => {
+
+    useEffect(()=>{
         axios.get(`${BASE_URL}/hotels`)
-          .then(response => setDataUlt(response.data.response))
-          .catch (err => console.log(err))
-        }, [])
-
-        
-let [dataFilter, setDataFilter] = useState([])
-        
-        function getData(event){
-            if(event.target.value == 1){
-                axios.get(`${BASE_URL}/hotels?order=asc`)
-                .then(response => setDataFilter(response.data.response))
-                console.log('Data Filter', dataFilter)
-                }
-            if(event.target.value == 2){
-                axios.get(`${BASE_URL}/hotels?order=desc`)
-                .then(response => setDataFilter(response.data.response))
-            }
-            if(event.target.value == 0){
-                axios.get(`${BASE_URL}/hotels`)
-                .then(response => setDataFilter(response.data.response))
-                .catch (err => console.log(err))
-            }
+        .then(res => setDataHotels(res.data.response))
+    },[])
+    
+    console.log('Data', dataHotels)
+    
+    function filter(value){
+        if(value.target.type === "select-one"){
+            valueSelect = value.target.value
         }
-        
-        if(dataFilter.length == 0){
-                axios.get(`${BASE_URL}/hotels`)
-                .then(response => setDataFilter(response.data.response))
-                .catch (err => console.log(err))
-                console.log('vacio')
-            }
+
+        if(value.target.type === "search"){
+            setValueSearch(value.target.value)
+        }
+        axios.get(`${BASE_URL}/hotels/?name=${valueSearch}&${valueSelect}`)
+        .then(res => setDataHotels(res.data.response))
+    }
+
+    useEffect(()=>{
+        axios.get(`${BASE_URL}/hotels/?name=${valueSearch}&${valueSelect}`)
+        .then(res => setDataHotels(res.data.response))
+    },[valueSearch])
       
       return (
           <div id='containerGeneral'>
             <div className='containerInputs'>
-                  <Select functionFilter={getData}/>
-                  <SearchBar functionFilter={getData}/>
+                  <Select functionFilter={filter}/>
+                  <SearchBar functionFilter={filter}/>
               </div>
               <div className='containerCards'>
-                  {dataFilter.map(hotel=><CityHotel key={hotel?._id} name={hotel?.name} description={hotel?.description} image={hotel?.photo[0]} capacity={hotel?.capacity} id={hotel?.id}/>)}
-                  </div>
+                  {console.log('Data desde adentro', dataHotels)}
+                  {dataHotels.map(hotel=><CityHotel key={hotel?._id} name={hotel?.name} description={hotel?.description} image={hotel?.photo[0]} capacity={hotel?.capacity} id={hotel?._id} />)}
+                </div>
           </div>
         )
     }

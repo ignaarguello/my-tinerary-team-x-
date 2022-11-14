@@ -7,7 +7,6 @@ import {BASE_URL} from '../../api/api'
 function CitiesCheckbox(props){
 let {continent} = props
 
-const [isChecked, setIsChecked] = useState(false);
 
 /* const handleOnChange = () => {
     setIsChecked(!isChecked);
@@ -34,7 +33,7 @@ const handleOnChange = () =>{
 return(
     <>
         <div>
-            <label><input type="checkbox" name="continent" value={continent} checked={isChecked} onChange={handleOnChange} />{continent}</label>
+            <label><input type="checkbox" name="continent" value={continent} />{continent}</label>
         </div>
     </>
 )

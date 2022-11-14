@@ -49,12 +49,6 @@ export default function Cities() {
   }
   // console.log("SEARCH: ",search)
   // console.log("CHECKED: ",checked)
-  
-  useEffect( () => {
-    axios.get(`${BASE_URL}/cities?name=${search}${checked.join('')}`)
-    .then(response => setFilteredCities(response.data.response))
-    .catch (err => console.log(err))
-  }, [checked,search])
 
 return (
   <div id='containerGeneral'>

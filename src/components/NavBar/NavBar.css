@@ -44,6 +44,10 @@
     display: block;
 }
 
+.link{
+    text-decoration: none;
+}
+
 .dropdown-content p{
     width: 100%;
     display: block;
@@ -71,11 +75,16 @@
         background-color: transparent;
         font-weight: bold;
         font-style: italic;
-        padding: 0;
+        padding: 5px 0;
+        font-size: 1rem;
     }
 
     .logo-user, .logo-search{
-        width: 30px;
+        display: none;
+    }
+
+    .dropdown-content, .dropdown-user{
+        margin-top: -3rem;
     }
 }
 

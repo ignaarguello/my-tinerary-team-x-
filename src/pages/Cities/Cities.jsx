@@ -13,7 +13,6 @@ export default function Cities() {
   let [search, setSearch] = useState('')
   let [filteredCities, setFilteredCities] = useState([])
 
-  // console.log(names);
   let allcities = cities.map((city)=>city.continent)
   let eachContinent = [...new Set(allcities)]
   eachContinent = Array.from(eachContinent)
@@ -26,7 +25,7 @@ export default function Cities() {
 
 
   useEffect( () => {
-    let checkQuery = checked.slice()
+    let checkQuery = checked
     if (checked.length > 0){
       checkQuery = checked.join('&continent=')
     }
@@ -34,7 +33,11 @@ export default function Cities() {
     .then(response => setFilteredCities(response.data.response))
     .catch (err => console.log(err.message))
     }, [search, checked])
-  
+
+  console.log("SEARCH: ",search)
+  console.log("CHECKED: ",checked)
+
+
   let checkFunction = (e) => {
     let auxArray = [...checked]
     if(e.target.checked){
@@ -48,6 +51,8 @@ export default function Cities() {
   let inputFunction = (e) => {
     setSearch(e.target.value.trim())
   }
+
+console.log("FILTERED CITIES: ",filteredCities)
 
 return (
   <div id='containerGeneral'>
@@ -63,7 +68,7 @@ return (
       {
         (filteredCities.length > 0)
         ? filteredCities.map(each=><CityCard key={each?._id} id={each?._id} name={each?.name} continent={each?.continent} img={each?.photo} population={each?.population}/>)
-        : <h2> Try again! Any of our cities matches with your search. </h2>
+        : <h2>Try again! We do not have that city</h2>
       }
       </div>
   </div>

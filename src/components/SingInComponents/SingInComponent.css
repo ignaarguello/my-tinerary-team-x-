@@ -88,6 +88,12 @@
         color: var(--naranja);
         background-color: var(--color-primario);
         font-weight: bold;
+        cursor: pointer;
+    }
+
+    #input-submit-SI:hover{
+        font-style: italic;
+        box-shadow: inset 0 -1px 5px var(--naranja);
     }
 
     #containerButtonGoogle{
@@ -102,6 +108,7 @@
         color: white;
         font-size: 15px;
         gap: 1rem;
+        cursor: pointer;
     }
     
     .logoGoogle{

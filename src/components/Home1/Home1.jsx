@@ -1,7 +1,5 @@
 import React from 'react'
-import NavBar from '../NavBar/NavBar'
 import CallToAction from '../CallToAction/CallToAction'
-import AutoToTop from '../AutoToTop/AutoToTop'
 import './Home1.css'
 
 export default function Home1() {

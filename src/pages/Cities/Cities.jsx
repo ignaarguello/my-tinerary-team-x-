@@ -3,6 +3,7 @@ import CityCard from '../../components/CityCard/CityCard'
 import { useState, useEffect } from 'react'
 import { BASE_URL } from '../../api/url'
 import axios from 'axios'
+import '../../components/AllCheckbox.css'
 
 export default function Cities() {
 
@@ -47,26 +48,22 @@ export default function Cities() {
   let inputFunction = (e) => {
     setSearch(e.target.value.trim())
   }
-  // console.log("SEARCH: ",search)
-  // console.log("CHECKED: ",checked)
 
 return (
   <div id='containerGeneral'>
     <div className='containerInputs'>
-    <input className='inputSearch' type="text" onChange={inputFunction} placeholder="Search.."/>
-    <div className="checkbox-container">
-    {eachContinent.map(e => {
-          return(
-            <label key={e}><input onClick={checkFunction} type="checkbox" id={e} value={e}/>{e}</label>
-          )
-        })}
+      <input className='inputSearch' type="text" onChange={inputFunction} placeholder="Search.."/>
+      <div className="checkbox-container">
+        {eachContinent.map(e => 
+        <label key={e}><input onClick={checkFunction} type="checkbox" id={e} value={e}/>{e}</label>
+        )}
+      </div>
     </div>
-    </div>
-      <div className='containerCards'>
+    <div className='containerCards'>
       {
         (filteredCities.length > 0)
         ? filteredCities.map(each=><CityCard key={each?._id} id={each?._id} name={each?.name} continent={each?.continent} img={each?.photo} population={each?.population}/>)
-        : <CityCard name="City not found" continent="Try again" img="https://dinahosting.com/blog/cont/uploads/2021/03/error-404.jpg" population="0"/>
+        : <h2> Try again! Any of our cities matches with your search. </h2>
       }
       </div>
   </div>

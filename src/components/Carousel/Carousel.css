@@ -24,7 +24,7 @@
     --azul-claro: #2C3892;
 }
 
-@media screen and (min-width:320px) and (max-width:768px) {
+@media screen and (min-width:320px) and (max-width:1023px) {
   #containerGrid{
       width: 100%;
       min-height: 100vh;
@@ -41,6 +41,9 @@
       text-align: center;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: var(--azul-claro);
+      background-color: var(--celeste);
+      border-radius: 20px;
+      padding: 5px;
   }
 
   .imageCard{

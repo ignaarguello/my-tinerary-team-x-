@@ -7,11 +7,13 @@
     font-size: 20px;
     cursor: pointer;
     width: 200px;
+    letter-spacing: 2px;
 }
 
 .button-goto:hover{
     background-color: var(--color-primario);
     color: var(--naranja);
+    transition: ease-in-out .2s;
 }
 
 /* --- MEDIA QUIERES --- */

@@ -15,13 +15,13 @@ function CitiesDetails() {
   let [itineraries, setItineraries] = useState([])
 
   useEffect( () => {
-    axios.get(`${BASE_URL}/cities/${cityid}`)
+    axios.get(`${BASE_URL}/api/cities/${cityid}`)
     .then(response => setCityFound(response.data.response[0]))
     .catch(err => console.log(err.message))
   }, [])
 
   useEffect( () => {
-    axios.get(`${BASE_URL}/itineraries?cityId=${cityid}`)
+    axios.get(`${BASE_URL}/api/itineraries?cityId=${cityid}`)
     .then(response => setItineraries(response.data.response))
     .catch(err => console.log(err.message))
   }, [])

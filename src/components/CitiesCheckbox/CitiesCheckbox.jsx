@@ -16,7 +16,7 @@ let {continent} = props
 let [dataUltCities, setdataUltCities] = useState([]);
 
     useEffect( () => {
-        axios.get(`${BASE_URL}/cities`)
+        axios.get(`${BASE_URL}/api/cities`)
           .then(response => setdataUltCities(response.data.response))
           .catch (err => console.log(err))
         }, [])

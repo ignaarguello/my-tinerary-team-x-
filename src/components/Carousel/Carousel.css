@@ -79,14 +79,13 @@
         flex-direction: column;
         justify-content: center;
         gap: 1rem;
-        margin-top: 15rem;
     }
 
     .containerCard{
         /* border: 4px solid brown; */
         display: flex;
         flex-direction: row;
-        gap: 1rem;
+        gap: 2rem;
     }
 
     .Imagen-BackToTop{

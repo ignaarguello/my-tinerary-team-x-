@@ -102,9 +102,10 @@
         /* border: 2px solid green; */
         display: flex;
         justify-content: center;
+        justify-content: space-evenly;
     }
     .cardGeneralShow{
-        width: 80%;
+        width: 23rem;
         border-radius: 20px;
     }
 

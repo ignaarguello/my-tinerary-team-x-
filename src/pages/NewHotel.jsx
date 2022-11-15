@@ -16,13 +16,7 @@ export default function NewHotel() {
     let [dataFinal, setDataFinal] = useState(null)
 
     const handleSubmit = (event)=>{
-      console.log(nameRef.current.value)
-      console.log(photoRef.current.value)
-      console.log(capacityRef.current.value)
-      console.log(descriptionRef.current.value)
-      console.log(citiIdRef.current.value)
-      console.log(userIdRef.current.value)
-
+    
       const data = {
         name: nameRef.current?.value, 
         photo: photoRef.current?.value, 
@@ -33,7 +27,6 @@ export default function NewHotel() {
       }
       
       setDataFinal(data)
-       console.log('set data desde funcion', data)
        event.preventDefault()
        event.target.reset()
     }

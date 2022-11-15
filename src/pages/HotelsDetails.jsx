@@ -25,9 +25,6 @@ export default function HotelsDetails() {
     .catch(err => console.log(err.message))
   }, [])
 
-  console.log('Hotel', hotelFound)
-  console.log('Show', showFound)
-
   return (
 
   <div id='containerAllDetails'>

@@ -18,9 +18,7 @@ export default function Hotels() {
         axios.get(`${BASE_URL}/hotels`)
         .then(res => setDataHotels(res.data.response))
     },[])
-    
-    console.log('Data', dataHotels)
-    
+        
     function filter(value){
         if(value.target.type === "select-one"){
             valueSelect = value.target.value
@@ -45,7 +43,6 @@ export default function Hotels() {
                   <SearchBar functionFilter={filter}/>
               </div>
               <div className='containerCards'>
-                  {console.log('Data desde adentro', dataHotels)}
                   {dataHotels.map(hotel=><CityHotel key={hotel?._id} name={hotel?.name} description={hotel?.description} image={hotel?.photo[0]} capacity={hotel?.capacity} id={hotel?._id} />)}
                 </div>
           </div>

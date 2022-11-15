@@ -18,7 +18,7 @@ export default function Cities() {
   eachContinent = Array.from(eachContinent)
 
   useEffect( () => {
-    axios.get(`${BASE_URL}/cities`)
+    axios.get(`${BASE_URL}/api/cities`)
     .then(response => setCities(response.data.response))
     .catch (err => console.log(err.message))
     }, [])
@@ -29,13 +29,13 @@ export default function Cities() {
     if (checked.length > 0){
       checkQuery = checked.join('&continent=')
     }
-    axios.get(`${BASE_URL}/cities?name=${search}&continent=${checkQuery}`)
+    axios.get(`${BASE_URL}/api/cities?name=${search}&continent=${checkQuery}`)
     .then(response => setFilteredCities(response.data.response))
     .catch (err => console.log(err.message))
     }, [search, checked])
 
-  console.log("SEARCH: ",search)
-  console.log("CHECKED: ",checked)
+  //console.log("SEARCH: ",search)
+  //console.log("CHECKED: ",checked)
 
 
   let checkFunction = (e) => {
@@ -52,7 +52,7 @@ export default function Cities() {
     setSearch(e.target.value.trim())
   }
 
-console.log("FILTERED CITIES: ",filteredCities)
+//console.log("FILTERED CITIES: ",filteredCities)
 
 return (
   <div id='containerGeneral'>

@@ -15,7 +15,7 @@ export default function Hotels() {
 
 
     useEffect(()=>{
-        axios.get(`${BASE_URL}/hotels`)
+        axios.get(`${BASE_URL}/api/hotels`)
         .then(res => setDataHotels(res.data.response))
     },[])
         
@@ -27,12 +27,12 @@ export default function Hotels() {
         if(value.target.type === "search"){
             setValueSearch(value.target.value)
         }
-        axios.get(`${BASE_URL}/hotels/?name=${valueSearch}&${valueSelect}`)
+        axios.get(`${BASE_URL}/api/hotels/?name=${valueSearch}&${valueSelect}`)
         .then(res => setDataHotels(res.data.response))
     }
 
     useEffect(()=>{
-        axios.get(`${BASE_URL}/hotels/?name=${valueSearch}&${valueSelect}`)
+        axios.get(`${BASE_URL}/api/hotels/?name=${valueSearch}&${valueSelect}`)
         .then(res => setDataHotels(res.data.response))
     },[valueSearch])
       

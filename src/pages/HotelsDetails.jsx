@@ -15,12 +15,12 @@ export default function HotelsDetails() {
     let [showFound, setShowFound] = useState([])
 
   useEffect(()=>{
-    axios.get(`${BASE_URL}/hotels/${hotelId}`)
+    axios.get(`${BASE_URL}/api/hotels/${hotelId}`)
     .then(response => setHotelFound(response.data.user_find[0]))
   },[])
 
   useEffect( () => {
-    axios.get(`${BASE_URL}/shows?hotelId=${hotelId}`)
+    axios.get(`${BASE_URL}/api/shows?hotelId=${hotelId}`)
     .then(response => setShowFound(response.data.response))
     .catch(err => console.log(err.message))
   }, [])

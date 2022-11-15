@@ -32,13 +32,13 @@ export default function NewCity() {
   console.log('SETEO DATA DE FUERA', dataUlt);
 
   useEffect( () => {
-    axios.get(`${BASE_URL}/cities`)
+    axios.get(`${BASE_URL}/api/cities`)
       .then(response => console.log(response.data.response))
       .catch (err => console.log(err))
     }, [])
 
   useEffect( () => {
-    axios.post(`${BASE_URL}/cities`, dataUlt)
+    axios.post(`${BASE_URL}/api/cities`, dataUlt)
       .then(response => console.log(response.data.response))
       .catch (err => console.log(err))
     }, [dataUlt])

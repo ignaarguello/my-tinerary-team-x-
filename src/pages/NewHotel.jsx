@@ -32,13 +32,13 @@ export default function NewHotel() {
     }
     
     useEffect(()=>{
-      axios.get(`${BASE_URL}/hotels`)
+      axios.get(`${BASE_URL}/api/hotels`)
       .then(response => console.log(response))
       },[])
 
 
     useEffect(()=>{
-      axios.post(`${BASE_URL}/hotels`, dataFinal)
+      axios.post(`${BASE_URL}/api/hotels`, dataFinal)
       .then(res => console.log(res))
     },[dataFinal])
     

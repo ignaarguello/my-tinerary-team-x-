@@ -15,13 +15,8 @@ export default function Carousel() {
     useEffect(()=>{
       let idInterval = setInterval(()=>{
         nextCard()
-        console.log('=> Vuelta del UseEffect')
-        console.log('=> Numeroa incrementar', numeroAIncrementar)
     },4000)
-
-      console.log('ID interval =>', idInterval)
       setId(idInterval)
-      console.log('ID', id)
       return clearInterval(id)
     },[numeroAIncrementar])
     
@@ -34,7 +29,6 @@ export default function Carousel() {
       else{
         setNumeroAIncrementar(0)
       } 
-      console.log(' Next() ejecutandose')
       clearInterval(id)
     }
     //Function Previous Card
@@ -44,7 +38,6 @@ export default function Carousel() {
       }else{
         setNumeroAIncrementar(hotels.length-2)
       }
-      console.log('se ejecuto prev')
       clearInterval(id)
     }
     return (

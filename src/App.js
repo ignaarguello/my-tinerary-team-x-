@@ -28,8 +28,7 @@ function App() {
         <Route path="/signin" element={<SingIn />}/>
         <Route path="/signup" element={<SignUp />}/>
         <Route path="/cities/:cityid" element={<CitiesDetails />}/>
-        <Route path="hotels/:id" element={<HotelsDetails />}/>
-        <Route path="hotels/details" element={<HotelsDetails />}/>
+        <Route path="/hotels/:hotelId" element={<HotelsDetails />}/>
         <Route path="/newhotel" element={<NewHotel />}/>
         <Route path="/newcity" element={<NewCity />}/>
         <Route path="/*" element={<NotFound />}/>

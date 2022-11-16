@@ -89,6 +89,7 @@
         /* border: 2px solid blueviolet; */
         height: 13rem;
         justify-content: center;
+        gap: 0;
     }
 }
 
@@ -108,7 +109,7 @@
 }
 
     .cardGeneralShow{
-        width: 100%;
+        width: 50%;
         border-radius: 20px;
     }
 
@@ -121,7 +122,7 @@
     .bodyCardShow{
         height: 18rem;
         justify-content: center;
-        gap: 2rem;
+        gap: 1rem;
     }
 
     .titleCardShow{

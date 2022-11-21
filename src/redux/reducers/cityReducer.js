@@ -1,13 +1,14 @@
 import { createReducer } from "@reduxjs/toolkit";
 import cityActions from "../actions/cityAction"
 
-const {getCities, filterCities} = cityActions
+const {getCities, filterCities, getMyCities} = cityActions
 
 const initialState = {
     valor: '',
     cities: [],
     categories: [],
     continent: [],
+    myCities: []
 }
 
 const cityReducer = createReducer(initialState,
@@ -26,6 +27,13 @@ const cityReducer = createReducer(initialState,
             return {
                 ...state,
                 ...action.payload,
+            }
+        })
+
+        .addCase(getMyCities.fulfilled, (state, action) => {
+            return {
+                ...state,
+                ...action.payload
             }
         })
 

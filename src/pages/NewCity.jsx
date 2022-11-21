@@ -29,9 +29,7 @@ export default function NewCity() {
     }
 
     setDataUlt(data)
-    event.target.reset()
   }
-
   useEffect( () => {
     axios.post(`${BASE_URL}/api/cities`, dataUlt)
       .then(response => {
@@ -40,7 +38,7 @@ export default function NewCity() {
           toast.success(response.data.message, {
             icon: '🌆',
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 2500,
             hideProgressBar: false,
             closeOnClick: false,
             pauseOnHover: false,
@@ -48,10 +46,10 @@ export default function NewCity() {
             progress: undefined,
             theme: "colored",
             });
-            toast.info("You are being redirected in 4 seconds", {
+            toast.info("You are being redirected in a few seconds", {
               icon: '🥳',
               position: "top-right",
-              autoClose: 5000,
+              autoClose: 3500,
               hideProgressBar: false,
               closeOnClick: false,
               pauseOnHover: false,
@@ -62,11 +60,13 @@ export default function NewCity() {
             setTimeout(() => {
               navigate(`/cities/${response.data.id}`, { replace: true })
             }, 5500)
+        }else if(response.data.message.length === 5){
+          console.log(response.data.message) 
         } else {
           toast.error(response.data.message.join('\n'), {
             icon: '💔',
             position: "top-right",
-            autoClose: 5000,
+            autoClose: 2500,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: false,
@@ -91,6 +91,7 @@ export default function NewCity() {
         console.log(err)
         })
       }, [dataUlt])
+
 
   return (
     <div id='containerSign-In'>

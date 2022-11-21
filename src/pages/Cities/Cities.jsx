@@ -19,6 +19,7 @@ export default function Cities() {
     if (cities.length === 0){
       dispatch(getCities())
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
   let filter = (event) => {

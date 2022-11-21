@@ -3,6 +3,9 @@ import { useRef } from 'react'
 import axios from 'axios'
 import { BASE_URL } from '../api/url'
 import { useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom'
 
 export default function NewCity() {
     const nameRef = useRef()
@@ -10,7 +13,8 @@ export default function NewCity() {
     const populationRef = useRef()
     const continentRef = useRef()
     const idRef = useRef()
-    
+    const navigate = useNavigate()
+
     let [dataUlt, setDataUlt] = useState(null)
 
     const handleSubmit = (event)=>{
@@ -25,23 +29,68 @@ export default function NewCity() {
     }
 
     setDataUlt(data)
-    console.log('set data desde funcion', data);
     event.target.reset()
   }
 
-  console.log('SETEO DATA DE FUERA', dataUlt);
-
   useEffect( () => {
-    axios.get(`${BASE_URL}/cities`)
-      .then(response => console.log(response.data.response))
-      .catch (err => console.log(err))
-    }, [])
-
-  useEffect( () => {
-    axios.post(`${BASE_URL}/cities`, dataUlt)
-      .then(response => console.log(response.data.response))
-      .catch (err => console.log(err))
-    }, [dataUlt])
+    axios.post(`${BASE_URL}/api/cities`, dataUlt)
+      .then(response => {
+        console.log(response);
+        if (response.data.success){
+          toast.success(response.data.message, {
+            icon: '🌆',
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
+            toast.info("You are being redirected in 4 seconds", {
+              icon: '🥳',
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: false,
+              pauseOnHover: false,
+              draggable: false,
+              progress: undefined,
+              theme: "colored",
+              });
+            setTimeout(() => {
+              navigate(`/cities/${response.data.id}`, { replace: true })
+            }, 5500)
+        } else {
+          toast.error(response.data.message.join('\n'), {
+            icon: '💔',
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            })
+        }
+    })
+      .catch ( err => {
+        toast.error(err.message, {
+          icon: '😵',
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          })
+        console.log(err)
+        })
+      }, [dataUlt])
 
   return (
     <div id='containerSign-In'>
@@ -75,6 +124,7 @@ export default function NewCity() {
                 </form>
             </div>
         </div>
+        <ToastContainer />
     </div>
   )
 }

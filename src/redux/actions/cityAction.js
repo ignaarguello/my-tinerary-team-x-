@@ -27,9 +27,23 @@ const filterCities = createAsyncThunk('filterCities', async({continent, value}) 
     }
 })
 
+const getMyCities = createAsyncThunk('getMyCities', async({user}) => {
+    let url = `${BASE_URL}/api/cities?userId=${user}`
+    try{
+        const res = await axios.get(url)
+        return {
+            myCities: res.data.response
+        }
+    } catch(error){
+        console.log(error)
+        return { payload: "error" }
+    }
+})
+
 const cityActions = {
     getCities,
     filterCities,
+    getMyCities
 }
 
 export default cityActions;

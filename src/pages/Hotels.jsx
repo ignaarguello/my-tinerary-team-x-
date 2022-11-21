@@ -4,12 +4,14 @@ import SearchBar from '../components/SearchBar/SearchBar'
 import CityHotel from '../components/CityHotel/CityHotel'
 import { useDispatch, useSelector } from 'react-redux'
 import hotelActions from '../redux/actions/hotelActions'
+import '../components/Select/Select.css'
+import '../components/SearchBar/SearchBar.css'
 
 
 export default function Hotels() {
     const dispatch = useDispatch()
     const { getHotels, getHotelsFiltered } = hotelActions
-    const { hotels, name, order } = useSelector((state) => state.hotels)
+    const { hotels, name, order } = useSelector((store) => store.hotels)
     const searchId = useRef()
     const selectId = useRef()
 
@@ -44,8 +46,8 @@ export default function Hotels() {
     return (
           <div id='containerGeneral'>
             <div className='containerInputs'>
-                     <input className="search-input w-100" type="search" name="search" id="search" placeholder="Search" ref={searchId} onChange={filterCheckCards} />
-                        <select name="select" defaultValue={'default'} onInput={filterCheckCards} ref={selectId}>
+                     <input className="inputSearch" type="search" name="search" id="search" placeholder="Search" ref={searchId} onChange={filterCheckCards} cal />
+                        <select name="select" defaultValue={'default'} onInput={filterCheckCards} ref={selectId} className='select'>
                             <option value='default' disabled>Select a capacity order:</option>
                             <option value="asc">Ascendent</option>
                             <option value="desc">Descendent</option>

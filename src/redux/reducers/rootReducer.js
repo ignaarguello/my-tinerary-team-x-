@@ -1,7 +1,9 @@
 import cityReducer from "./cityReducer";
+import hotelReducers from "./hotelReducer";
 
 const rootReducer = {
-    cityReducer
+    cityReducer,
+    hotels:hotelReducers
 }
 
 export default rootReducer

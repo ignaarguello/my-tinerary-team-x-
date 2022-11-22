@@ -40,10 +40,26 @@ const getMyCities = createAsyncThunk('getMyCities', async({user}) => {
     }
 })
 
+const deleteMyCity = createAsyncThunk('deleteMyCity', async (idCity) => {
+    let url = `${BASE_URL}/api/cities/${idCity}`
+    try{
+        let res = await axios.delete(url)
+        console.log(res.data.message);
+        return{
+            mensaje: res.data.message
+        }
+
+    } catch(error){
+        console.log(error)
+        return { payload: "Error" }
+    }
+})
+
 const cityActions = {
     getCities,
     filterCities,
-    getMyCities
+    getMyCities,
+    deleteMyCity
 }
 
 export default cityActions;

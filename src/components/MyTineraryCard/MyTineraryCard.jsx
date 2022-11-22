@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 export default function CityCard(props) {
 
     const navigate = useNavigate()
+
     const { deleteMyTinerary } = tineraryActions
     const { mensaje } = useSelector( (store) => store.tineraryReducer )
     console.log(mensaje)

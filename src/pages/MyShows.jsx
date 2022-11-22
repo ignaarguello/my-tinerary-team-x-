@@ -12,7 +12,6 @@ function MyItineraries() {
         dispatch(getMyShow({ user: '6372d48e597d27b935de7569' }))
     }, [])
 
-
   return (
     <div id='containerGeneral'>
         <div className='containerCards'>

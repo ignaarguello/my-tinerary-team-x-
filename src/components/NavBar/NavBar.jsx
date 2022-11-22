@@ -46,7 +46,9 @@ export default function NavBar() {
             <LinkRouter to='/myitineraries' className="link">
               <p>ADM-Itineraries</p>
             </LinkRouter> 
-
+            <LinkRouter to='/myshows' className="link">
+              <p>ADM-Shows</p>
+            </LinkRouter> 
           </div>
         </div>
       </nav>

@@ -21,6 +21,8 @@ import MyHotels from './pages/MyHotels';
 import MyItineraries from './pages/MyItineraries';
 import EditMyItineraries from './pages/EditMyItineraries'
 import EditMyHotels from './pages/EditMyHotels'
+import MyShows from './pages/MyShows'
+import EditMyShows from './pages/EditMyShows'
 
 
 function App() {
@@ -45,6 +47,8 @@ function App() {
         <Route path="/myhotels/edit/:id" element={<EditMyHotels />}/>
         <Route path="/myitineraries" element={<MyItineraries />}/>
         <Route path="/myitineraries/edit/:id" element={<EditMyItineraries />}/>
+        <Route path="/myshows" element={<MyShows />}/>
+        <Route path="/myshows/edit/:id" element={<EditMyShows/>}/>
       </Routes>
     </Layout>
     </>

@@ -2,8 +2,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { BASE_URL } from "../../api/api";
 import axios from 'axios'
 
-
-
 const getHotels = createAsyncThunk("getHotels", async () => {
     try{
         const res = await axios.get(`${BASE_URL}/api/hotels`)
@@ -33,12 +31,9 @@ const getHotelsFiltered = createAsyncThunk("getHotelsFiltered", async (data) => 
     }
 })
 
-
 const hotelActions = {
     getHotels,
     getHotelsFiltered,
 }
-
-
 
 export default hotelActions;

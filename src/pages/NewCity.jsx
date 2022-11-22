@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useRef } from 'react'
 import axios from 'axios'
-import { BASE_URL } from '../api/url'
+import {BASE_URL} from '../api/url'
 import { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

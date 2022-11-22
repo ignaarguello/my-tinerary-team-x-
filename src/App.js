@@ -17,6 +17,7 @@ import NewCity from './pages/NewCity'
 import NewHotel from './pages/NewHotel'
 import MyCities from './pages/MyCities'
 import EditMyCities from './pages/EditMyCities';
+import MyHotels from './pages/MyHotels';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route path="/*" element={<NotFound />}/>
         <Route path="/mycities" element={<MyCities />}/>
         <Route path="/mycities/edit/:id" element={<EditMyCities />}/>
+        <Route path="/myhotels" element={<MyHotels />}/>
       </Routes>
     </Layout>
     </>

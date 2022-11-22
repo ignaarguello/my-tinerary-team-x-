@@ -31,9 +31,23 @@ const getHotelsFiltered = createAsyncThunk("getHotelsFiltered", async (data) => 
     }
 })
 
+const getMyHotels = createAsyncThunk('getMyHotels', async({user}) => {
+    let url = `${BASE_URL}/api/hotels?userId=${user}`
+    try{
+        const res = await axios.get(url)
+        return {
+            myHotels: res.data.response
+        }
+    } catch(error){
+        console.log(error)
+        return { payload: "error" }
+    }
+})
+
 const hotelActions = {
     getHotels,
     getHotelsFiltered,
+    getMyHotels
 }
 
 export default hotelActions;

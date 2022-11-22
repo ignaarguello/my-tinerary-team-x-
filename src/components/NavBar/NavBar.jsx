@@ -40,7 +40,9 @@ export default function NavBar() {
             <LinkRouter to='/mycities' className="link">
               <p>ADMIN</p>
             </LinkRouter>
-
+            <LinkRouter to='/myhotels' className="link">
+              <p>MyHotels</p>
+            </LinkRouter>
           </div>
         </div>
       </nav>

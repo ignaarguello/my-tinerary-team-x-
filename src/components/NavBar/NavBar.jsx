@@ -37,12 +37,19 @@ export default function NavBar() {
             <LinkRouter to='/signup' className="link">
               <p>Sign Up</p>
             </LinkRouter>
-            <LinkRouter to='/mycities' className="link">
-              <p>ADMIN</p>
+{/*             <LinkRouter to='/mycities' className="link">
+              <p>ADM-Cities</p>
             </LinkRouter>
+<<<<<<< HEAD
             <LinkRouter to='/myhotels' className="link">
               <p>MyHotels</p>
             </LinkRouter>
+=======
+            <LinkRouter to='/myitineraries' className="link">
+              <p>ADM-Itineraries</p>
+            </LinkRouter> */}
+
+>>>>>>> a9903cad1551f3896bb59a1c965c1319884ddc80
           </div>
         </div>
       </nav>

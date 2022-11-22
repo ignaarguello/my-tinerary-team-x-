@@ -1,27 +1,27 @@
 import React from 'react'
 import { Link as LinkRouter } from 'react-router-dom';
-import '../components/CityCard/CityCard.css'
-import cityAction from '../redux/actions/cityAction'
+import '../components/CityHotel/CityHotel.css'
+import hotelActions from '../redux/actions/hotelActions'
 import { useDispatch, useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-export default function CityCard(props) {
+export default function MyHotelCard(props) {
 
-    const { deleteMyCity } = cityAction
-    const { mensaje } = useSelector( (store) => store.cityReducer )
+    const { deleteMyHotel } = hotelActions
+    const { mensaje } = useSelector( (store) => store.hotels )
     const dispatch = useDispatch()
-    let {img,name,continent, population, id} = props;
+        let {image,name,description, capacity, id} = props;
 
     return (
             <div className='card-city'>
-                <img className='imageCardHotels' src={img} alt={name} />
+                <img className='imageCardHotels' src={image} alt={name} />
                 <h2 className='titleCardHotels'>{name}</h2>
-                <p className='descriptionCardHotels'>{continent}</p>
-                <p className='capacityHotels'>Population - {population} </p>
+                <p className='descriptionCardHotels'>{description}</p>
+                <p className='capacityHotels'>Capacity - {capacity} </p>
                 <LinkRouter to={`edit/${id}`} className='btnCardHotels'><div>Edit</div></LinkRouter>
                 <button className='btnCardDelete' onClick={() => {
-                    dispatch(deleteMyCity(id));
+                    dispatch(deleteMyHotel(id));
                     if (mensaje.length > 0) {
                         toast.success(mensaje, {
                             icon: '🌆',

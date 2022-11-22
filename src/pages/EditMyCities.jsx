@@ -61,8 +61,6 @@ useEffect( () => {
             setTimeout(() => {
                 navigate(`/mycities`, { replace: true })
             }, 5500)
-        } else if(response.data.message.length === 5){
-            console.log(response.data.message);
           } else{
             toast.error(response.data.message.join('\n'), {
               icon: '💔',

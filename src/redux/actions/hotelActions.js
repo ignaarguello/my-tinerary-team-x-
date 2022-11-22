@@ -31,9 +31,39 @@ const getHotelsFiltered = createAsyncThunk("getHotelsFiltered", async (data) => 
     }
 })
 
+const getMyHotels = createAsyncThunk('getMyHotels', async({user}) => {
+    let url = `${BASE_URL}/api/hotels?userId=${user}`
+    try{
+        const res = await axios.get(url)
+        return {
+            myHotels: res.data.response
+        }
+    } catch(error){
+        console.log(error)
+        return { payload: "error" }
+    }
+})
+
+const deleteMyHotel = createAsyncThunk('deleteMyHotel', async (idHotel) => {
+    let url = `${BASE_URL}/api/hotels/${idHotel}`
+    try{
+        let res = await axios.delete(url)
+        console.log(res.data.message);
+        return{
+            mensaje: res.data.message
+        }
+
+    } catch(error){
+        console.log(error)
+        return { payload: "Error" }
+    }
+})
+
 const hotelActions = {
     getHotels,
     getHotelsFiltered,
+    getMyHotels,
+    deleteMyHotel
 }
 
 export default hotelActions;

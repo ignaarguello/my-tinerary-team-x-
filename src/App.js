@@ -17,8 +17,11 @@ import NewCity from './pages/NewCity'
 import NewHotel from './pages/NewHotel'
 import MyCities from './pages/MyCities'
 import EditMyCities from './pages/EditMyCities';
+import MyHotels from './pages/MyHotels';
 import MyItineraries from './pages/MyItineraries';
 import EditMyItineraries from './pages/EditMyItineraries'
+import EditMyHotels from './pages/EditMyHotels'
+
 
 function App() {
   return (
@@ -38,6 +41,8 @@ function App() {
         <Route path="/*" element={<NotFound />}/>
         <Route path="/mycities" element={<MyCities />}/>
         <Route path="/mycities/edit/:id" element={<EditMyCities />}/>
+        <Route path="/myhotels" element={<MyHotels />}/>
+        <Route path="/myhotels/edit/:id" element={<EditMyHotels />}/>
         <Route path="/myitineraries" element={<MyItineraries />}/>
         <Route path="/myitineraries/edit/:id" element={<EditMyItineraries />}/>
       </Routes>

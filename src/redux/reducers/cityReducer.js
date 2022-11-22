@@ -39,7 +39,6 @@ const cityReducer = createReducer(initialState,
         })
 
         .addCase(deleteMyCity.fulfilled, (state, action) => {
-            console.log(action.payload);
             return{
                 ...state,
                 mensaje: action.payload.mensaje

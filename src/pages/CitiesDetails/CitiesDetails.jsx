@@ -30,11 +30,11 @@ function CitiesDetails() {
   return (
 
     <div id='containerAllDetails'>
-      <h1 className='titleHotelDetails'>{cityFound.name} Details</h1>
+      <h1 className='titleCityDetails'>{cityFound.name} - Details</h1>
       <CitiesDet key={cityFound.id} name={cityFound.name} continent={cityFound.continent} img={cityFound.photo} population={cityFound.population}/>
       {itineraries.length !== 0 ?
       <>
-      <h2 className='titlePopuparTinearies'>Popular Tineraries</h2>
+      <h2 className='titleItineraries'>Popular Tineraries</h2>
       <div className='containerActivities'>
       {itineraries.map( each => 
         <ActivitiesDetails photo={each.photo[0]} price={each.price} duration={each.duration} description={each.description} name={each.name} />

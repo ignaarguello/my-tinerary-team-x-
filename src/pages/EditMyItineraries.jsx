@@ -83,7 +83,9 @@ return (
     <>
         <div id='containerSign-In'>
             <div id='containerForm-Sing-In'>
-                <h1 id='title-Sign-In'>Edit Tinerary</h1>
+
+                <h1 id='title-Sign-In'>Edit city</h1>
+
                 <div id='containerForm-Sign-In'>
                     <form onSubmit={handleSubmit} id='form-Sign-In'>
                         <div className='container-Inputs'>

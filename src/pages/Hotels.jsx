@@ -37,7 +37,7 @@ export default function Hotels() {
             order = 'asc'
         }
         let data = {
-            name: searchId.current.value,
+            name: searchId.current.value.trim(),
             order
         }
         dispatch(getHotelsFiltered(data))

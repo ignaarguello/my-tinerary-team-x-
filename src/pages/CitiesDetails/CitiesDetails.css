@@ -1,9 +1,21 @@
-/* .cityd-container{
-    background-image: url(https://cdn.discordapp.com/attachments/1036655527377248287/1037845101667426424/fondo1_-_Editado.png);
-    background-attachment: fixed;
-    width: 100%;
-    height: 69vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}  */
+.titleCityDetails{
+    text-align: center;
+    font-style: italic;
+    font-size: 2.5rem;
+    color: var(--color-primario);
+    padding: 1rem 0;
+}
+
+.titleCityDetails:hover{
+    color: var(--naranja);
+    transition: ease-in-out .5s;
+}
+
+.titleItineraries{
+    /* border: 2px solid brown; */
+    text-align: center;
+    margin: .5rem 0;
+    color: var(--color-primario);
+    font-size: 2rem;
+    font-style: oblique;
+}

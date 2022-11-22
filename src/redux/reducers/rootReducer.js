@@ -1,6 +1,8 @@
 import cityReducer from "./cityReducer";
-import hotelReducers from "./hotelReducer";
 import tineraryReducer from "./tineraryReducer";
+import hotelReducers from "./hotelReducer";
+
+
 
 const rootReducer = {
     cityReducer,

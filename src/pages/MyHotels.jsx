@@ -11,7 +11,7 @@ function MyHotels() {
     const dispatch = useDispatch()
 
     useEffect( () => {
-        dispatch(getMyHotels({ user: '6372d48e597d27b935de756b' }))
+        dispatch(getMyHotels({ user: '6372d48e597d27b935de7568' }))
     }, [])
 
   return (

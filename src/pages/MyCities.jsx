@@ -10,7 +10,7 @@ function MyCities() {
     const dispatch = useDispatch()
 
     useEffect( () => {
-        dispatch(getMyCities({ user: '6372d48e597d27b935de7568' }))
+        dispatch(getMyCities({ user: '6372d48e597d27b935de7569' }))
     }, [])
 
   return (

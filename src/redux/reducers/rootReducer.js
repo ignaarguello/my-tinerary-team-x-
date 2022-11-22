@@ -1,7 +1,9 @@
 import cityReducer from "./cityReducer";
+import tineraryReducer from "./tineraryReducer";
 
 const rootReducer = {
-    cityReducer
+    cityReducer,
+    tineraryReducer
 }
 
 export default rootReducer

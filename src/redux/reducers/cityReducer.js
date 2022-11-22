@@ -1,14 +1,15 @@
 import { createReducer } from "@reduxjs/toolkit";
 import cityActions from "../actions/cityAction"
 
-const {getCities, filterCities, getMyCities} = cityActions
+const {getCities, filterCities, getMyCities, deleteMyCity } = cityActions
 
 const initialState = {
     valor: '',
     cities: [],
     categories: [],
     continent: [],
-    myCities: []
+    myCities: [],
+    mensaje: ''
 }
 
 const cityReducer = createReducer(initialState,
@@ -37,6 +38,13 @@ const cityReducer = createReducer(initialState,
             }
         })
 
+        .addCase(deleteMyCity.fulfilled, (state, action) => {
+            console.log(action.payload);
+            return{
+                ...state,
+                mensaje: action.payload.mensaje
+            }
+        })
     })
 
 export default cityReducer

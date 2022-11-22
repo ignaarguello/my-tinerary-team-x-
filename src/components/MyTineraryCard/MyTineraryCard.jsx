@@ -6,11 +6,9 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from 'react-router-dom';
 
 export default function CityCard(props) {
 
-    const navigate = useNavigate()
     const { deleteMyTinerary } = tineraryActions
     const { mensaje } = useSelector( (store) => store.tineraryReducer )
     console.log(mensaje)

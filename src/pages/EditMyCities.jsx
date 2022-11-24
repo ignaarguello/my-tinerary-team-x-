@@ -26,7 +26,7 @@ function EditMyCities() {
         continent: continentRef.current?.value,
         photo: photoRef.current?.value,
         population: populationRef.current?.value,
-        userId: '6372d48e597d27b935de7568' //proximamente no será hardcodeado
+        userId: '6372d48e597d27b935de7569' //proximamente no será hardcodeado
     }
     setDataUlt(data)
 }

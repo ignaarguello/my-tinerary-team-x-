@@ -33,7 +33,7 @@ function EditMyHotels() {
         event.preventDefault()
         const data = {
           name: nameRef.current?.value, 
-          photo: [ photoRef1.current?.value, photoRef2.current?.value, photoRef3.current?.value ], 
+          photo:  photoRef1.current?.value, 
           capacity: capacityRef.current?.value, 
           description: descriptionRef.current?.value, 
           citiId:citiIdRef.current?.value,
@@ -105,8 +105,6 @@ useEffect( () => {
                         <div className='container-Inputs'>
                           <label htmlFor="input-password-SI" className='labelForm-SI' required>- Photos -</label>
                           <input type="text" name='input-password-SI' id='input-photos'className='input-SI' required placeholder='Photos' ref={photoRef1}/>
-                          <input type="text" name='input-password-SI' id='input-photos'className='input-SI' required placeholder='Photos' ref={photoRef2}/>
-                          <input type="text" name='input-password-SI' id='input-photos'className='input-SI' required placeholder='Photos' ref={photoRef3}/>
                         </div>
                         <div className='container-Inputs'>
                           <label htmlFor="input-password-SI" className='labelForm-SI' required>- Capacity -</label>

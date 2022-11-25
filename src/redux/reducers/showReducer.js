@@ -5,7 +5,7 @@ const { getMyShow, deleteMyShow } = showActions
 
 const initialState = {
     myShows: [],
-    mensaje: ''
+    mensaje: 'Show removed successfully'
 }
 
 const showReducer = createReducer(initialState,

@@ -8,7 +8,7 @@ const initialState = {
     order: '',
     name: '',
     myHotels:[],
-    mensaje:''
+    mensaje:'Hotel removed successfully'
 };
 
 const hotelReducer = createReducer(initialState, 

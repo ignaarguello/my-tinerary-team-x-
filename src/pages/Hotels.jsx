@@ -14,8 +14,6 @@ export default function Hotels() {
     const { hotels, name, order } = useSelector((store) => store.hotels)
     const searchId = useRef()
     const selectId = useRef()
-
-    console.log(hotels)
     
     useEffect(() => {
         if (name || order) {
@@ -31,7 +29,7 @@ export default function Hotels() {
         }
     }, [])
     
-    function filterCheckCards() {
+    function filterCards() {
         let order = selectId.current.value
         if (order !== 'asc' && order !== 'desc') {
             order = 'asc'
@@ -46,8 +44,8 @@ export default function Hotels() {
     return (
           <div id='containerGeneral'>
             <div className='containerInputs'>
-                     <input className="inputSearch" type="search" name="search" id="search" placeholder="Search" ref={searchId} onChange={filterCheckCards} cal />
-                        <select name="select" defaultValue={'default'} onInput={filterCheckCards} ref={selectId} className='select'>
+                     <input className="inputSearch" type="search" name="search" id="search" placeholder="Search" ref={searchId} onChange={filterCards} cal />
+                        <select name="select" defaultValue={'default'} onInput={filterCards} ref={selectId} className='select'>
                             <option value='default' disabled>Select a capacity order:</option>
                             <option value="asc">Ascendent</option>
                             <option value="desc">Descendent</option>

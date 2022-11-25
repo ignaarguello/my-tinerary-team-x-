@@ -1,15 +1,11 @@
 import React from 'react'
 import './Footer.css'
 import { Link as LinkRouter } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 export default function Footer() {
 
-    let user = {
-        id: 1,
-        name: "Fabry",
-        role: "user",
-        online: false
-      }
+let { logged } = useSelector(store => store.signIn)
 
   return (
     <div id='containerFooter'>
@@ -22,7 +18,7 @@ export default function Footer() {
             <h2 id='titleMyTinerary'>My Tinerary app</h2>
             <h3 id='Slogan'>Your best partner in the travel</h3>
             <div id='containerButtons'>
-            {user.online ?
+            {logged ?
             <>
                 <LinkRouter to='/cities' className='BtnFooter'>
                     <div>Cities</div>

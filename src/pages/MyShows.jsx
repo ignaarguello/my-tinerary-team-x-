@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import { clearAllListeners } from '@reduxjs/toolkit'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import MyShowCard from '../components/MyShowCard'
 import showActions from '../redux/actions/showActions'
@@ -8,10 +9,10 @@ function MyItineraries() {
     const { getMyShow } = showActions
     const { myShows } = useSelector( (store) => store.shows )
     const dispatch = useDispatch()
-    useEffect( () => {
-        dispatch(getMyShow({ user: '6372d48e597d27b935de7569' }))
+ 
+   useEffect( () => {
+      dispatch(getMyShow({ user: '6372d48e597d27b935de7569' }))
     }, [])
-
 
   return (
     <div id='containerGeneral'>

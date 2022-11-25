@@ -1,4 +1,8 @@
+import React from 'react'
 import { Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import userActions from './redux/actions/userActions'
 
 // importo la hoja de estilos
 import './App.css';
@@ -26,6 +30,19 @@ import EditMyShows from './pages/EditMyShows'
 
 
 function App() {
+
+    let { logged } = useSelector(store => store.signIn)
+    let dispatch = useDispatch()
+    let { re_log_in } = userActions
+
+    useEffect(()=>{
+      let token = JSON.parse(localStorage.getItem('token'))
+      console.log(token?.token.user)
+      if(token){
+        dispatch(re_log_in(token.token.user))
+      }
+    },[])
+
   return (
     <>
     <Layout> 

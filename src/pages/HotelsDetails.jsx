@@ -18,7 +18,7 @@ export default function HotelsDetails() {
     axios.get(`${BASE_URL}/api/hotels/${hotelId}`)
     .then(response => setHotelFound(response.data.user_find[0]))
   },[])
-
+  
   useEffect( () => {
     axios.get(`${BASE_URL}/api/shows?hotelId=${hotelId}`)
     .then(response => setShowFound(response.data.response))

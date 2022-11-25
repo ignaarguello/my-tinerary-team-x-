@@ -34,7 +34,6 @@ export default function NewCity() {
   useEffect( () => {
     axios.post(`${BASE_URL}/api/cities`, dataUlt)
       .then(response => {
-        console.log(response);
         if (response.data.success){
           toast.success(response.data.message, {
             icon: '🌆',

@@ -3,6 +3,14 @@ import './Footer.css'
 import { Link as LinkRouter } from 'react-router-dom'
 
 export default function Footer() {
+
+    let user = {
+        id: 1,
+        name: "Fabry",
+        role: "user",
+        online: false
+      }
+
   return (
     <div id='containerFooter'>
         <div id='containerLogo'>
@@ -14,12 +22,24 @@ export default function Footer() {
             <h2 id='titleMyTinerary'>My Tinerary app</h2>
             <h3 id='Slogan'>Your best partner in the travel</h3>
             <div id='containerButtons'>
+            {user.online ?
+            <>
                 <LinkRouter to='/cities' className='BtnFooter'>
                     <div>Cities</div>
                     </LinkRouter>
                 <LinkRouter to='/hotels' className='BtnFooter'>
                     <div>Hotels</div>
                 </LinkRouter>
+            </> :
+            <>
+                <LinkRouter to='/signup' className='BtnFooter'>
+                    <div>Register</div>
+                </LinkRouter>
+                <LinkRouter to='/signin' className='BtnFooter'>
+                    <div>Sign In</div>
+                </LinkRouter>
+            </>
+            }
             </div>
         </div>
         <div id='containerSocialMedia'>

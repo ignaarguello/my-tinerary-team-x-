@@ -24,31 +24,69 @@ import EditMyHotels from './pages/EditMyHotels'
 import MyShows from './pages/MyShows'
 import EditMyShows from './pages/EditMyShows'
 
+//importo el componente para proteger las rutas
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
+
+  let user = {
+    id: 1,
+    name: "Fabry",
+    role: "user",
+    online: false
+  }
+
   return (
     <>
     <Layout> 
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/home" element={<Home />}/>
-        <Route path="/cities" element={<Cities />}/>
-        <Route path="/hotels" element={<Hotels />}/>
         <Route path="/signin" element={<SingIn />}/>
         <Route path="/signup" element={<SignUp />}/>
-        <Route path="/cities/:cityid" element={<CitiesDetails />}/>
-        <Route path="/hotels/:hotelId" element={<HotelsDetails />}/>
-        <Route path="/newhotel" element={<NewHotel />}/>
-        <Route path="/newcity" element={<NewCity />}/>
-        <Route path="/*" element={<NotFound />}/>
-        <Route path="/mycities" element={<MyCities />}/>
-        <Route path="/mycities/edit/:id" element={<EditMyCities />}/>
-        <Route path="/myhotels" element={<MyHotels />}/>
-        <Route path="/myhotels/edit/:id" element={<EditMyHotels />}/>
-        <Route path="/myitineraries" element={<MyItineraries />}/>
-        <Route path="/myitineraries/edit/:id" element={<EditMyItineraries />}/>
-        <Route path="/myshows" element={<MyShows />}/>
-        <Route path="/myshows/edit/:id" element={<EditMyShows/>}/>
+        <Route element={<ProtectedRoute isAllowed={!!user.online} reDirect={"/home"}/>}>
+          <Route path="/cities" element={<Cities />}/>
+          <Route path="/hotels" element={<Hotels />}/>
+          <Route path="/cities/:cityid" element={<CitiesDetails />}/>
+          <Route path="/hotels/:hotelId" element={<HotelsDetails />}/>
+          <Route path="/*" element={<NotFound />}/>
+          <Route path="/myhotels/edit/:id" element={<EditMyHotels />}/>
+          <Route path="/myitineraries" element={<MyItineraries />}/>
+          <Route path="/myitineraries/edit/:id" element={<EditMyItineraries />}/>
+          <Route path="/myshows" element={<MyShows />}/>
+          <Route path="/myshows/edit/:id" element={<EditMyShows/>}/>
+        </Route>
+
+        <Route path="/newhotel" element={
+          <ProtectedRoute isAllowed={!!user.online && user.role === "admin"} reDirect={"/"} >
+            <NewHotel />
+          </ProtectedRoute>
+        }/>
+        <Route path="/newcity" element={
+          <ProtectedRoute isAllowed={!!user.online && user.role === "admin"} reDirect={"/"} >
+            <NewCity />
+          </ProtectedRoute>
+        }/>
+        <Route path="/mycities" element={
+          <ProtectedRoute isAllowed={!!user.online && user.role === "admin"} reDirect={"/"} >
+            <MyCities />
+          </ProtectedRoute>
+        }/>
+        <Route path="/mycities/edit/:id" element={
+          <ProtectedRoute isAllowed={!!user.online && user.role === "admin"} reDirect={"/"} >
+            <EditMyCities />
+          </ProtectedRoute>
+        }/>
+        <Route path="/myhotels" element={
+          <ProtectedRoute isAllowed={!!user.online && user.role === "admin"} reDirect={"/"} >
+            <MyHotels />
+          </ProtectedRoute>
+        }/>
+        <Route path="/myhotels/edit/:id" element={
+          <ProtectedRoute isAllowed={!!user.online && user.role === "admin"} reDirect={"/"} >
+            <EditMyHotels />
+          </ProtectedRoute>
+        }/>
       </Routes>
     </Layout>
     </>

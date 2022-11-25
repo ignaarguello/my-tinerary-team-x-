@@ -11,140 +11,101 @@
     --azul-claro: #2C3892;
 }
 
-@media screen and (min-width:320px) {
-    #containerActivityDetails{
-        /* border: 3px solid green; */
-        min-height: 20rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .cardActivity{
-        /* border: 2px solid yellow; */
-        width: 60%;
-        display: flex;
-        flex-direction: column;
-        background-color: black;
-        color: white;
-        margin: 1rem 0;
-    }
-
-    .containerImgActivity{
-        /* border: 3px solid blue; */
-        height: 58%;
-        width: 100%;
-    }
-    .bodyCardActivity{
-        /* border: 2px solid blueviolet; */
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        height: 50%;
-        gap: 1rem;
-        padding: 5px;
-    }
-
-    .imgActivity{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .titleActivity{
-        font-size: 10px;
-        color: var(--naranja);
-        margin-top: 1.5rem;
-    }
-
-    .dateCardShow{
-        font-size: 12px;
-    }
-
-    .priceActivity{
-        font-size: 11px;
-        margin: 1rem 0;
-        color: var(--celeste);
-        font-weight: bold;
-    }
-}
-
-@media screen and (min-width:768px){
-    #containerActivityDetails{
-        flex-direction: column;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-    }
-    .cardActivity{
-        width: 70%;
-        border-radius: 20px;
-    }
-
-    .imgActivity{
-        width: 100%;
-        height: 10rem;
-        border-radius: 20px 20px 0px 0px;
-    }
-
-    .bodyCardActivity{
-        /* border: 2px solid blueviolet; */
-        height: 50%;
-        justify-content: center;
-        gap: 1rem;
-    }
-    .priceActivity{
-        font-size: 15px;
-        margin: 1rem 0;
-        color: var(--celeste);
-        font-weight: bold;
-    }
-}
-
-@media screen and (min-width:1024px){
-    .cardActivity{
-        width: 28%;
-    }
-}
-
-@media screen and (min-width:1440px){
-.containerActivities{
-    /* border: 3px solid red; */
+#containerActivityDetails{
+    width: 100%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
-    gap: 2rem;
+    align-items: center;
 }
 
+.cardActivity{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    margin: 1rem 0;
+    border-radius: 3rem 0 3rem 0;
+}
+
+.containerImgActivity{
+    height: 50%;
+    width: 100%;
+}
+
+
+.imgActivity{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3rem 0 0 0;
+}
+
+.titleActivity{
+    font-size: 1rem;
+    color: var(--naranja);
+    margin-top: 1.5rem;
+}
+
+.bodyCardActivity{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: .5rem;
+}
+
+.paragraphActivity{
+    font-size: .8rem;
+}
+
+.priceActivity{
+    font-size: 1rem;
+    margin: 1rem 0;
+    color: var(--celeste);
+    font-weight: bold;
+}
+
+.cardActivity:hover{
+    background-color: rgba(0, 0, 0, 0.87);
+    box-shadow: 10px 10px 10px black;
+    transition: .5s ease;
+}
+
+@media screen and (max-width:1150px){
     .cardActivity{
-        width: 50%;
-        border-radius: 20px;
-    }
-
-    .imgActivity{
-        width: 100%;
-        height: 15rem;
-        border-radius: 20px 20px 0px 0px;
-    }
-
-    .bodyCardActivity{
-        height: 70%;
-        justify-content: center;
-        gap: 1rem;
+        width: 60%;
+        min-height: 50rem;
     }
 
     .titleActivity{
-        font-size: 14px;
-        color: var(--naranja);
-        margin-top: 1.5rem;
+        font-size: 1.8rem;
+        margin-top: .3rem;
     }
 
-    .dateCardShow{
-        font-size: 15px;
+    .paragraphActivity{
+        font-size: 1.3rem;
+        padding: 0 .5rem;
     }
 
     .priceActivity{
-        font-size: 15px;
-        margin: 1rem 0;
+        font-size: 1.6rem;
+        margin: 0;
+    }
+}   
+
+@media screen and (max-width:600px){
+    .cardActivity{
+        width: 80%;
+        min-height: 45rem;
+    }
+
+    .titleActivity{
+        font-size: 1.4rem;
+    }
+
+    .paragraphActivity{
+        font-size: 1.1rem;
     }
 }

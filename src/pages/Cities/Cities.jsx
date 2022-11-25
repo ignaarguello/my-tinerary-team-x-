@@ -24,7 +24,7 @@ export default function Cities() {
 
   let filter = (event) => {
     let checks = checkFunction(event)
-    let text = searchInput.current.value
+    let text = searchInput.current.value.trim()
     let urlChecks = checks.map( (check) => `continent=${check}`).join('&')
     dispatch(filterCities({ continent: urlChecks, value: text}))
   }

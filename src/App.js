@@ -34,8 +34,8 @@ import ProtectedRoute from './components/ProtectedRoute';
 function App() {
 
     let { logged, role } = useSelector(store => store.signIn)
-    console.log(logged)
-    console.log(role)
+    //console.log(logged)
+    //console.log(role)
     let dispatch = useDispatch()
     let { re_log_in } = userActions
 

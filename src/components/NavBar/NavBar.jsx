@@ -2,10 +2,31 @@ import React from 'react'
 import { Link as LinkRouter } from 'react-router-dom'
 import '../NavBar/NavBar.css'
 import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import userActions from '../../redux/actions/userActions'
+import Swal from 'sweetalert2'
 
 export default function NavBar() {
+  let dispatch = useDispatch()
+  let {log_out} = userActions
+  let { logged, role, token } = useSelector(store => store.signIn)
 
-  let { logged, role } = useSelector(store => store.signIn)
+  async function logout(event) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "We're gonna miss you!",
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Log out'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        let res = dispatch(log_out(token))
+      }
+    })
+}
+
 
   return (
     <>
@@ -64,7 +85,7 @@ export default function NavBar() {
                   <LinkRouter to='/myshows' className="link">
                     <p>My Shows</p>
                   </LinkRouter> 
-                  <div className="link" onClick={ ()=>{} }><p>Logout</p></div> 
+                  <div className="link" onClick={ () => logout(token) }><p>Logout</p></div> 
                 </> :
                 <>
                 <LinkRouter to='/myitineraries' className="link">
@@ -73,7 +94,7 @@ export default function NavBar() {
                   <LinkRouter to='/myshows' className="link">
                     <p>My Shows</p>
                   </LinkRouter> 
-                  <div className="link" onClick={ ()=>{} }><p>Logout</p></div> 
+                  <div className="link" onClick={ () => logout(token) }><p>Logout</p></div> 
                 </> :
               <>
                 <LinkRouter to='/signin' className="link">

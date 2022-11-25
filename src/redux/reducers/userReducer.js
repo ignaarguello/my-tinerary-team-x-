@@ -26,7 +26,7 @@ const signInReducer = createReducer(inicialState,
                         photo:user.photo,
                         logged:true,
                         role: user.role,
-                        token:user.token
+                        token:token
                     }
                     return newState
                 }else{
@@ -35,18 +35,18 @@ const signInReducer = createReducer(inicialState,
             })
 
             .addCase(re_log_in.fulfilled, (state,action) => {
-                console.log('Carga de accion', action.payload.response.user.user)
+                //console.log('Carga de accion', action.payload.response)
                 const {success,response} = action.payload
                 if(success){
                     let {user, token} = response
-                    console.log(user)
+                    //console.log(user)
                     let newState = {
                         ...state,
                         name:user.user.name,
                         photo:user.user.photo,
                         logged:true,
                         role: user.user.role,
-                        token:user.token
+                        token:token
                     }
                     return newState
                 }else{
@@ -57,6 +57,7 @@ const signInReducer = createReducer(inicialState,
             .addCase(log_out.fulfilled, (state,action) => {
                 /* console.log('Carga de accion', action.payload.response) */
                 const {success,response} = action.payload
+                console.log(action.payload);
                 if(success){
                     localStorage.removeItem('token')
                     let newState = {
@@ -68,7 +69,7 @@ const signInReducer = createReducer(inicialState,
                     }
                     return newState
                 }else{
-                    return console.log('Error')
+                    return console.log(response)
                 }
             })
     })

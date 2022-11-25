@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import userActions from '../actions/userActions'
 
-const { log_in, re_log_in } = userActions;
+const { log_in, re_log_in, log_out } = userActions;
 
 const inicialState = {
     name:"",
@@ -50,7 +50,24 @@ const signInReducer = createReducer(inicialState,
                     return console.log('Error')
                 }
             })
-    })
 
+            .addCase(log_out.fulfilled, (state,action) => {
+                /* console.log('Carga de accion', action.payload.response) */
+                const {success,response} = action.payload
+                if(success){
+                    localStorage.removeItem('token')
+                    let newState = {
+                        ...state,
+                        name:'',
+                        photo:'',
+                        logged:false ,
+                        token:''
+                    }
+                    return newState
+                }else{
+                    return console.log('Error')
+                }
+            })
+    })
 
 export default signInReducer

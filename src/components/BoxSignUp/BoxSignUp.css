@@ -1,9 +1,11 @@
 .box-signup{
     width: 100%;
-    background-image: url(https://www.aseguratuviaje.com.ar/images/img2.jpg);
+    background-image: url(https://img.freepik.com/fotos-premium/vista-aerea-playa-arena-negra_335224-1275.jpg?w=1380);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-color: rgb(41, 41, 41);
+    background-blend-mode: multiply;
     display: flex;
     flex-direction: column;
     align-items: center;

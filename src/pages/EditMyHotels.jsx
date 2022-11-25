@@ -21,11 +21,16 @@ function EditMyHotels() {
     let myUrl = (location.pathname.slice(15))
     let [dataUlt, setDataUlt] = useState(null)
 
+    let [cities, setCities] = useState([])
+    let [idCities, setIdCities] = useState([])
+
+    useEffect( () => {
+      axios.get(`${BASE_URL}/api/cities/`)
+      .then(res => setCities(res.data.response))
+    }, [])
+
     const handleSubmit = (event)=>{
         event.preventDefault()
-  
-        
-  
         const data = {
           name: nameRef.current?.value, 
           photo:  photoRef1.current?.value, 
@@ -107,11 +112,14 @@ useEffect( () => {
                         </div>
                         <div className='container-Inputs'>
                           <label htmlFor="input-password-SI" className='labelForm-SI' required>- Description -</label>
-                          <input type="text" name='input-password-SI' id='input-description'className='input-SI' required placeholder='Description' ref={descriptionRef}/>
+                          <textarea name='input-password-SI' id='input-description'className='input-SI' required placeholder='Description' ref={descriptionRef}/>
                         </div>
                         <div className='container-Inputs'>
-                          <label htmlFor="input-password-SI" className='labelForm-SI' required>- City Id -</label>
-                          <input type="text" name='input-password-SI' id='input-cityId'className='input-SI' required placeholder='City ID' ref={citiIdRef}/>
+                          <label htmlFor="cityId" className='labelForm-SI' required>- City Id -</label>
+                            <select name='cityId' id='cityId'>
+                              <option value="none" selected>Select a city...</option>
+                              {(cities.map(city =>  <option value={`${city._id}`} ref={citiIdRef}>{`${city.name}`}</option>))}
+                            </select>
                         </div>
                         <div className='container-Inputs'>
                           <input type="submit" name='input-submit-SI' id='input-submit-SI' value='Finish Edition' />

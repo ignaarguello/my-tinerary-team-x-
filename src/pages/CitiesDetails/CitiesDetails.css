@@ -6,6 +6,11 @@
     padding: 1rem 0;
 }
 
+.containerActivities{
+    display: flex;
+    flex-direction: row;
+}
+
 .titleCityDetails:hover{
     color: var(--naranja);
     transition: ease-in-out .5s;
@@ -18,4 +23,11 @@
     color: var(--color-primario);
     font-size: 2rem;
     font-style: oblique;
+}
+
+@media screen and (max-width:1150px){
+    .containerActivities{
+        display: flex;
+        flex-direction: column;
+    }
 }

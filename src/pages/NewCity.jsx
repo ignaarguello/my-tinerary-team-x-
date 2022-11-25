@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom'
+import './NewCity.css'
 
 export default function NewCity() {
     const nameRef = useRef()
@@ -93,33 +94,33 @@ export default function NewCity() {
 
 
   return (
-    <div id='containerSign-In'>
-        <div id='containerForm-Sing-In'>
-          <h1 id='title-Sign-In'>New City</h1>
-            <div id='containerForm-Sign-In'>
-                <form onSubmit={handleSubmit} id='form-Sign-In'>
-                  <div className='container-Inputs'>
-                      <label htmlFor="input-name-SI" className='labelForm-SI'>Name:</label>
-                      <input type="text" name='input-name-SI' id='input-name'className='input-SI' placeholder='Name' ref={nameRef}  />
+    <div id='cont-newCity'>
+        <div id='cont-FormNewCity'>
+          <h1 id='title-NewCity'>New City</h1>
+            <div id='cont-formularioNewCity'>
+                <form onSubmit={handleSubmit} id='form-NewCity'>
+                  <div className='cont-inputsNewCity'>
+                      <label htmlFor="input-name-SI" className='label-NewCity' required>Name:</label>
+                      <input type="text" name='input-name-SI' id='input-name' className='input-SI' placeholder='Name' ref={nameRef}  />
                     </div>
-                    <div className='container-Inputs'>
-                      <label htmlFor="input-password-SI" className='labelForm-SI' required>Photo URL:</label>
-                      <input type="text" name='input-password-SI' id='input-photos'className='input-SI' required placeholder='Photo URL' ref={photoRef}/>
+                    <div className='cont-inputsNewCity'>
+                      <label htmlFor="input-password-SI" className='label-NewCity' required>Photo URL:</label>
+                      <input type="text" name='input-password-SI' id='input-photos' className='input-SI' required placeholder='Photo URL' ref={photoRef}/>
                     </div>
-                    <div className='container-Inputs'>
-                      <label htmlFor="input-password-SI" className='labelForm-SI' required>Population:</label>
-                      <input type="number" name='input-password-SI' id='input-capacity'className='input-SI' required placeholder='Population' ref={populationRef}/>
+                    <div className='cont-inputsNewCity'>
+                      <label htmlFor="input-password-SI" className='label-NewCity' required>Population:</label>
+                      <input type="number" name='input-password-SI' id='input-capacity' className='input-SI' required placeholder='Population' ref={populationRef}/>
                     </div>
-                    <div className='container-Inputs'>
-                      <label htmlFor="input-password-SI" className='labelForm-SI' required>Continent:</label>
-                      <input type="text" name='input-password-SI' id='input-description'className='input-SI' required placeholder='Continent' ref={continentRef}/>
+                    <div className='cont-inputsNewCity'>
+                      <label htmlFor="input-password-SI" className='label-NewCity' required>Continent:</label>
+                      <input type="text" name='input-password-SI' id='input-description' className='input-SI' required placeholder='Continent' ref={continentRef}/>
                     </div>
-                    <div className='container-Inputs'>
-                      <label htmlFor="input-password-SI" className='labelForm-SI' required>Your ID:</label>
-                      <input type="text" name='input-password-SI' id='input-userId'className='input-SI' required placeholder='User ID' ref={idRef}/>
+                    <div className='cont-inputsNewCity'>
+                      <label htmlFor="input-password-SI" className='label-NewCity' required>Your ID:</label>
+                      <input type="text" name='input-password-SI' id='input-userId' className='input-SI' required placeholder='User ID' ref={idRef}/>
                     </div>
-                    <div className='container-Inputs'>
-                      <input type="submit" name='input-submit-SI' id='input-submit-SI' value='Create New City' />
+                    <div className='cont-inputsNewCity'>
+                      <input type="submit" name='input-submit-SI' id='submit-NewCity' value='Create New City' />
                     </div>
                 </form>
             </div>

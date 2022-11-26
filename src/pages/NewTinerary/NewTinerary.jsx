@@ -146,7 +146,7 @@ export default function NewTinerary() {
                     </select>
                     </div>
                     <div className='cont-inputsNewCity'>
-                      <input type="submit" name='input-submit-SI' id='submit-NewCity' value='Create New City' />
+                      <input type="submit" name='input-submit-SI' id='submit-NewCity' value='Create New Tinerary' />
                     </div>
                 </form>
             </div>

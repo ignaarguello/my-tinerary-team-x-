@@ -64,6 +64,36 @@
     background-color: var(--color-primario);
 }
 
+.picture-Navbar{
+    width: 70px;
+    height: 70px;
+    border-radius: 50% 50%;
+    object-fit: cover;
+    border: 5px groove black;
+}
+
+.picture-Navbar:hover{
+    border: 5px groove var(--naranja);
+}
+
+#logout-link{
+    font-weight: bold;
+    font-style: italic;
+    background-color: var(--color-primario);
+    color: white;
+    padding: 3px 0;
+    border-radius: 10px 0 10px 0;
+    box-shadow: 2px 2px 4px black;
+}
+
+#logout-link:hover{
+    font-style: normal;
+    background-color: var(--naranja);
+    color: black;
+    padding: 3px 0;
+    border-radius: 0px 10 0px 10;
+}
+
 /* MEDIA QUERIES */
 @media screen and (max-width: 1000px) {
     .dropdown-content{

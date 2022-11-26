@@ -22,7 +22,7 @@ export default function BoxSignUp() {
   let handleSubmit = (event) => {
     event.preventDefault();
 
-        const data = {
+    const data = {
       name: nameInputElement.current?.value,
       lastName: lastnameInputElement.current?.value,
       email: emailInputElement.current?.value,

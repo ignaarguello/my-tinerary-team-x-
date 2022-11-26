@@ -1,8 +1,12 @@
 import React from 'react'
 import './Footer.css'
 import { Link as LinkRouter } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 export default function Footer() {
+
+let { logged } = useSelector(store => store.signIn)
+
   return (
     <div id='containerFooter'>
         <div id='containerLogo'>
@@ -14,12 +18,24 @@ export default function Footer() {
             <h2 id='titleMyTinerary'>My Tinerary app</h2>
             <h3 id='Slogan'>Your best partner in the travel</h3>
             <div id='containerButtons'>
+            {logged ?
+            <>
                 <LinkRouter to='/cities' className='BtnFooter'>
                     <div>Cities</div>
                     </LinkRouter>
                 <LinkRouter to='/hotels' className='BtnFooter'>
                     <div>Hotels</div>
                 </LinkRouter>
+            </> :
+            <>
+                <LinkRouter to='/signup' className='BtnFooter'>
+                    <div>Register</div>
+                </LinkRouter>
+                <LinkRouter to='/signin' className='BtnFooter'>
+                    <div>Sign In</div>
+                </LinkRouter>
+            </>
+            }
             </div>
         </div>
         <div id='containerSocialMedia'>

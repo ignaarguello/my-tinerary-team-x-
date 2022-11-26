@@ -10,7 +10,7 @@ export default function NavBar() {
   let dispatch = useDispatch()
   let {log_out} = userActions
   let { logged, role, token, photo, name } = useSelector(store => store.signIn)
-  console.log(photo)
+  //console.log(photo)
 
   async function logout(event) {
     Swal.fire({

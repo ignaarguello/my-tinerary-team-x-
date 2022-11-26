@@ -5,6 +5,7 @@ const { log_in, re_log_in, log_out } = userActions;
 
 const inicialState = {
     name:"",
+    id: "",
     photo:"",
     logged:false,
     role:"",
@@ -15,14 +16,16 @@ const signInReducer = createReducer(inicialState,
     (builder)=>{
         builder
             .addCase(log_in.fulfilled, (state,action) => {
-                /* console.log('Carga de accion', action.payload.response) */
+                console.log('Carga de accion', action.payload.response)
                 const {success,response} = action.payload
                 if(success){
                     let {user,token} = response
+                    console.log(user);
                     localStorage.setItem('token', JSON.stringify({token:{user:token}}))
                     let newState = {
                         ...state,
                         name:user.name,
+                        id: user.id,
                         photo:user.photo,
                         logged:true,
                         role: user.role,
@@ -35,18 +38,19 @@ const signInReducer = createReducer(inicialState,
             })
 
             .addCase(re_log_in.fulfilled, (state,action) => {
-                //console.log('Carga de accion', action.payload.response)
+                console.log('action payload response', action.payload.response)
                 const {success,response} = action.payload
                 if(success){
                     let {user, token} = response
-                    //console.log(user)
+                    console.log("user de reducer",user)
                     let newState = {
                         ...state,
                         name:user.user.name,
                         photo:user.user.photo,
                         logged:true,
                         role: user.user.role,
-                        token:token
+                        token:token,
+                        id: user.user.id,
                     }
                     return newState
                 }else{

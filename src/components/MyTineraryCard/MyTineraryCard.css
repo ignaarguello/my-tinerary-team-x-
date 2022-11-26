@@ -9,6 +9,37 @@
     box-sizing: border-box;
 }
 
+.btn-createTine{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 0 0 0;
+}
+
+.btn-createTine h2{
+    font-size: 1rem;
+    background-color: var(--celeste);
+    color: black;
+    padding: .6rem;
+    border-radius: 20px 0 20px 0;
+    border-left: 2px groove var(--color-primario);
+    border-top: 2px groove var(--color-primario);
+    box-shadow: 2px 2px 4px black;
+    cursor: pointer;
+}
+
+.btn-createTine h2:hover{
+    background-color: var(--naranja);
+    box-shadow: 4px 4px 4px black;
+    transition: ease .4s;
+}
+
+.btn-createTine img{
+    width: 20px;
+    height: 20px;
+}
+
 :root{
     --color-primario: #24265D;
     --naranja: #F68712;
@@ -44,7 +75,7 @@
         /* border: 2px solid red; */
         margin: 1.2rem 0;
         width: 75%;
-        height: 55vh;
+        min-height: 55vh;
         display: flex;
         flex-direction: column;
         background-color: black;
@@ -199,7 +230,7 @@
 
     .card-Itinerary{
         width: 25%;
-        height: fit-content;
+        height: 60vh;
     }
 
     .titleCardItineraries{

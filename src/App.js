@@ -31,12 +31,13 @@ import EditMyShows from './pages/EditMyShows'
 
 //importo el componente para proteger las rutas
 import ProtectedRoute from './components/ProtectedRoute';
+import NewTinerary from './pages/NewTinerary/NewTinerary';
 
 function App() {
 
     let { logged, role } = useSelector(store => store.signIn)
-    console.log(logged)
-    //console.log(role)
+    let prueba = useSelector(store => store)
+    //console.log(prueba)
     let dispatch = useDispatch()
     let { re_log_in } = userActions
 
@@ -55,6 +56,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/home" element={<Home />}/>
+          <Route path="/newtinerary" element={<NewTinerary />}/>
         <Route element={<ProtectedRoute isAllowed={logged ? false : true} reDirect={"/"} />}>
           <Route path="/signin" element={<SingIn />}/>
           <Route path="/signup" element={<SignUp />}/>

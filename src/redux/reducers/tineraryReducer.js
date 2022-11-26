@@ -5,7 +5,7 @@ const { getMyTinerary, deleteMyTinerary } = tineraryActions
 
 const initialState = {
     myItineraries: [],
-    mensaje: ''
+    mensaje: 'Tinerary removed succesfully'
 }
 
 const tineraryReducer = createReducer(initialState,

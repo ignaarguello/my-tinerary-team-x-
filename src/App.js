@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react'
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react'
@@ -34,14 +35,14 @@ import ProtectedRoute from './components/ProtectedRoute';
 function App() {
 
     let { logged, role } = useSelector(store => store.signIn)
-    //console.log(logged)
+    console.log(logged)
     //console.log(role)
     let dispatch = useDispatch()
     let { re_log_in } = userActions
 
     useEffect(()=>{
       let token = JSON.parse(localStorage.getItem('token'))
-      console.log(token?.token.user)
+      //console.log(token?.token.user)
       if(token){
         dispatch(re_log_in(token.token.user))
       }
@@ -54,7 +55,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/home" element={<Home />}/>
-        <Route element={<ProtectedRoute isAllowed={!logged} reDirect={"/"} />}>
+        <Route element={<ProtectedRoute isAllowed={logged ? false : true} reDirect={"/"} />}>
           <Route path="/signin" element={<SingIn />}/>
           <Route path="/signup" element={<SignUp />}/>
         </Route>
@@ -70,37 +71,15 @@ function App() {
           <Route path="/myshows" element={<MyShows />}/>
           <Route path="/myshows/edit/:id" element={<EditMyShows/>}/>
         </Route>
-
-        <Route path="/newhotel" element={
-          <ProtectedRoute isAllowed={!!logged && role === "admin"} reDirect={"/"} >
-            <NewHotel />
-          </ProtectedRoute>
-        }/>
-        <Route path="/newcity" element={
-          <ProtectedRoute isAllowed={!!logged && role === "admin"} reDirect={"/"} >
-            <NewCity />
-          </ProtectedRoute>
-        }/>
-        <Route path="/mycities" element={
-          <ProtectedRoute isAllowed={!!logged && role === "admin"} reDirect={"/"} >
-            <MyCities />
-          </ProtectedRoute>
-        }/>
-        <Route path="/mycities/edit/:id" element={
-          <ProtectedRoute isAllowed={!!logged && role === "admin"} reDirect={"/"} >
-            <EditMyCities />
-          </ProtectedRoute>
-        }/>
-        <Route path="/myhotels" element={
-          <ProtectedRoute isAllowed={!!logged && role === "admin"} reDirect={"/"} >
-            <MyHotels />
-          </ProtectedRoute>
-        }/>
-        <Route path="/myhotels/edit/:id" element={
-          <ProtectedRoute isAllowed={!!logged && role === "admin"} reDirect={"/"} >
-            <EditMyHotels />
-          </ProtectedRoute>
-        }/>
+        <Route element={<ProtectedRoute isAllowed={!!logged && role==="admin"} reDirect={"/"}/>}>
+          <Route path="newhotel" element={<NewHotel />}/>
+          <Route path="newcity" element={<NewCity />}/>
+          <Route path="mycities" element={<MyCities />}/>
+          <Route path="mycities" element={<MyCities />}/>
+          <Route path="/mycities/edit/:id" element={<EditMyCities />}/>
+          <Route path="/myhotels" element={<MyHotels />}/>
+          <Route path="/myhotels/edit/:id" element={<EditMyHotels />}/>
+        </Route>
       </Routes>
     </Layout>
     </>

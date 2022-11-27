@@ -34,17 +34,17 @@ export default function CityCard(props) {
                             progress: undefined,
                             theme: "colored",
                         });
-                        toast.info("Press 'F5' to see the updates", {
-                            icon: '🥳',
-                            position: "top-right",
-                            autoClose: 3000,
-                            hideProgressBar: false,
-                            closeOnClick: false,
-                            pauseOnHover: false,
-                            draggable: false,
-                            progress: undefined,
-                            theme: "colored",
-                            });
+                        // toast.info("Press 'F5' to see the updates", {
+                        //     icon: '🥳',
+                        //     position: "top-right",
+                        //     autoClose: 3000,
+                        //     hideProgressBar: false,
+                        //     closeOnClick: false,
+                        //     pauseOnHover: false,
+                        //     draggable: false,
+                        //     progress: undefined,
+                        //     theme: "colored",
+                        //     });
                     }
                 }} >Delete</button>
                 <ToastContainer />

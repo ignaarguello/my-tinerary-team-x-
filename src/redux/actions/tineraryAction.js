@@ -4,15 +4,17 @@ import { BASE_URL } from "../../api/url";
 
 const getMyTinerary = createAsyncThunk('getMyTinerary', async({user}) => {
     let url = `${BASE_URL}/api/itineraries?userId=${user}`
+    console.log(url)
     try{
         const res = await axios.get(url)
+        console.log(res)
         const allTineraries = res.data.response.map(e => e)
         console.log(allTineraries);
         return {
             myItineraries: allTineraries
         }
     } catch(error){
-        console.log(error)
+        console.log(error.response)
         return { payload: "error" }
     }
 })

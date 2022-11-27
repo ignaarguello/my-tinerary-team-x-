@@ -12,13 +12,13 @@
 }
 
 @media screen and (min-width:320px) {
-    #cont-newCity{
+    #cont-newTinerary{
         /* border: 2px solid red; */
         width: 100%;
         min-height: 70vh;
-        background-image: url(https://img.freepik.com/foto-gratis/panorama-nocturno-ciudad-nueva-york_649448-4673.jpg?w=1380&t=st=1669478624~exp=1669479224~hmac=afd0e49a74d8e3242a5a03b6210944ee29e12a4f4ef210c23a2be9c453c98b6d);
+        background-image: url(https://img.freepik.com/foto-gratis/hombres-tiro-completo-remos_23-2148593424.jpg?w=1380&t=st=1669478986~exp=1669479586~hmac=4292085c8083438542eede6134dc91ae105e52a01a80e1fc7eae679015e27887);
         background-size: cover;
-        background-color: rgb(95, 95, 95);
+        background-color: rgb(70, 70, 70);
         background-blend-mode: multiply;
         display: flex;
         justify-content: center;
@@ -162,5 +162,12 @@
 
     #containerButtonGoogle{
         width: 12%;
+    }
+
+    #input-description{
+        max-width: 25%;
+        min-width: 25%;
+        min-height: 5rem;
+        max-height: 10rem
     }
 }

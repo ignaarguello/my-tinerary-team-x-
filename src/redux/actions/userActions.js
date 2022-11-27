@@ -26,7 +26,7 @@ const re_log_in = createAsyncThunk('re_log_in', async(token)=>{
     let headers = {headers: {'Authorization': `Bearer ${token}`}}
     try{
         let user = await axios.post(url, null, headers)
-        /* console.log('actiondata', user) */
+        console.log('user de action', user)
         return{
             success:true,
             response:{

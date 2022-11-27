@@ -18,13 +18,13 @@ import CitiesDetails from './pages/CitiesDetails/CitiesDetails';
 import Hotels from './pages/Hotels';
 import NotFound from './pages/NotFound'
 import HotelsDetails from './pages/HotelsDetails'
-import NewCity from './pages/NewCity'
+import NewCity from './pages/NewCity/NewCity'
 import NewHotel from './pages/NewHotel'
 import MyCities from './pages/MyCities'
-import EditMyCities from './pages/EditMyCities';
+import EditMyCities from './pages/EditMyCities/EditMyCities';
 import MyHotels from './pages/MyHotels';
 import MyItineraries from './pages/MyItineraries';
-import EditMyItineraries from './pages/EditMyItineraries'
+import EditMyItineraries from './pages/EditMyTineraries/EditMyItineraries'
 import EditMyHotels from './pages/EditMyHotels'
 import MyShows from './pages/MyShows'
 import EditMyShows from './pages/EditMyShows'

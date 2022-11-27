@@ -28,6 +28,8 @@ import EditMyItineraries from './pages/EditMyItineraries'
 import EditMyHotels from './pages/EditMyHotels'
 import MyShows from './pages/MyShows'
 import EditMyShows from './pages/EditMyShows'
+import MyProfile from './components/MyProfile/MyProfile';
+import EditMyProfile from './components/EditMyProfile/EditMyProfile'
 
 //importo el componente para proteger las rutas
 import ProtectedRoute from './components/ProtectedRoute';
@@ -56,7 +58,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/home" element={<Home />}/>
-          <Route path="/newtinerary" element={<NewTinerary />}/>
         <Route element={<ProtectedRoute isAllowed={logged ? false : true} reDirect={"/"} />}>
           <Route path="/signin" element={<SingIn />}/>
           <Route path="/signup" element={<SignUp />}/>
@@ -72,12 +73,15 @@ function App() {
           <Route path="/myitineraries/edit/:id" element={<EditMyItineraries />}/>
           <Route path="/myshows" element={<MyShows />}/>
           <Route path="/myshows/edit/:id" element={<EditMyShows/>}/>
+          <Route path="/newtinerary" element={<NewTinerary />}/>
+          <Route path="/me/:id" element={<MyProfile/>}/>
+          <Route path="/editprofile/:id" element={<EditMyProfile/>}/>
         </Route>
         <Route element={<ProtectedRoute isAllowed={!!logged && role==="admin"} reDirect={"/"}/>}>
-          <Route path="newhotel" element={<NewHotel />}/>
-          <Route path="newcity" element={<NewCity />}/>
-          <Route path="mycities" element={<MyCities />}/>
-          <Route path="mycities" element={<MyCities />}/>
+          <Route path="/newhotel" element={<NewHotel />}/>
+          <Route path="/newcity" element={<NewCity />}/>
+          <Route path="/mycities" element={<MyCities />}/>
+          <Route path="/mycities" element={<MyCities />}/>
           <Route path="/mycities/edit/:id" element={<EditMyCities />}/>
           <Route path="/myhotels" element={<MyHotels />}/>
           <Route path="/myhotels/edit/:id" element={<EditMyHotels />}/>

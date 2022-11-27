@@ -1,12 +1,15 @@
 import { createReducer } from "@reduxjs/toolkit";
 import userActions from '../actions/userActions'
 
-const { log_in, re_log_in, log_out } = userActions;
+const { log_in, re_log_in, log_out} = userActions;
 
 const inicialState = {
-    name:"",
     id: "",
+    name:"",
+    lastName:"",
     photo:"",
+    age:"",
+    country:"",
     logged:false,
     role:"",
     token:"",
@@ -20,7 +23,7 @@ const signInReducer = createReducer(inicialState,
                 const {success,response} = action.payload
                 if(success){
                     let {user,token} = response
-                    console.log(user);
+                    /* console.log(user); */
                     localStorage.setItem('token', JSON.stringify({token:{user:token}}))
                     let newState = {
                         ...state,
@@ -38,11 +41,11 @@ const signInReducer = createReducer(inicialState,
             })
 
             .addCase(re_log_in.fulfilled, (state,action) => {
-                console.log('action payload response', action.payload.response)
+                /* console.log('action payload response', action.payload.response) */
                 const {success,response} = action.payload
                 if(success){
                     let {user, token} = response
-                    console.log("user de reducer",user)
+                    /* console.log("user de reducer",user) */
                     let newState = {
                         ...state,
                         name:user.user.name,
@@ -61,7 +64,7 @@ const signInReducer = createReducer(inicialState,
             .addCase(log_out.fulfilled, (state,action) => {
                 /* console.log('Carga de accion', action.payload.response) */
                 const {success,response} = action.payload
-                console.log(action.payload);
+                /* console.log(action.payload); */
                 if(success){
                     localStorage.removeItem('token')
                     let newState = {

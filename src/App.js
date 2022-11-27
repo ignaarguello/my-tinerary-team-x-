@@ -56,7 +56,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/home" element={<Home />}/>
-          <Route path="/newtinerary" element={<NewTinerary />}/>
         <Route element={<ProtectedRoute isAllowed={logged ? false : true} reDirect={"/"} />}>
           <Route path="/signin" element={<SingIn />}/>
           <Route path="/signup" element={<SignUp />}/>
@@ -70,14 +69,14 @@ function App() {
           <Route path="/myhotels/edit/:id" element={<EditMyHotels />}/>
           <Route path="/myitineraries" element={<MyItineraries />}/>
           <Route path="/myitineraries/edit/:id" element={<EditMyItineraries />}/>
+          <Route path="/newtinerary" element={<NewTinerary />}/>
           <Route path="/myshows" element={<MyShows />}/>
           <Route path="/myshows/edit/:id" element={<EditMyShows/>}/>
         </Route>
         <Route element={<ProtectedRoute isAllowed={!!logged && role==="admin"} reDirect={"/"}/>}>
-          <Route path="newhotel" element={<NewHotel />}/>
-          <Route path="newcity" element={<NewCity />}/>
-          <Route path="mycities" element={<MyCities />}/>
-          <Route path="mycities" element={<MyCities />}/>
+          <Route path="/newhotel" element={<NewHotel />}/>
+          <Route path="/newcity" element={<NewCity />}/>
+          <Route path="/mycities" element={<MyCities />}/>
           <Route path="/mycities/edit/:id" element={<EditMyCities />}/>
           <Route path="/myhotels" element={<MyHotels />}/>
           <Route path="/myhotels/edit/:id" element={<EditMyHotels />}/>

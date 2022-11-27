@@ -7,8 +7,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom'
 import './NewTinerary.css'
+import { useSelector } from 'react-redux'
 
 export default function NewTinerary() {
+    const { id } = useSelector( store => store.signIn)
+
     const nameRef = useRef()
     const photo1Ref = useRef()
     const photo2Ref = useRef()
@@ -21,30 +24,31 @@ export default function NewTinerary() {
 
     let [dataUlt, setDataUlt] = useState(null)
     let [cities, setCities] = useState([])
-
+    //console.log(cities)
     useEffect( () => {
       axios.get(`${BASE_URL}/api/cities/`)
       .then(res => setCities(res.data.response))
     }, [])
 
     const handleSubmit = (event)=>{
-    event.preventDefault()
-
-    const data = {
+      event.preventDefault()
+      const data = {
         name: nameRef.current?.value,
         description: descriptionRef.current?.value,
         photo: [photo1Ref.current?.value, photo2Ref.current?.value, photo3Ref.current?.value],
         price: priceRef.current?.value,
         duration: durationRef.current?.value,
         cityId: cityIdRef.current?.value,
-        userId: "63813795343a278f1fad3cce",
+        userId: id,
+      }
+      setDataUlt(data)
     }
-    setDataUlt(data)
-  }
+  //console.log(dataUlt)
 
   useEffect( () => {
     axios.post(`${BASE_URL}/api/itineraries`, dataUlt)
       .then(response => {
+        //console.log(response);
         if (response.data.success){
           toast.success(response.data.message, {
             icon: '🌆',
@@ -70,9 +74,7 @@ export default function NewTinerary() {
               });
             setTimeout(() => {
               navigate(`/myitineraries`, { replace: true })
-            }, 5500)
-        }else if(response.data.message.length === 5){
-          console.log(response.data.message) 
+            }, 5500) 
         } else {
           toast.error(response.data.message.join('\n'), {
             icon: '💔',
@@ -140,9 +142,9 @@ export default function NewTinerary() {
                     </div>
                     <div className='cont-inputsNewCity'>
                     <label htmlFor="cityId" className='label-NewCity'>City</label>
-                    <select name='cityId' id='cityId' className='input-SI'>
-                      <option value="none" selected>Choose a city...</option>
-                      {(cities.map(city =>  <option value={`${city._id}`} ref={cityIdRef}>{`${city.name}`}</option>))}
+                    <select name='cityId' id='cityId' className='input-SI' ref={cityIdRef}>
+                      <option value="none" defaultValue="None">Choose a city...</option>
+                      {(cities.map(city =>  <option key={`${city.name}`} value={`${city._id}`} >{`${city.name}`}</option>))}
                     </select>
                     </div>
                     <div className='cont-inputsNewCity'>

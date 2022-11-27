@@ -5,9 +5,12 @@ import { BASE_URL } from '../api/api'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './EditMyItineraries.css'
+import { useSelector } from 'react-redux'
 
 function EditMyItineraries() {
 
+    const { id } = useSelector( store => store.signIn)
     const nameRef = useRef()
     const photo1Ref = useRef()
     const photo2Ref = useRef()
@@ -15,25 +18,30 @@ function EditMyItineraries() {
     const durationRef = useRef()
     const priceRef = useRef()
     const descriptionRef = useRef()
-    const cityIDRef = useRef()
+    const cityIdRef = useRef()
 
     let location = useLocation()
     let myUrl = (location.pathname.slice(20))
     console.log(myUrl);
     let navigate = useNavigate()
     let [dataUlt, setDataUlt] = useState(null)
+    let [cities, setCities] = useState([])
+
+    useEffect( () => {
+        axios.get(`${BASE_URL}/api/cities/`)
+        .then(res => setCities(res.data.response))
+    }, [])
 
     const handleSubmit = (event)=>{
     event.preventDefault()
-
     const data = {
         name: nameRef.current?.value,
         photo: [photo1Ref.current?.value, photo2Ref.current?.value, photo3Ref.current?.value],
         description: descriptionRef.current?.value,
         price: priceRef.current?.value,
         duration: durationRef.current?.value,
-        userId: '6372d48e597d27b935de7569', //proximamente no será hardcodeado
-        cityId: cityIDRef.current?.value
+        userId: id,
+        cityId: cityIdRef.current?.value
     }
     setDataUlt(data)
 }
@@ -81,41 +89,44 @@ useEffect( () => {
 
 return (
     <>
-        <div id='containerSign-In'>
-            <div id='containerForm-Sing-In'>
+        <div id='cont-editTine'>
+            <div id='cont-formEditTine'>
 
-                <h1 id='title-Sign-In'>Edit city</h1>
+                <h1 id='title-editTine'>Edit Tinerary</h1>
 
-                <div id='containerForm-Sign-In'>
-                    <form onSubmit={handleSubmit} id='form-Sign-In'>
-                        <div className='container-Inputs'>
-                            <label htmlFor="input-name-SI" className='labelForm-SI'>Name:</label>
-                            <input type="text" name='input-name' id='input-name' className='input-SI' placeholder='Name' ref={nameRef}  />
+                <div id='subcont-formEditTine'>
+                    <form onSubmit={handleSubmit} id='form-editTine'>
+                        <div className='cont-inputsTine'>
+                            <label htmlFor="input-name-SI" className='label-formEditTine'>Name:</label>
+                            <input type="text" name='input-name' id='input-name' className='input-editTine' placeholder='Tour from...' required ref={nameRef}  />
                         </div>
-                        <div className='container-Inputs'>
-                            <label htmlFor="input-password-SI" className='labelForm-SI' >Photo URL:</label>
-                            <input type="text" name='input-password-SI' id='input-photos' className='input-SI' placeholder='Photo 1' ref={photo1Ref}/>
-                            <input type="text" name='input-password-SI' id='input-photos' className='input-SI' placeholder='Photo 2' ref={photo2Ref}/>
-                            <input type="text" name='input-password-SI' id='input-photos' className='input-SI' placeholder='Photo 3' ref={photo3Ref}/>
+                        <div className='cont-inputsTine'>
+                            <label htmlFor="input-password-SI" className='label-formEditTine' >Photos:</label>
+                            <input type="text" name='input-password-SI' id='input-photos' className='input-editTine' required placeholder='Photo 1 (http://...)' ref={photo1Ref}/>
+                            <input type="text" name='input-password-SI' id='input-photos' className='input-editTine' required placeholder='Photo 2 (http://...)' ref={photo2Ref}/>
+                            <input type="text" name='input-password-SI' id='input-photos' className='input-editTine' required placeholder='Photo 3 (http://...)' ref={photo3Ref}/>
                         </div>
-                        <div className='container-Inputs'>
-                            <label htmlFor="input-password-SI" className='labelForm-SI' >Description:</label>
-                            <input type="text" name='input-password-SI' id='input-description' className='input-SI' placeholder='Description' ref={descriptionRef}/>
+                        <div className='cont-inputsTine'>
+                            <label htmlFor="input-password-SI" className='label-formEditTine' >Price:</label>
+                            <input type="text" name='input-password-SI' id='input-photos' className='input-editTine' required placeholder='$16...' ref={priceRef}/>
                         </div>
-                        <div className='container-Inputs'>
-                            <label htmlFor="input-password-SI" className='labelForm-SI' >Price:</label>
-                            <input type="text" name='input-password-SI' id='input-photos' className='input-SI' placeholder='Price' ref={priceRef}/>
+                        <div className='cont-inputsTine'>
+                            <label htmlFor="input-password-SI" className='label-formEditTine' >Description:</label>
+                            <textarea name='input-password-SI' id='input-description' className='input-editTine' required placeholder='A guided tour among the city that...' ref={descriptionRef}/>
                         </div>
-                        <div className='container-Inputs'>
-                            <label htmlFor="input-password-SI" className='labelForm-SI' >Duration:</label>
-                            <input type="number" name='input-password-SI' id='input-capacity' className='input-SI' placeholder='Duration' ref={durationRef}/>
+                        <div className='cont-inputsTine'>
+                            <label htmlFor="input-password-SI" className='label-formEditTine' >Duration:</label>
+                            <input type="number" name='input-password-SI' id='input-capacity' className='input-editTine' required placeholder='5 hours...' ref={durationRef}/>
                         </div>
-                        <div className='container-Inputs'>
-                            <label htmlFor="input-password-SI" className='labelForm-SI' >City ID:</label>
-                            <input type="text" name='input-password-SI' id='input-capacity' className='input-SI' placeholder='City ID' ref={cityIDRef}/>
+                        <div className='cont-inputsTine'>
+                        <label htmlFor="cityId" className='label-formEditTine'>City</label>
+                        <select name='cityId' id='cityId' required className='input-editTine' ref={cityIdRef}>
+                            <option value="none" defaultValue="None" required>Choose a city...</option>
+                            {(cities.map(city =>  <option key={`${city.name}`} value={`${city._id}`} required >{`${city.name}`}</option>))}
+                        </select>
                         </div>
-                        <div className='container-Inputs'>
-                            <input type="submit" name='input-submit-SI' id='input-submit-SI' value='Finish edition' />
+                        <div className='cont-inputsTine'>
+                            <input type="submit" name='input-submit-SI' id='submit-editTine' value='Finish edition' />
                         </div>
                     </form>
                 </div>

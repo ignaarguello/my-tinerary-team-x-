@@ -8,10 +8,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function CityCard(props) {
 
+    const { token } = useSelector( store => store.signIn)
     const { deleteMyCity } = cityAction
     const { mensaje } = useSelector( (store) => store.cityReducer )
     const dispatch = useDispatch()
     let {img,name,continent, population, id} = props;
+    
 
     return (
             <div className='card-city'>
@@ -21,7 +23,7 @@ export default function CityCard(props) {
                 <p className='capacityHotels'>Population - {population} </p>
                 <LinkRouter to={`edit/${id}`} className='btnCardHotels'><div>Edit</div></LinkRouter>
                 <button className='btnCardDelete' onClick={() => {
-                    dispatch(deleteMyCity(id));
+                    dispatch(deleteMyCity({idCity: id, token: token}));
                     if (mensaje.length > 0) {
                         toast.success(mensaje, {
                             icon: '🌆',

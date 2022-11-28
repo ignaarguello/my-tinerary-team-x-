@@ -32,6 +32,7 @@ import MyProfile from './components/MyProfile/MyProfile';
 import EditMyProfile from './components/EditMyProfile/EditMyProfile'
 import NewShow from './pages/NewShow/NewShow'
 
+
 //importo el componente para proteger las rutas
 import ProtectedRoute from './components/ProtectedRoute';
 import NewTinerary from './pages/NewTinerary/NewTinerary';
@@ -39,14 +40,12 @@ import NewTinerary from './pages/NewTinerary/NewTinerary';
 function App() {
 
     let { logged, role } = useSelector(store => store.signIn)
-    let prueba = useSelector(store => store)
-    //console.log(prueba)
+
     let dispatch = useDispatch()
     let { re_log_in } = userActions
 
     useEffect(()=>{
       let token = JSON.parse(localStorage.getItem('token'))
-      //console.log(token?.token.user)
       if(token){
         dispatch(re_log_in(token.token.user))
       }
@@ -58,16 +57,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/home" element={<Home />}/>
-        <Route element={<ProtectedRoute isAllowed={logged ? false : true} reDirect={"/"} />}>
           <Route path="/signin" element={<SingIn />}/>
           <Route path="/signup" element={<SignUp />}/>
-        </Route>
-        <Route path="/*" element={<NotFound />}/>
-        <Route element={<ProtectedRoute isAllowed={!!logged} reDirect={"/home"}/>}>
           <Route path="/cities" element={<Cities />}/>
           <Route path="/hotels" element={<Hotels />}/>
           <Route path="/cities/:cityid" element={<CitiesDetails />}/>
           <Route path="/hotels/:hotelId" element={<HotelsDetails />}/>
+        <Route path="/*" element={<NotFound />}/>
+        <Route element={<ProtectedRoute isAllowed={!!logged} reDirect={"/home"}/>}>
           <Route path="/myhotels/edit/:id" element={<EditMyHotels />}/>
           <Route path="/myitineraries" element={<MyItineraries />}/>
           <Route path="/myitineraries/edit/:id" element={<EditMyItineraries />}/>
@@ -78,8 +75,9 @@ function App() {
           <Route path="/me/:id" element={<MyProfile/>}/>
           <Route path="/editprofile/:id" element={<EditMyProfile/>}/>
           <Route path="/newshow" element={<NewShow/>}/>
+
         </Route>
-        <Route element={<ProtectedRoute isAllowed={!!logged && role==="admin"} reDirect={"/"}/>}>
+        <Route element={<ProtectedRoute isAllowed={!!logged && role==="admin"} reDirect={"/home"}/>}>
           <Route path="/newhotel" element={<NewHotel />}/>
           <Route path="/newcity" element={<NewCity />}/>
           <Route path="/mycities" element={<MyCities />}/>

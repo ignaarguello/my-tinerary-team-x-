@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import './NewShow.css'
 
 export default function EditMyShow() {
-    const { id } = useSelector( store => store.signIn)
+    const { id, token } = useSelector( store => store.signIn)
     const nameRef = useRef()
     const descriptionRef = useRef()
     const photoRef = useRef()
@@ -20,7 +20,6 @@ export default function EditMyShow() {
     let [dataUlt, setDataUlt] = useState(null)
     let [hotels, setHotels] = useState([])
 
-    const {token} = useSelector(store => store.signIn)
     
     useEffect( () => {
       axios.get(`${BASE_URL}/api/hotels`)
@@ -138,7 +137,7 @@ export default function EditMyShow() {
                     </div>
                     <div className='cont-inputsNewShow'>
                       <label htmlFor="input-name-SI" className='label-NewShow' required>Date</label>
-                      <input type="text" name='input-name-SI' id='input-name' className='input-SI' placeholder='Tour from...' ref={dateRef}  />
+                      <input type="date" name='input-name-SI' id='input-name' className='input-SI' placeholder='Tour from...' ref={dateRef}  />
                     </div>
                     <div className='cont-inputsNewShow'>
                       <input type="submit" name='input-submit-SI' id='submit-NewCity' value='Create New Show' />

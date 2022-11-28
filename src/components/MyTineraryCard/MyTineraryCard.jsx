@@ -10,11 +10,10 @@ import { useNavigate } from 'react-router-dom';
 
 export default function CityCard(props) {
 
-    const navigate = useNavigate()
-
     const { deleteMyTinerary } = tineraryActions
     const { mensaje } = useSelector( (store) => store.tineraryReducer )
-    console.log(mensaje)
+    const { token } = useSelector( store => store.signIn)
+
     const dispatch = useDispatch()
     let {img,name,duration , description, id, price} = props;
 
@@ -27,7 +26,7 @@ export default function CityCard(props) {
                 <p className='durationItineraries'>${price}</p>
                 <LinkRouter to={`edit/${id}`} className='btnCardEdit'><div>Edit</div></LinkRouter>
                 <button className='btnCardDelete' onClick={() => {
-                    dispatch(deleteMyTinerary(id));
+                    dispatch(deleteMyTinerary({idTinerary: id, token: token}));
                     if (mensaje.length > 0) {
                         toast.success(mensaje, {
                             icon: '🌆',

@@ -28,7 +28,6 @@ function EditMyHotels() {
 
     let location = useLocation()
     let myUrl = (location.pathname.slice(15))
-    let [dataUlt, setDataUlt] = useState(null)
 
     const {id} = useSelector(store => store.signIn)
     const {token} = useSelector(store => store.signIn)
@@ -49,56 +48,13 @@ function EditMyHotels() {
         }
         
         dispatch(editMyHotel({token:token, data:data, idHotel:myUrl})) 
-      }
 
-/* useEffect( () => {
-    axios.put(`${BASE_URL}/api/hotels/${myUrl}`, dataUlt)
-        .then(response => {
-            console.log('hola',response)
-        if (response.data.success){
-            toast.success(response.data.message, {
-                icon: '🌆',
-                position: "top-right",
-                autoClose: 2500,
-                hideProgressBar: false,
-                closeOnClick: false,
-                pauseOnHover: false,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
-            toast.info("You are being redirected in a few seconds", {
-                icon: '🥳',
-                position: "top-right",
-                autoClose: 3500,
-                hideProgressBar: false,
-                closeOnClick: false,
-                pauseOnHover: false,
-                draggable: false,
-                progress: undefined,
-                theme: "colored",
-                });
-            setTimeout(() => {
-                navigate(`/myhotels`, { replace: true })
-            }, 5500)
-          } else{
-            toast.error(response.data.message.join('\n'), {
-              icon: '💔',
-              position: "top-right",
-              autoClose: 2500,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: false,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-              })
-          }
-    })
-    .catch ( err => {
-        console.log(err.message)
-        })
-    }, [dataUlt]) */
+        event.target.reset()
+
+        setTimeout(() => {
+          navigate(`/myhotels`, { replace: true })
+      }, 5000)
+      }
 
     return (
         <div id='containerSign-In'>

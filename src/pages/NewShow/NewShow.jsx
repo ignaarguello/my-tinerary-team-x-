@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import './NewShow.css'
 
 export default function EditMyShow() {
-    const { id } = useSelector( store => store.signIn)
+    const { id, token } = useSelector( store => store.signIn)
     const nameRef = useRef()
     const descriptionRef = useRef()
     const photoRef = useRef()
@@ -19,13 +19,15 @@ export default function EditMyShow() {
 
     let [dataUlt, setDataUlt] = useState(null)
     let [hotels, setHotels] = useState([])
+
     
     useEffect( () => {
       axios.get(`${BASE_URL}/api/hotels`)
       .then(res => setHotels(res.data.response))
     }, [])
 
-    const handleSubmit = (event)=>{
+    const handleSubmit = async (event)=>{
+      
       event.preventDefault()
       const data = {
         hotelId: hotelIdRef.current?.value,
@@ -36,45 +38,59 @@ export default function EditMyShow() {
         date: dateRef.current?.value,
         userId: id,
       }
-      setDataUlt(data)
-      console.log(dataUlt)
-    }
-    
-    useEffect( () => {
-    axios.post(`${BASE_URL}/api/shows`, dataUlt)
-      .then(response => {
-        //console.log(response);
-        if (response.data.success){
-          toast.success(response.data.message, {
-            icon: '🌆',
-            position: "top-right",
-            autoClose: 2500,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: false,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-            });
-            toast.info("You are being redirected in a few seconds", {
-              icon: '🥳',
+      
+      console.log(data)
+
+      try{
+        let headers = { headers: { Authorization: `Bearer ${token}` } }
+        axios.post(`${BASE_URL}/api/shows`, data, headers)
+        .then(response => {
+          //console.log(response);
+          if (response.data.success){
+            toast.success(response.data.message, {
+              icon: '🌆',
               position: "top-right",
-              autoClose: 3500,
+              autoClose: 2500,
               hideProgressBar: false,
               closeOnClick: false,
               pauseOnHover: false,
-              draggable: false,
+              draggable: true,
               progress: undefined,
               theme: "colored",
               });
-            setTimeout(() => {
-              navigate(`/myshows`, { replace: true })
-            }, 5500) 
-        } else {
-          toast.error(response.data.message.join('\n'), {
-            icon: '💔',
+              toast.info("You are being redirected in a few seconds", {
+                icon: '🥳',
+                position: "top-right",
+                autoClose: 3500,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: false,
+                draggable: false,
+                progress: undefined,
+                theme: "colored",
+                });
+              setTimeout(() => {
+                navigate(`/myshows`, { replace: true })
+              }, 5500) 
+          } else {
+            toast.error(response.data.message.join('\n'), {
+              icon: '💔',
+              position: "top-right",
+              autoClose: 2500,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+              })
+          }
+      })
+        .catch ( err => {
+          toast.error(err.message, {
+            icon: '😵',
             position: "top-right",
-            autoClose: 2500,
+            autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: false,
@@ -82,23 +98,13 @@ export default function EditMyShow() {
             progress: undefined,
             theme: "colored",
             })
-        }
-    })
-      .catch ( err => {
-        toast.error(err.message, {
-          icon: '😵',
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
+          console.log(err)
           })
-        console.log(err)
-        })
-      }, [dataUlt])
+        }catch{
+            console.log('error')
+      }
+  }
+    
       
     return (
     <div id='cont-newShow'>
@@ -131,7 +137,7 @@ export default function EditMyShow() {
                     </div>
                     <div className='cont-inputsNewShow'>
                       <label htmlFor="input-name-SI" className='label-NewShow' required>Date</label>
-                      <input type="text" name='input-name-SI' id='input-name' className='input-SI' placeholder='Tour from...' ref={dateRef}  />
+                      <input type="date" name='input-name-SI' id='input-name' className='input-SI' placeholder='Tour from...' ref={dateRef}  />
                     </div>
                     <div className='cont-inputsNewShow'>
                       <input type="submit" name='input-submit-SI' id='submit-NewCity' value='Create New Show' />

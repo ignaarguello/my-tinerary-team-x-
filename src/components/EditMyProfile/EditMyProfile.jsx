@@ -7,10 +7,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate, useParams } from 'react-router-dom'
 import './EditMyProfile.css'
+import { useSelector } from 'react-redux'
 
 export default function EditMyProfile() {
 
   const {id} = useParams()
+  const {token} = useSelector(store => store.signIn)
 
   const nameRef = useRef()
   const lastNameRef = useRef()
@@ -20,9 +22,7 @@ export default function EditMyProfile() {
   const emailRef = useRef()
   const navigate = useNavigate()
 
-  let [dataUlt, setDataUlt] = useState(null)
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
 
     const data = {
@@ -33,9 +33,59 @@ export default function EditMyProfile() {
       country: countryRef.current?.value,
       email: emailRef.current?.value,
     }
-    setDataUlt(data)
+
+    let headers = { headers: { Authorization: `Bearer ${token}` } };
+    try {
+      let res = await axios.patch(`${BASE_URL}/api/auth/me/${id}`, data, headers);
+      console.log(res)
+      if (res.data.success) {
+        toast.success(res.data.message, {
+            icon: '🌆',
+            position: "top-right",
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+        });
+        toast.info("You are being redirected in a few seconds", {
+            icon: '🥳',
+            position: "top-right",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "colored",
+            });
+        setTimeout(() => {
+            navigate(`/me/${id}`, { replace: true })
+        }, 3500)
+      } else {
+        toast.error(res.data.message.join('\n'), {
+            icon: '💔',
+            position: "top-right",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            })
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
+
   }
 
+
+  /*
   useEffect( (event) => {
     axios.patch(`${BASE_URL}/api/auth/me/${id}`, dataUlt)
       .then(response => {
@@ -93,7 +143,7 @@ export default function EditMyProfile() {
         console.log(err)
         })
       }, [dataUlt])
-
+*/
 
 
   return (

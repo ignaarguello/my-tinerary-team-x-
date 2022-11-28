@@ -7,9 +7,7 @@ const getMyTinerary = createAsyncThunk('getMyTinerary', async({user}) => {
     console.log(url)
     try{
         const res = await axios.get(url)
-        //console.log(res)
         const allTineraries = res.data.response.map(e => e)
-        //console.log(allTineraries);
         return {
             myItineraries: allTineraries
         }
@@ -22,11 +20,8 @@ const getMyTinerary = createAsyncThunk('getMyTinerary', async({user}) => {
 const deleteMyTinerary = createAsyncThunk('deleteMyTinerary', async ({idTinerary, token}) => {
     let url = `${BASE_URL}/api/itineraries/${idTinerary}`
     let headers = { headers: { Authorization: `Bearer ${token}` } }
-    //console.log("ID TINERARY: ", idTinerary, "TOKEN: ", headers);
     try{
-        //console.log(url)
         let res = await axios.delete(url, headers)
-        //console.log(res.data.message);
         return{
             mensaje: res.data.message
         }

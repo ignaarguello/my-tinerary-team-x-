@@ -34,46 +34,16 @@ function EditMyHotels() {
         }
         
         dispatch(editMyShow({token:token, data:data, idShow:myUrl})) 
+
+        event.target.reset()
+
+        setTimeout(() => {
+          navigate(`/myshows`, { replace: true })
+      }, 5000)
+
       }
 
-/* useEffect( () => {
-    axios.put(`${BASE_URL}/api/shows/${myUrl}`, dataUlt)
-        .then(response => {
-            console.log('hola',response)
-        if (response.config.data === null){
-          console.log(response.data.message);
-        }else{
-          toast.success(response.data.message, {
-              icon: '🌆',
-              position: "top-right",
-              autoClose: 2500,
-              hideProgressBar: false,
-              closeOnClick: false,
-              pauseOnHover: false,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
-          });
-          toast.info("You are being redirected in a few seconds", {
-              icon: '🥳',
-              position: "top-right",
-              autoClose: 3500,
-              hideProgressBar: false,
-              closeOnClick: false,
-              pauseOnHover: false,
-              draggable: false,
-              progress: undefined,
-              theme: "colored",
-              });
-          setTimeout(() => {
-              navigate(`/myshows`, { replace: true })
-          }, 5500)
-        }           
-    })
-    .catch ( err => {
-        console.log(err.message)
-        })
-    }, [dataUlt]) */
+
 
     return (
         <div id='containerSign-In'>

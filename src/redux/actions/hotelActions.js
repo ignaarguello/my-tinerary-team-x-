@@ -1,6 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { BASE_URL } from "../../api/api";
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const getHotels = createAsyncThunk("getHotels", async () => {
     try{
@@ -65,9 +68,46 @@ const deleteMyHotel= createAsyncThunk('deleteMyHotel', async ({token, idHotel}) 
 const editMyHotel= createAsyncThunk('editMyHotel', async ({token, data ,idHotel}) => {
     let headers = { headers: { Authorization: `Bearer ${token}` } }
     let url = `${BASE_URL}/api/hotels/${idHotel}`
+   
     try{
         let res = await axios.put(url, data, headers)
-        console.log('RES',res)
+        console.log(res)
+        if (res.data.success){
+            toast.success(res.data.message, {
+                icon: '🌆',
+                position: "top-right",
+                autoClose: 2500,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+            toast.info("You are being redirected in a few seconds", {
+                icon: '🥳',
+                position: "top-right",
+                autoClose: 3500,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: false,
+                draggable: false,
+                progress: undefined,
+                theme: "colored",
+                });
+          } else{
+            toast.error(res.data.message.join('\n'), {
+              icon: '💔',
+              position: "top-right",
+              autoClose: 2500,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: true,
+              progress: undefined,
+              theme: "colored",
+              })
+          }
         return{
             mensaje: res.data.message
         }

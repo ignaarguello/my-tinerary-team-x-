@@ -22,17 +22,16 @@ function EditMyItineraries() {
 
     let location = useLocation()
     let myUrl = (location.pathname.slice(20))
-    let navigate = useNavigate()
-    let [dataUlt, setDataUlt] = useState(null)
     let [cities, setCities] = useState([])
-
+    let navigate = useNavigate()
     useEffect( () => {
         axios.get(`${BASE_URL}/api/cities/`)
         .then(res => setCities(res.data.response))
     }, [])
 
-    const handleSubmit = (event)=>{
+    const handleSubmit = async (event) => {
     event.preventDefault()
+
     const data = {
         name: nameRef.current?.value,
         photo: [photo1Ref.current?.value, photo2Ref.current?.value, photo3Ref.current?.value],
@@ -42,49 +41,54 @@ function EditMyItineraries() {
         userId: id,
         cityId: cityIdRef.current?.value
     }
-    setDataUlt(data)
-}
-let headers = { headers: { Authorization: `Bearer ${token}` } }
-useEffect( () => {
     
-    axios.put(`${BASE_URL}/api/itineraries/${myUrl}`, dataUlt, headers)
-        .then(response => {
-            console.log(response)
-        if (response.config.data === null){
-            console.log(response.data.message);
-          } else{
-            toast.success(response.data.message, {
-                icon: '🌆',
-                position: "top-right",
-                autoClose: 2500,
-                hideProgressBar: false,
-                closeOnClick: false,
-                pauseOnHover: false,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
+    let headers = { headers: { Authorization: `Bearer ${token}` } };
+    try {
+      let res = await axios.put(`${BASE_URL}/api/itineraries/${myUrl}`, data, headers);
+      console.log(res)
+      if (res.data.success) {
+        toast.success(res.data.message, {
+            icon: '🌆',
+            position: "top-right",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+        });
+        toast.info("You are being redirected in a few seconds", {
+            icon: '🥳',
+            position: "top-right",
+            autoClose: 3500,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "colored",
             });
-            toast.info("You are being redirected in a few seconds", {
-                icon: '🥳',
-                position: "top-right",
-                autoClose: 3500,
-                hideProgressBar: false,
-                closeOnClick: false,
-                pauseOnHover: false,
-                draggable: false,
-                progress: undefined,
-                theme: "colored",
-                });
-            setTimeout(() => {
-                navigate(`/myitineraries`, { replace: true })
-            }, 5500)
-            
-          }
-    })
-    .catch ( err => {
-        console.log(err.message)
-        })
-    }, [dataUlt])
+        setTimeout(() => {
+            navigate(`/myitineraries`, { replace: true })
+        }, 5500)
+      } else {
+        toast.error(res.data.message.join('\n'), {
+            icon: '💔',
+            position: "top-right",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            })
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
 return (
     <>

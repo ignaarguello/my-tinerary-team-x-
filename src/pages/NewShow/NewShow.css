@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-primario: #24265D;
+    --naranja: #F68712;
+    --celeste: #51ADE5;
+    --azul-claro: #2C3892;
+}
+
+
+@media screen and (min-width:320px) {
+    #cont-newShow{
+        background-image: url(https://img.freepik.com/foto-gratis/hamacas-sombrillas-puestas-cercas-piscina-grande_1203-192.jpg?w=996&t=st=1669600955~exp=1669601555~hmac=2796cfcc1b44ff46f22b1c3cfeb2fd253c2c8d2619bb54b69e667ef138246b96);
+        background-size: cover;
+        background-color: rgba(0, 0, 0, 0.686);
+        background-blend-mode: multiply;
+    }
+
+    #cont-formularioNewShow{
+        /* border: 2px solid blue; */
+        width: 100%;
+    }
+
+    #form-NewShow{
+        /* border: 2px solid green; */
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .cont-inputsNewShow{
+       /*  border: 2px solid red; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .label-NewShow{
+        font-size: 20px;
+        color: var(--naranja);
+        font-weight: 500;
+        margin: 5px 0;
+    }
+}
+
+@media screen and (min-width:768px) {
+    #cont-newShow{
+        background-image: url(https://img.freepik.com/foto-gratis/hamacas-sombrillas-puestas-cercas-piscina-grande_1203-192.jpg?w=996&t=st=1669600955~exp=1669601555~hmac=2796cfcc1b44ff46f22b1c3cfeb2fd253c2c8d2619bb54b69e667ef138246b96);
+        background-size: cover;
+    }
+
+    #cont-formularioNewShow{
+        /* border: 2px solid blue; */
+        display: flex;
+        justify-content: center;
+    }
+
+    #form-NewShow{
+        /* border: 2px solid green; */
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .cont-inputsNewShow{
+        /* border: 2px solid red; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .label-NewShow{
+        font-size: 20px;
+        color: var(--naranja);
+        font-weight: 500;
+        margin: 5px 0;
+    }
+
+
+}

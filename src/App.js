@@ -18,18 +18,19 @@ import CitiesDetails from './pages/CitiesDetails/CitiesDetails';
 import Hotels from './pages/Hotels';
 import NotFound from './pages/NotFound'
 import HotelsDetails from './pages/HotelsDetails'
-import NewCity from './pages/NewCity'
+import NewCity from './pages/NewCity/NewCity'
 import NewHotel from './pages/NewHotel'
 import MyCities from './pages/MyCities'
-import EditMyCities from './pages/EditMyCities';
+import EditMyCities from './pages/EditMyCities/EditMyCities';
 import MyHotels from './pages/MyHotels';
 import MyItineraries from './pages/MyItineraries';
-import EditMyItineraries from './pages/EditMyItineraries'
+import EditMyItineraries from './pages/EditMyTineraries/EditMyItineraries'
 import EditMyHotels from './pages/EditMyHotels'
 import MyShows from './pages/MyShows'
 import EditMyShows from './pages/EditMyShows'
 import MyProfile from './components/MyProfile/MyProfile';
 import EditMyProfile from './components/EditMyProfile/EditMyProfile'
+import NewShow from './pages/NewShow/NewShow'
 
 //importo el componente para proteger las rutas
 import ProtectedRoute from './components/ProtectedRoute';
@@ -51,7 +52,6 @@ function App() {
       }
     },[])
 
-
   return (
     <>
     <Layout> 
@@ -71,16 +71,17 @@ function App() {
           <Route path="/myhotels/edit/:id" element={<EditMyHotels />}/>
           <Route path="/myitineraries" element={<MyItineraries />}/>
           <Route path="/myitineraries/edit/:id" element={<EditMyItineraries />}/>
+          <Route path="/newtinerary" element={<NewTinerary />}/>
           <Route path="/myshows" element={<MyShows />}/>
           <Route path="/myshows/edit/:id" element={<EditMyShows/>}/>
           <Route path="/newtinerary" element={<NewTinerary />}/>
           <Route path="/me/:id" element={<MyProfile/>}/>
           <Route path="/editprofile/:id" element={<EditMyProfile/>}/>
+          <Route path="/newshow" element={<NewShow/>}/>
         </Route>
         <Route element={<ProtectedRoute isAllowed={!!logged && role==="admin"} reDirect={"/"}/>}>
           <Route path="/newhotel" element={<NewHotel />}/>
           <Route path="/newcity" element={<NewCity />}/>
-          <Route path="/mycities" element={<MyCities />}/>
           <Route path="/mycities" element={<MyCities />}/>
           <Route path="/mycities/edit/:id" element={<EditMyCities />}/>
           <Route path="/myhotels" element={<MyHotels />}/>

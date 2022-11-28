@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import cityActions from '../redux/actions/cityAction'
 
 function MyCities() {
-
+    const {id} = useSelector(store => store.signIn)
     const { getMyCities } = cityActions
     const { myCities } = useSelector( (store) => store.cityReducer )
     const dispatch = useDispatch()
 
     useEffect( () => {
-        dispatch(getMyCities({ user: '6372d48e597d27b935de7569' }))
+        dispatch(getMyCities({ user: id }))
     }, [])
 
   return (
@@ -25,5 +25,6 @@ function MyCities() {
   </div>
   )
 }
+
 
 export default MyCities

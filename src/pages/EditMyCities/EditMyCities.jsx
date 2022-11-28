@@ -1,13 +1,15 @@
 import React from 'react'
 import { useRef, useState, useEffect } from 'react'
 import axios from 'axios'
-import { BASE_URL } from '../api/api'
+import { BASE_URL } from '../../api/api'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './EditMyCities.css'
+import { useSelector } from 'react-redux'
 
 function EditMyCities() {
-
+    const {id} = useSelector(store => store.signIn)
     const nameRef = useRef()
     const photoRef = useRef()
     const populationRef = useRef()
@@ -26,7 +28,7 @@ function EditMyCities() {
         continent: continentRef.current?.value,
         photo: photoRef.current?.value,
         population: populationRef.current?.value,
-        userId: '6372d48e597d27b935de7569' //proximamente no será hardcodeado
+        userId: id
     }
     setDataUlt(data)
 }
@@ -61,6 +63,8 @@ useEffect( () => {
             setTimeout(() => {
                 navigate(`/mycities`, { replace: true })
             }, 5500)
+          } else if(response.data.message.length === 5){
+            console.log(response.data.message);
           } else{
             toast.error(response.data.message.join('\n'), {
               icon: '💔',
@@ -82,28 +86,28 @@ useEffect( () => {
 
 return (
     <>
-        <div id='containerSign-In'>
-            <div id='containerForm-Sing-In'>
-                <h1 id='title-Sign-In'>Edit city</h1>
-                <div id='containerForm-Sign-In'>
-                    <form onSubmit={handleSubmit} id='form-Sign-In'>
-                        <div className='container-Inputs'>
-                            <label htmlFor="input-name-SI" className='labelForm-SI'>Name:</label>
-                            <input type="text" name='input-name' id='input-name' className='input-SI' placeholder='Name' ref={nameRef}  />
+        <div id='cont-editCity'>
+            <div id='cont-formEditCity'>
+                <h1 id='title-editCity'>Edit city</h1>
+                <div id='subcont-formEditCity'>
+                    <form onSubmit={handleSubmit} id='form-editCity'>
+                        <div className='cont-inputsEditCity'>
+                            <label htmlFor="input-name" className='label-formEditCity'>Name:</label>
+                            <input type="text" name='input-name' id='input-name' className='input-editCity' required placeholder='Name' ref={nameRef}  />
                         </div>
-                        <div className='container-Inputs'>
-                            <label htmlFor="input-password-SI" className='labelForm-SI' >Photo URL:</label>
-                            <input type="text" name='input-password-SI' id='input-photos' className='input-SI' placeholder='Photo URL' ref={photoRef}/>
+                        <div className='cont-inputsEditCity'>
+                            <label htmlFor="input-photos" className='label-formEditCity' >Photo URL:</label>
+                            <input type="text" name='input-password-SI' id='input-photos' className='input-editCity' required placeholder='Photo URL' ref={photoRef}/>
                         </div>
-                        <div className='container-Inputs'>
-                            <label htmlFor="input-password-SI" className='labelForm-SI' >Population:</label>
-                            <input type="number" name='input-password-SI' id='input-capacity' className='input-SI' placeholder='Population' ref={populationRef}/>
+                        <div className='cont-inputsEditCity'>
+                            <label htmlFor="input-population" className='label-formEditCity' >Population:</label>
+                            <input type="number" name='input-password-SI' id='input-population' className='input-editCity' required placeholder='Population' ref={populationRef}/>
                         </div>
-                        <div className='container-Inputs'>
-                            <label htmlFor="input-password-SI" className='labelForm-SI' >Continent:</label>
-                            <input type="text" name='input-password-SI' id='input-description' className='input-SI' placeholder='Continent' ref={continentRef}/>
+                        <div className='cont-inputsEditCity'>
+                            <label htmlFor="input-continent" className='label-formEditCity' >Continent:</label>
+                            <input type="text" name='input-password-SI' id='input-continent' className='input-editCity' required placeholder='Continent' ref={continentRef}/>
                         </div>
-                        <div className='container-Inputs'>
+                        <div className='cont-inputsEditCity'>
                             <input type="submit" name='input-submit-SI' id='input-submit-SI' value='Finish edition' />
                         </div>
                     </form>

@@ -9,7 +9,7 @@ const initialState = {
     categories: [],
     continent: [],
     myCities: [],
-    mensaje: ''
+    mensaje: 'Ok. City was deleted succesfully.'
 }
 
 const cityReducer = createReducer(initialState,

@@ -3,19 +3,29 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import MyShowCard from '../components/MyShowCard'
 import showActions from '../redux/actions/showActions'
+import { useNavigate } from 'react-router-dom'
 
 function MyItineraries() {
 
+  const {id} = useSelector(store => store.signIn)
     const { getMyShow } = showActions
     const { myShows } = useSelector( (store) => store.shows )
     const dispatch = useDispatch()
+    const navigate = useNavigate()
  
    useEffect( () => {
-      dispatch(getMyShow({ user: '6372d48e597d27b935de7569' }))
+      dispatch(getMyShow({ user:id }))
     }, [])
+
+    let redirigir = () => {
+      navigate('/newshow')
+    }
 
   return (
     <div id='containerGeneral'>
+      <div id='containerButtonCreateNewShow'>
+          <h2 id='titleNewShow' onClick={redirigir}>+ Create a new show</h2>
+      </div>
         <div className='containerCards'>
       {
         ( myShows.length > 0)

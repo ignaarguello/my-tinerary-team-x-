@@ -22,7 +22,7 @@ function EditMyItineraries() {
 
     let location = useLocation()
     let myUrl = (location.pathname.slice(20))
-    console.log(myUrl);
+    console.log(myUrl)
     let navigate = useNavigate()
     let [dataUlt, setDataUlt] = useState(null)
     let [cities, setCities] = useState([])

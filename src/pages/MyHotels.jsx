@@ -6,12 +6,13 @@ import hotelActions from '../redux/actions/hotelActions'
 
 function MyHotels() {
 
+    const {id} = useSelector(store => store.signIn)
     const { getMyHotels} = hotelActions
     const { myHotels } = useSelector( (store) => store.hotels)
     const dispatch = useDispatch()
 
     useEffect( () => {
-        dispatch(getMyHotels({ user: '6372d48e597d27b935de7569' }))
+        dispatch(getMyHotels({ user:id }))
     }, [])
 
   return (
@@ -25,6 +26,7 @@ function MyHotels() {
       </div>
   </div>
   )
+  
 }
 
 export default MyHotels

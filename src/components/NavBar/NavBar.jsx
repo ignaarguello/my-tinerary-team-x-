@@ -6,10 +6,12 @@ import { useDispatch } from 'react-redux'
 import userActions from '../../redux/actions/userActions'
 import Swal from 'sweetalert2'
 
+
 export default function NavBar() {
+
   let dispatch = useDispatch()
   let {log_out} = userActions
-  let { logged, role, token, photo, name } = useSelector(store => store.signIn)
+  let { logged, role, token, photo, name, id } = useSelector(store => store.signIn)
   //console.log(photo)
 
   async function logout(event) {
@@ -112,7 +114,7 @@ export default function NavBar() {
               <img className='picture-Navbar' src={`${photo}`} alt={`${name}`} />
               <p id='logout-link'>{`${name}`}</p>
               <div className="dropdown-content">
-                <LinkRouter to='/myprofile' className='link'>
+                <LinkRouter to={`/me/${id}`} className='link'>
                   <p>Profile</p>
                 </LinkRouter>
                 <div className="link" onClick={ () => logout(token) }><p>Logout</p></div> 

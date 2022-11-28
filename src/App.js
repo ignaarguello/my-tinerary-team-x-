@@ -56,7 +56,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/home" element={<Home />}/>
-        <Route element={<ProtectedRoute isAllowed={logged ? false : true} reDirect={"/"} />}>
+        <Route element={<ProtectedRoute isAllowed={logged ? false : true} reDirect={"/home"} />}>
           <Route path="/signin" element={<SingIn />}/>
           <Route path="/signup" element={<SignUp />}/>
         </Route>
@@ -73,7 +73,7 @@ function App() {
           <Route path="/myshows" element={<MyShows />}/>
           <Route path="/myshows/edit/:id" element={<EditMyShows/>}/>
         </Route>
-        <Route element={<ProtectedRoute isAllowed={!!logged && role==="admin"} reDirect={"/"}/>}>
+        <Route element={<ProtectedRoute isAllowed={!!logged && role==="admin"} reDirect={"/home"}/>}>
           <Route path="/newhotel" element={<NewHotel />}/>
           <Route path="/newcity" element={<NewCity />}/>
           <Route path="/mycities" element={<MyCities />}/>

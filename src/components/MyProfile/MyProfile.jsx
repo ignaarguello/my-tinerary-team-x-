@@ -30,12 +30,12 @@ export default function Profile() {
             </div>
             <div id='containerDatosUsuario'>
               <div id='containerNamesUser'>
-                <h3 className='nameUser'>{userFound.name}</h3>
+                <h3 className='nameUser'>Name: {userFound.name}</h3>
                 <h3 className='nameUser'>{userFound.lastName}</h3>
               </div>
-                <h4 className='ageUser text'>{userFound.age}</h4>
-                <h4 className='countryUser text'>{userFound.country}</h4>
-                <h5 className='emailUser'>{userFound.email}</h5>
+                <h4 className='ageUser text'>Age: {userFound.age}</h4>
+                <h4 className='countryUser text'>Country: {userFound.country}</h4>
+                <h5 className='emailUser'>Email: {userFound.email}</h5>
             </div>
         </div>
         <LinkRouter to={`/editprofile/${id}`} id='LinkRouter'>

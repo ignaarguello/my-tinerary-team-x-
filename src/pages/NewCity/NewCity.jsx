@@ -1,19 +1,21 @@
 import React, { useEffect } from 'react'
 import { useRef } from 'react'
 import axios from 'axios'
-import {BASE_URL} from '../api/url'
+import {BASE_URL} from '../../api/url'
 import { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom'
 import './NewCity.css'
+import { useSelector } from 'react-redux'
 
 export default function NewCity() {
+
+    const {id} = useSelector(store => store.signIn)
     const nameRef = useRef()
     const photoRef = useRef()
     const populationRef = useRef()
     const continentRef = useRef()
-    const idRef = useRef()
     const navigate = useNavigate()
 
     let [dataUlt, setDataUlt] = useState(null)
@@ -26,7 +28,7 @@ export default function NewCity() {
         continent: continentRef.current?.value,
         photo: photoRef.current?.value,
         population: populationRef.current?.value,
-        userId: idRef.current?.value 
+        userId: id
     }
 
     setDataUlt(data)
@@ -113,11 +115,7 @@ export default function NewCity() {
                     </div>
                     <div className='cont-inputsNewCity'>
                       <label htmlFor="input-password-SI" className='label-NewCity' required>Continent:</label>
-                      <input type="text" name='input-password-SI' id='input-description' className='input-SI' required placeholder='Continent' ref={continentRef}/>
-                    </div>
-                    <div className='cont-inputsNewCity'>
-                      <label htmlFor="input-password-SI" className='label-NewCity' required>Your ID:</label>
-                      <input type="text" name='input-password-SI' id='input-userId' className='input-SI' required placeholder='User ID' ref={idRef}/>
+                      <input type="text" name='input-password-SI' id='input-capacity' className='input-SI' required placeholder='Continent' ref={continentRef}/>
                     </div>
                     <div className='cont-inputsNewCity'>
                       <input type="submit" name='input-submit-SI' id='submit-NewCity' value='Create New City' />

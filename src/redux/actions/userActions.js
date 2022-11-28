@@ -8,12 +8,13 @@ const log_in = createAsyncThunk('log_in', async(data)=>{
     try{
         let user = await axios.post(url, data)
         /* console.log('actiondata', data) */
+
         return{
             success:true,
             response: user.data.response
         }
     }catch(error){
-        console.log('Errorresponse', error.response)
+        //console.log('Errorresponse', error.response)
         return {
             success:false,
             response: error.response.data.message
@@ -27,6 +28,7 @@ const re_log_in = createAsyncThunk('re_log_in', async(token)=>{
     try{
         let user = await axios.post(url, null, headers)
         /* console.log('user de action', user) */
+
         return{
             success:true,
             response:{
@@ -51,6 +53,7 @@ const log_out = createAsyncThunk('log_out', async(token)=>{
     try{
         let user = await axios.put(url, null, headers)
         /* console.log(user.data) */
+
         return {
             success:true,
             response: user.data.message

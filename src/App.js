@@ -30,6 +30,8 @@ import MyShows from './pages/MyShows'
 import EditMyShows from './pages/EditMyShows'
 import MyProfile from './components/MyProfile/MyProfile';
 import EditMyProfile from './components/EditMyProfile/EditMyProfile'
+import NewShow from './pages/NewShow/NewShow'
+
 
 //importo el componente para proteger las rutas
 import ProtectedRoute from './components/ProtectedRoute';
@@ -50,7 +52,6 @@ function App() {
         dispatch(re_log_in(token.token.user))
       }
     },[])
-
 
   return (
     <>
@@ -77,6 +78,8 @@ function App() {
           <Route path="/newtinerary" element={<NewTinerary />}/>
           <Route path="/me/:id" element={<MyProfile/>}/>
           <Route path="/editprofile/:id" element={<EditMyProfile/>}/>
+          <Route path="/newshow" element={<NewShow/>}/>
+
         </Route>
         <Route element={<ProtectedRoute isAllowed={!!logged && role==="admin"} reDirect={"/"}/>}>
           <Route path="/newhotel" element={<NewHotel />}/>

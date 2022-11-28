@@ -39,6 +39,7 @@ function MyItineraries() {
       </div>
   </div>
   )
+  
 }
 
 export default MyItineraries

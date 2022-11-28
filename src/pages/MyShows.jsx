@@ -1,5 +1,4 @@
-import { clearAllListeners } from '@reduxjs/toolkit'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import MyShowCard from '../components/MyShowCard'
 import showActions from '../redux/actions/showActions'
@@ -7,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 function MyItineraries() {
 
-  const {id} = useSelector(store => store.signIn)
+    const {id} = useSelector(store => store.signIn)
     const { getMyShow } = showActions
     const { myShows } = useSelector( (store) => store.shows )
     const dispatch = useDispatch()

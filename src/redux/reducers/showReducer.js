@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import showActions from "../actions/showActions";
 
-const { getMyShow, deleteMyShow } = showActions
+const { getMyShow, deleteMyShow, editMyShow } = showActions
 
 const initialState = {
     myShows: [],
@@ -18,6 +18,13 @@ const showReducer = createReducer(initialState,
         })
 
         .addCase(deleteMyShow.fulfilled, (state, action) => {
+            return{
+                ...state,
+                mensaje: action.payload.mensaje
+            }
+        })
+
+        .addCase(editMyShow.fulfilled, (state, action) => {
             return{
                 ...state,
                 mensaje: action.payload.mensaje

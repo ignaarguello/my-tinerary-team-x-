@@ -6,6 +6,7 @@ import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 
 export default function NewHotel() {
@@ -20,6 +21,8 @@ export default function NewHotel() {
     const navigate = useNavigate()
 
     let [dataFinal, setDataFinal] = useState(null)
+    const {id} = useSelector(store=>store.signIn)
+    const {token} = useSelector(store => store.signIn)
 
     const handleSubmit = (event)=>{
       event.preventDefault()
@@ -29,14 +32,13 @@ export default function NewHotel() {
         photo: photoRef1.current?.value,
         capacity: capacityRef.current?.value, 
         description: descriptionRef.current?.value, 
-        userId:userIdRef.current?.value,
+        userId:id,
         citiId:citiIdRef.current?.value,
       }
-      
-      setDataFinal(data)
-    }
-    useEffect(()=>{
-      axios.post(`${BASE_URL}/api/hotels`, dataFinal)
+
+      try{
+        let headers = { headers: { Authorization: `Bearer ${token}` } }
+        axios.post(`${BASE_URL}/api/hotels`, data, headers)
       .then(response => {
         if (response.data.success){
           toast.success(response.data.message, {
@@ -94,7 +96,12 @@ export default function NewHotel() {
           })
         console.log(err)
         })
-    },[dataFinal])
+      }catch{
+          console.log('error')
+      }
+      
+      
+    }
 
     
   return (
@@ -122,10 +129,6 @@ export default function NewHotel() {
                     <div className='container-Inputs'>
                       <label htmlFor="input-password-SI" className='labelForm-SI' required>- City Id -</label>
                       <input type="text" name='input-password-SI' id='input-cityId'className='input-SI' required placeholder='City ID' ref={citiIdRef}/>
-                    </div>
-                    <div className='container-Inputs'>
-                      <label htmlFor="input-password-SI" className='labelForm-SI' required>- User Id -</label>
-                      <input type="text" name='input-password-SI' id='input-cityId'className='input-SI' required placeholder='User ID' ref={userIdRef}/>
                     </div>
                     <div className='container-Inputs'>
                       <input type="submit" name='input-submit-SI' id='input-submit-SI' value='Create New Hotel' />

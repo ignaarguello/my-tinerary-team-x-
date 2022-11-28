@@ -14,6 +14,7 @@ export default function MyShowCard(props) {
     const { mensaje } = useSelector( (store) => store.shows )
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const {token} = useSelector(store => store.signIn)
     let {image,name,description, id} = props;
 
     return (
@@ -23,7 +24,7 @@ export default function MyShowCard(props) {
                 <p className='descriptionCardHotels'>{description}</p>
                 <LinkRouter to={`edit/${id}`} className='btnCardHotels'><div>Edit</div></LinkRouter>
                 <button className='btnCardDelete' onClick={() => {
-                    dispatch(deleteMyShow(id));
+                    dispatch(deleteMyShow({token:token, idShow:id}));
                     if (mensaje.length >= 0) {
                        console.log(mensaje) 
                         toast.success(mensaje, {

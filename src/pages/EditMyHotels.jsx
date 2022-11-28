@@ -5,21 +5,11 @@ import { BASE_URL } from '../api/api'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useDispatch, useSelector } from 'react-redux'
+import hotelActions from '../redux/actions/hotelActions'
+
 
 function EditMyHotels() {
-
-    const nameRef = useRef()
-    const photoRef1 = useRef()
-    const photoRef2 = useRef()
-    const photoRef3 = useRef()
-    const capacityRef = useRef()
-    const descriptionRef = useRef()
-    const citiIdRef = useRef()
-    const navigate = useNavigate()
-
-    let location = useLocation()
-    let myUrl = (location.pathname.slice(15))
-    let [dataUlt, setDataUlt] = useState(null)
 
     let [cities, setCities] = useState([])
     let [idCities, setIdCities] = useState([])
@@ -29,21 +19,39 @@ function EditMyHotels() {
       .then(res => setCities(res.data.response))
     }, [])
 
+    const nameRef = useRef()
+    const photoRef1 = useRef()
+    const capacityRef = useRef()
+    const descriptionRef = useRef()
+    const citiIdRef = useRef()
+    const navigate = useNavigate()
+
+    let location = useLocation()
+    let myUrl = (location.pathname.slice(15))
+    let [dataUlt, setDataUlt] = useState(null)
+
+    const {id} = useSelector(store => store.signIn)
+    const {token} = useSelector(store => store.signIn)
+    const dispatch = useDispatch()
+    const { editMyHotel } = hotelActions
+
+
     const handleSubmit = (event)=>{
         event.preventDefault()
+        
         const data = {
           name: nameRef.current?.value, 
           photo:  photoRef1.current?.value, 
           capacity: capacityRef.current?.value, 
           description: descriptionRef.current?.value, 
           citiId:citiIdRef.current?.value,
-          userId: '6372d48e597d27b935de7568' //proximamente no será hardcodeado
+          userId:id, //proximamente no será hardcodeado
         }
         
-        setDataUlt(data)
+        dispatch(editMyHotel({token:token, data:data, idHotel:myUrl})) 
       }
 
-useEffect( () => {
+/* useEffect( () => {
     axios.put(`${BASE_URL}/api/hotels/${myUrl}`, dataUlt)
         .then(response => {
             console.log('hola',response)
@@ -90,7 +98,7 @@ useEffect( () => {
     .catch ( err => {
         console.log(err.message)
         })
-    }, [dataUlt])
+    }, [dataUlt]) */
 
     return (
         <div id='containerSign-In'>

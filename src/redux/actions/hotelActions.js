@@ -44,11 +44,14 @@ const getMyHotels = createAsyncThunk('getMyHotels', async({user}) => {
     }
 })
 
-const deleteMyHotel = createAsyncThunk('deleteMyHotel', async (idHotel) => {
+const deleteMyHotel= createAsyncThunk('deleteMyHotel', async ({token, idHotel}) => {
+    let headers = { headers: { Authorization: `Bearer ${token}` } }
     let url = `${BASE_URL}/api/hotels/${idHotel}`
     try{
-        let res = await axios.delete(url)
-        console.log(res.data.message);
+        console.log(idHotel)
+        console.log(headers)
+        let res = await axios.delete(url, headers)
+        console.log('RES',res)
         return{
             mensaje: res.data.message
         }
@@ -59,11 +62,30 @@ const deleteMyHotel = createAsyncThunk('deleteMyHotel', async (idHotel) => {
     }
 })
 
+const editMyHotel= createAsyncThunk('editMyHotel', async ({token, data ,idHotel}) => {
+    let headers = { headers: { Authorization: `Bearer ${token}` } }
+    let url = `${BASE_URL}/api/hotels/${idHotel}`
+    try{
+        let res = await axios.put(url, data, headers)
+        console.log('RES',res)
+        return{
+            mensaje: res.data.message
+        }
+
+    } catch(error){
+        console.log(error)
+        return { payload: "Error" }
+    }
+})
+
+
+
 const hotelActions = {
     getHotels,
     getHotelsFiltered,
     getMyHotels,
-    deleteMyHotel
+    deleteMyHotel,
+    editMyHotel,
 }
 
 export default hotelActions;

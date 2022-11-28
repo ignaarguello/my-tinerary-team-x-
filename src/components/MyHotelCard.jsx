@@ -11,6 +11,7 @@ export default function MyHotelCard(props) {
     const { deleteMyHotel } = hotelActions
     const { mensaje } = useSelector( (store) => store.hotels )
     const dispatch = useDispatch()
+    const {token} = useSelector(store => store.signIn)
         let {image,name,description, capacity, id} = props;
 
     return (
@@ -21,7 +22,7 @@ export default function MyHotelCard(props) {
                 <p className='capacityHotels'>Capacity - {capacity} </p>
                 <LinkRouter to={`edit/${id}`} className='btnCardHotels'><div>Edit</div></LinkRouter>
                 <button className='btnCardDelete' onClick={() => {
-                    dispatch(deleteMyHotel(id));
+                    dispatch(deleteMyHotel({token:token, idHotel:id}));
                     if (mensaje.length > 0) {
                         toast.success(mensaje, {
                             icon: '🌆',

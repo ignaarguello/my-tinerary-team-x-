@@ -1,11 +1,10 @@
 import React from 'react'
-import { useRef, useState, useEffect } from 'react'
-import axios from 'axios'
-import { BASE_URL } from '../api/api'
+import { useRef} from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { useDispatch, useSelector } from 'react-redux'
+import showActions from '../redux/actions/showActions'
 
 function EditMyHotels() {
 
@@ -15,11 +14,14 @@ function EditMyHotels() {
     const citiIdRef = useRef()
     const navigate = useNavigate()
 
+    const {id} = useSelector(store => store.signIn)
+    const {token} = useSelector(store => store.signIn)
+    const dispatch = useDispatch()
+    const { editMyShow } = showActions
+
     let location = useLocation()
     let myUrl = (location.pathname.slice(14))
-    console.log(myUrl)
-    let [dataUlt, setDataUlt] = useState(null)
-
+    
     const handleSubmit = (event)=>{
         event.preventDefault()
   
@@ -28,13 +30,13 @@ function EditMyHotels() {
           photo:  photoRef1.current?.value,
           description: descriptionRef.current?.value, 
           citiId:citiIdRef.current?.value,
-          userId: '6372d48e597d27b935de7569' //proximamente no será hardcodeado
+          userId:id,
         }
         
-        setDataUlt(data)
+        dispatch(editMyShow({token:token, data:data, idShow:myUrl})) 
       }
 
-useEffect( () => {
+/* useEffect( () => {
     axios.put(`${BASE_URL}/api/shows/${myUrl}`, dataUlt)
         .then(response => {
             console.log('hola',response)
@@ -71,7 +73,7 @@ useEffect( () => {
     .catch ( err => {
         console.log(err.message)
         })
-    }, [dataUlt])
+    }, [dataUlt]) */
 
     return (
         <div id='containerSign-In'>

@@ -10,7 +10,8 @@ import { useSelector } from 'react-redux'
 
 function EditMyItineraries() {
 
-    const { id } = useSelector( store => store.signIn)
+    const { id, token } = useSelector( store => store.signIn)
+    console.log("ID: ", id, "TOKEN: ", token)
     const nameRef = useRef()
     const photo1Ref = useRef()
     const photo2Ref = useRef()

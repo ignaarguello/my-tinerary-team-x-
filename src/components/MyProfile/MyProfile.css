@@ -31,16 +31,17 @@
     justify-content: center;
 }
 
+
 @media screen and (min-width:320px) {
     #containerCard{
         /* border: 2px solid green; */
         height: 60%;
         display: flex;
+        justify-content: center;
     }
     
     #containerImage{
         /* border: 2px solid blue; */
-        width: 45%;
         height: 100%;
     }
     
@@ -90,6 +91,7 @@
         font-size: 9px;
         text-align: center;
         font-weight: 350;
+        color: var(--celeste);
     }
 
     .countryUser{

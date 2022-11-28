@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-primario: #24265D;
+    --naranja: #F68712;
+    --celeste: #51ADE5;
+    --azul-claro: #2C3892;
+}
+
+#containerGeneralMyProfileEdit{
+   /*  border: 2px solid red; */
+    background-image: url(https://img.freepik.com/foto-gratis/vista-aerea-drones-barcelona-espana-bloques-multiples-edificios-residenciales-oficinas_1268-19508.jpg?w=1380&t=st=1669575499~exp=1669576099~hmac=30be3ef0a33f3fbc70776b81e041bebf7aadb658cf06ee9a93e5f02296cfea52);
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.645);
+    background-blend-mode: multiply;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+}
+
+@media screen and (min-width:320px){
+    #form-Profile{
+        /* border: 2px solid red; */
+        margin: 2rem 0rem;
+        width: 85%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        background-color: rgba(0, 0, 0, 0.433);
+    }
+
+    #titleEdit{
+        margin-top: 3rem;
+        color: var(--naranja);
+        font-weight: 300;
+    }
+
+    .input-profile{
+        /* border: 2px solid green; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .label-profile{
+        color: var(--naranja);
+        margin: 10px 0;
+        font-weight: 400;
+    }
+}

@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux'
 
 function EditMyItineraries() {
 
-    const { id } = useSelector( store => store.signIn)
+    const { id, token } = useSelector( store => store.signIn)
     const nameRef = useRef()
     const photo1Ref = useRef()
     const photo2Ref = useRef()
@@ -22,7 +22,6 @@ function EditMyItineraries() {
 
     let location = useLocation()
     let myUrl = (location.pathname.slice(20))
-    console.log(myUrl)
     let navigate = useNavigate()
     let [dataUlt, setDataUlt] = useState(null)
     let [cities, setCities] = useState([])
@@ -45,10 +44,10 @@ function EditMyItineraries() {
     }
     setDataUlt(data)
 }
-
+let headers = { headers: { Authorization: `Bearer ${token}` } }
 useEffect( () => {
     
-    axios.put(`${BASE_URL}/api/itineraries/${myUrl}`, dataUlt)
+    axios.put(`${BASE_URL}/api/itineraries/${myUrl}`, dataUlt, headers)
         .then(response => {
             console.log(response)
         if (response.config.data === null){

@@ -1,10 +1,11 @@
 import { createReducer } from "@reduxjs/toolkit";
 import hotelActions from "../actions/hotelActions";
 
-const {getHotels, getHotelsFiltered, getMyHotels, deleteMyHotel} = hotelActions
+const {getHotels, getHotelsFiltered, getMyHotels, deleteMyHotel, editMyHotel} = hotelActions
 
 const initialState = {
     hotels: [],
+    hotelsAdmin: [],
     order: '',
     name: '',
     myHotels:[],
@@ -28,8 +29,15 @@ const hotelReducer = createReducer(initialState,
                     ...action.payload
                 }
             })
-
+            
             .addCase(deleteMyHotel.fulfilled, (state, action) => {
+                return{
+                    ...state,
+                    mensaje: action.payload.mensaje
+                }
+            })
+    
+            .addCase(editMyHotel.fulfilled, (state, action) => {
                 return{
                     ...state,
                     mensaje: action.payload.mensaje

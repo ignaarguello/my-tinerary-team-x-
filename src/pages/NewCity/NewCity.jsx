@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux'
 
 export default function NewCity() {
 
-    const {id} = useSelector(store => store.signIn)
+    const {id, token} = useSelector(store => store.signIn)
     const nameRef = useRef()
     const photoRef = useRef()
     const populationRef = useRef()
@@ -28,13 +28,14 @@ export default function NewCity() {
         continent: continentRef.current?.value,
         photo: photoRef.current?.value,
         population: populationRef.current?.value,
-        userId: id
+        userId: id,
     }
 
     setDataUlt(data)
   }
+  let headers = { headers: { Authorization: `Bearer ${token}` } }
   useEffect( () => {
-    axios.post(`${BASE_URL}/api/cities`, dataUlt)
+    axios.post(`${BASE_URL}/api/cities`, dataUlt, headers)
       .then(response => {
         if (response.data.success){
           toast.success(response.data.message, {

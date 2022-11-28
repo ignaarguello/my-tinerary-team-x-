@@ -10,7 +10,7 @@ import './NewTinerary.css'
 import { useSelector } from 'react-redux'
 
 export default function NewTinerary() {
-    const { id } = useSelector( store => store.signIn)
+    const { id, token } = useSelector( store => store.signIn)
 
     const nameRef = useRef()
     const photo1Ref = useRef()
@@ -40,13 +40,16 @@ export default function NewTinerary() {
         duration: durationRef.current?.value,
         cityId: cityIdRef.current?.value,
         userId: id,
+        token
       }
       setDataUlt(data)
     }
   //console.log(dataUlt)
 
+  let headers = { headers: { Authorization: `Bearer ${token}` } }
+
   useEffect( () => {
-    axios.post(`${BASE_URL}/api/itineraries`, dataUlt)
+    axios.post(`${BASE_URL}/api/itineraries`, dataUlt, headers)
       .then(response => {
         //console.log(response);
         if (response.data.success){

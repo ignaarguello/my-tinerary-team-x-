@@ -10,11 +10,8 @@ function MyItineraries() {
     const { getMyTinerary } = tineraryActions
     const {myItineraries } = useSelector( (store) => store.tineraryReducer )
     const { id } = useSelector( store => store.signIn)
-    let probando = useSelector(s => s)
-    console.log("store: ", probando);
-
     const dispatch = useDispatch()
-    console.log("all my itineraries",myItineraries);
+
     useEffect( () => {
         dispatch(getMyTinerary({ user: id }))
     }, [])

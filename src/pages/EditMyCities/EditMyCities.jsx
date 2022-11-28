@@ -9,7 +9,7 @@ import './EditMyCities.css'
 import { useSelector } from 'react-redux'
 
 function EditMyCities() {
-    const {id} = useSelector(store => store.signIn)
+    const {id, token} = useSelector(store => store.signIn)
     const nameRef = useRef()
     const photoRef = useRef()
     const populationRef = useRef()
@@ -32,9 +32,9 @@ function EditMyCities() {
     }
     setDataUlt(data)
 }
-
+let headers = { headers: { Authorization: `Bearer ${token}` } }
 useEffect( () => {
-    axios.put(`${BASE_URL}/api/cities/${myUrl}`, dataUlt)
+    axios.put(`${BASE_URL}/api/cities/${myUrl}`, dataUlt, headers)
         .then(response => {
             console.log(response)
         if (response.data.success){

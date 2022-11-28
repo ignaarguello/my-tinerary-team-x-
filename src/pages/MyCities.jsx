@@ -8,6 +8,7 @@ function MyCities() {
     const { getMyCities } = cityActions
     const { myCities } = useSelector( (store) => store.cityReducer )
     const dispatch = useDispatch()
+    console.log(id);
 
     useEffect( () => {
         dispatch(getMyCities({ user: id }))

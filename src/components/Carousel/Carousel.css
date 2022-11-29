@@ -14,9 +14,10 @@
     flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
-    background-image: url(https://cdn.discordapp.com/attachments/1036655527377248287/1037845101667426424/fondo1_-_Editado.png);
-    background-size: contain;
-
+    background-image: url(https://cdn.pixabay.com/photo/2016/10/14/17/32/dallas-1740681_960_720.jpg);
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.719);
+    background-blend-mode: multiply;
 }
 
 :root{

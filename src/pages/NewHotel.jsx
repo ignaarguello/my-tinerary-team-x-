@@ -3,44 +3,111 @@ import { useRef } from 'react'
 import { useEffect, useState } from 'react';
 import { BASE_URL } from '../api/api'
 import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 
 export default function NewHotel() {
+    const { id, token } = useSelector( store => store.signIn)
+
     const nameRef = useRef()
-    const photoRef = useRef()
+    const photoRef1 = useRef()
     const capacityRef = useRef()
     const descriptionRef = useRef()
     const citiIdRef = useRef()
     const userIdRef = useRef()
+    const navigate = useNavigate()
 
     let [dataFinal, setDataFinal] = useState(null)
 
+    let [cities, setCities] = useState([])
+
+    useEffect( () => {
+      axios.get(`${BASE_URL}/api/cities/`)
+      .then(res => setCities(res.data.response))
+    }, [])
+
     const handleSubmit = (event)=>{
-    
+      event.preventDefault()
+
       const data = {
         name: nameRef.current?.value, 
-        photo: photoRef.current?.value, 
+        photo: photoRef1.current?.value,
         capacity: capacityRef.current?.value, 
         description: descriptionRef.current?.value, 
-        userId:userIdRef.current?.value,
-        citiId:citiIdRef.current?.value ,
+        userId:id,
+        citiId:citiIdRef.current?.value,
+      }
+
+      try{
+        let headers = { headers: { Authorization: `Bearer ${token}` } }
+        axios.post(`${BASE_URL}/api/hotels`, data, headers)
+      .then(response => {
+        if (response.data.success){
+          toast.success(response.data.message, {
+            icon: '🌆',
+            position: "top-right",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            });
+            toast.info("You are being redirected in a few seconds", {
+              icon: '🥳',
+              position: "top-right",
+              autoClose: 3500,
+              hideProgressBar: false,
+              closeOnClick: false,
+              pauseOnHover: false,
+              draggable: false,
+              progress: undefined,
+              theme: "colored",
+              });
+            setTimeout(() => {
+              navigate(`/hotels/${response.data.id}`, { replace: true })
+            }, 5500)
+        }else if(response.data.message.length === 5){
+          console.log(response.data.message) 
+        } else {
+          toast.error(response.data.message.join('\n'), {
+            icon: '💔',
+            position: "top-right",
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            })
+        }
+    })
+      .catch ( err => {
+        toast.error(err.message, {
+          icon: '😵',
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+          })
+        console.log(err)
+        })
+      }catch{
+          console.log('error')
       }
       
-      setDataFinal(data)
-       event.preventDefault()
-       event.target.reset()
+      
     }
-    
-    useEffect(()=>{
-      axios.get(`${BASE_URL}/api/hotels`)
-      .then(response => console.log(response))
-      },[])
 
-
-    useEffect(()=>{
-      axios.post(`${BASE_URL}/api/hotels`, dataFinal)
-      .then(res => console.log(res))
-    },[dataFinal])
     
   return (
     <div id='containerSign-In'>
@@ -54,7 +121,7 @@ export default function NewHotel() {
                     </div>
                     <div className='container-Inputs'>
                       <label htmlFor="input-password-SI" className='labelForm-SI' required>- Photos -</label>
-                      <input type="text" name='input-password-SI' id='input-photos'className='input-SI' required placeholder='Photos' ref={photoRef}/>
+                      <input type="text" name='input-password-SI' id='input-photos'className='input-SI' required placeholder='Photos' ref={photoRef1}/>
                     </div>
                     <div className='container-Inputs'>
                       <label htmlFor="input-password-SI" className='labelForm-SI' required>- Capacity -</label>
@@ -65,12 +132,11 @@ export default function NewHotel() {
                       <input type="text" name='input-password-SI' id='input-description'className='input-SI' required placeholder='Description' ref={descriptionRef}/>
                     </div>
                     <div className='container-Inputs'>
-                      <label htmlFor="input-password-SI" className='labelForm-SI' required>- City Id -</label>
-                      <input type="text" name='input-password-SI' id='input-cityId'className='input-SI' required placeholder='City ID' ref={citiIdRef}/>
-                    </div>
-                    <div className='container-Inputs'>
-                      <label htmlFor="input-password-SI" className='labelForm-SI' required>- User Id -</label>
-                      <input type="text" name='input-password-SI' id='input-cityId'className='input-SI' required placeholder='User ID' ref={userIdRef}/>
+                    <label htmlFor="cityId" className='labelForm-SI' required>City</label>
+                    <select name='cityId' id='cityId' className='input-SI' ref={citiIdRef}>
+                      <option value="none" defaultValue="None">Choose a city...</option>
+                      {(cities.map(city =>  <option key={`${city.name}`} value={`${city._id}`} >{`${city.name}`}</option>))}
+                    </select>
                     </div>
                     <div className='container-Inputs'>
                       <input type="submit" name='input-submit-SI' id='input-submit-SI' value='Create New Hotel' />
@@ -78,6 +144,7 @@ export default function NewHotel() {
                 </form>
             </div>
         </div>
+        <ToastContainer />
     </div>
   )
 }

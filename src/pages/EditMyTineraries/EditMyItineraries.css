@@ -1,0 +1,165 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-primario: #24265D;
+    --naranja: #F68712;
+    --celeste: #51ADE5;
+    --azul-claro: #2C3892;
+}
+
+@media screen and (min-width:320px) {
+    #cont-editTine{
+        width: 100%;
+        min-height: 70vh;
+        background-image: url(https://img.freepik.com/foto-gratis/cubierta-velero-profesional-o-yate-carreras-competencia-dia-soleado-ventoso-verano-moviendose-rapidamente-traves-olas-agua-spinnaker-arriba_346278-333.jpg?w=1380&t=st=1669575982~exp=1669576582~hmac=ba848a174b5265ae26764e35e0ae64f18bac7b68811da0cb5f7280b77d1f276c);
+        background-size: cover;
+        background-color: rgba(0, 0, 0, 0.719);
+        background-blend-mode: multiply;
+        display: flex;
+        justify-content: center;
+    }
+
+    #cont-formEditTine{
+        /* border: 2px solid green; */
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #title-editTine{
+        margin: 2rem 0;
+        color: var(--naranja);
+        background-color: black;
+        padding: 0 3rem;
+        border-radius: 50px 0 50px 0;
+    }
+
+    #subcont-formEditTine{
+        width: 100%;
+        height: 100%;
+    }
+
+    #form-editTine{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .cont-inputsTine{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 1rem 1rem 1rem;
+    }
+
+    .Imagen-BackToTop{
+        margin-right: .5rem;
+        margin-bottom: 10rem;
+    }
+
+    .label-formEditTine{
+        color: var(--naranja);
+        background-color: black;
+        border-radius: 10px 0px 10px 0px;
+        padding: 0 1rem;
+        font-weight: bold;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        margin: 5px 0;
+    }
+
+    .input-editTine{
+        width: 75%;
+        padding: .5rem;
+        border-radius: 5px;
+        border: 1px solid black;
+    }
+
+    #submit-editTine{
+        width: 50%;
+        padding: .4rem;
+        border-radius: 30px;
+        color: var(--naranja);
+        background-color: var(--color-primario);
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    #submit-editTine:hover{
+        font-style: italic;
+        box-shadow: inset 0 -1px 5px var(--naranja);
+    }
+
+    #containerButtonCreateNewShow{
+        /* border: 2px solid red; */
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+        color:var(--naranja);
+    }
+
+    #titleNewShow{
+        font-size: 25px;
+        font-weight: 350;
+        margin-top: 1rem;
+        background-color: rgba(0, 0, 0, 0.891);
+        padding: 15px;
+        border-radius: 25px;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .input-editTine{
+        width: 45%;
+    }
+
+    #submit-editTine{
+        width: 20%;
+    }
+
+    .Imagen-BackToTop{
+        margin-right: .5rem;
+        margin-bottom: 20rem;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .input-editTine{
+        width: 35%;
+    }
+
+    #containerButtonGoogle{
+        width: 20%;
+    }
+}
+
+@media screen and (min-width:1440px) {
+    .input-editTine{
+        width: 25%;
+    }
+
+    #input-description{
+        max-width: 25%;
+        min-width: 25%;
+        min-height: 5rem;
+        max-height: 10rem
+    }
+
+    #titleNewShow{
+        transition: .7s ease;
+        cursor: pointer;
+    }
+
+    #titleNewShow:hover{
+        background-color: rgb(0, 0, 0);
+    }
+}

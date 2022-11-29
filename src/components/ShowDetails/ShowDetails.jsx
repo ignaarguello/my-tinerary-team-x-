@@ -13,7 +13,7 @@ export default function ShowDetails(props) {
             </div>
             <div className='bodyCardShow'>
                 <h2 className='titleCardShow'>{name}</h2>
-                <p className='dateCardShow'>Date - {date}</p>
+                <p className='dateCardShow'>Date - {date.slice(0,10)}</p>
                 <p className='priceCardShow'>Price - {price} USD </p>
             </div>
         </div>

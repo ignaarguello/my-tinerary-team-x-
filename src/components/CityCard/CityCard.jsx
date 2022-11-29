@@ -8,10 +8,10 @@ export default function CityCard(props) {
 
     return (
         <div className='card-city'>
-                <img className='imageCardHotels' src={img} alt={name} />
-                <h2 className='titleCardHotels'>{name}</h2>
-                <p className='descriptionCardHotels'>{continent}</p>
-                <p className='capacityHotels'>Population - {population} </p>
+                <img className='img-cardCity' src={img} alt={name} />
+                <h2 className='title-cardCity'>{name}</h2>
+                <p className='continent-cardCity'>{continent}</p>
+                <p className='population-cardCity'>Population - {population} </p>
                 <LinkRouter to={id} className='btnCardHotels'><div>Discover +</div></LinkRouter>
         </div>
         )

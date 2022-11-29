@@ -1,0 +1,166 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-primario: #24265D;
+    --naranja: #F68712;
+    --celeste: #51ADE5;
+    --azul-claro: #2C3892;
+}
+
+@media screen and (min-width:320px) {
+    #cont-newCity{
+        /* border: 2px solid red; */
+        width: 100%;
+        min-height: 70vh;
+        background-image: url(https://img.freepik.com/foto-gratis/hermosa-vista-plaza-espana-sevilla-espana_181624-39542.jpg?w=1480&t=st=1669580706~exp=1669581306~hmac=3cf5f78440b2e2e42645285839df0793658dd781c7f745ab4a3cdc13508c3175);
+        background-size: cover;
+        background-color: rgb(95, 95, 95);
+        background-blend-mode: multiply;
+        display: flex;
+        justify-content: center;
+    }
+
+    #cont-FormNewCity{
+        /* border: 2px solid green; */
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #title-NewCity{
+        margin: 2rem 0;
+        color: var(--naranja);
+        background-color: black;
+        padding: 0 3rem;
+        border-radius: 50px 0 50px 0;
+    }
+
+    #cont-formularioNewCity{
+        /* border: 2px solid blue; */
+        width: 100%;
+        height: 100%;
+    }
+
+    #form-NewCity{
+       /*  border: 3px solid brown; */
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .cont-inputsNewCity{
+        /* border: 2px solid greenyellow; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 1rem 1rem 1rem;
+    }
+
+    .Imagen-BackToTop{
+        margin-right: .5rem;
+        margin-bottom: 10rem;
+    }
+
+    .label-NewCity{
+        color: var(--naranja);
+        background-color: black;
+        border-radius: 10px 0px 10px 0px;
+        padding: 0 1rem;
+        font-weight: bold;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        margin: 5px 0;
+    }
+
+    .input-SI{
+        width: 75%;
+        padding: .5rem;
+        border-radius: 5px;
+        border: 1px solid black;
+    }
+
+    #submit-NewCity{
+        width: 50%;
+        padding: .4rem;
+        border-radius: 30px;
+        color: var(--naranja);
+        background-color: var(--color-primario);
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    #submit-NewCity:hover{
+        font-style: italic;
+        box-shadow: inset 0 -1px 5px var(--naranja);
+    }
+
+    #containerButtonGoogle{
+        width: 50%;
+        border-radius: 20px;
+        background-color: #202124;
+        display: flex;
+        justify-content: center;
+        justify-content: space-around;
+        align-items: center;
+        padding: 8px;
+        color: white;
+        font-size: 15px;
+        gap: 1rem;
+        cursor: pointer;
+    }
+    
+    .logoGoogle{
+        width: 22px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 20px;
+        padding:4px;
+    }
+}
+
+@media screen and (min-width:768px) {
+    .input-SI{
+        width: 45%;
+    }
+
+    #submit-NewCity{
+        width: 20%;
+    }
+
+    #containerButtonGoogle{
+        width: 25%;
+    }
+
+    .Imagen-BackToTop{
+        margin-right: .5rem;
+        margin-bottom: 20rem;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .input-SI{
+        width: 35%;
+    }
+
+    #containerButtonGoogle{
+        width: 20%;
+    }
+}
+
+@media screen and (min-width:1440px) {
+    .input-SI{
+        width: 25%;
+    }
+
+    #containerButtonGoogle{
+        width: 12%;
+    }
+}

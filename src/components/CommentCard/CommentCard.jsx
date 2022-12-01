@@ -6,8 +6,8 @@ import commentActions from '../../redux/actions/commentActions'
 
 export default function CommentCard(props) {
     let [hideUpdateComment, setHideUpdateComment] = useState(false) 
-    const {token } = useSelector( store => store.signIn)
-    let {comment, date, id,name,photo} = props
+    const {token, id } = useSelector( store => store.signIn)
+    let {comment, date, idCard, name, photo, userId} = props
     const dispatch = useDispatch()
     const inputUpdateCommentRef = useRef()
     
@@ -15,6 +15,7 @@ export default function CommentCard(props) {
 
     useEffect(()=>{
         console.log(props)
+        console.log(id)
     },[])
 
     function showUpdateComment(){
@@ -28,7 +29,7 @@ export default function CommentCard(props) {
       }
       
       function deleteCommentFun(){
-        dispatch(deleteComment({id:id, token:token}))
+        dispatch(deleteComment({id:idCard, token:token}))
     }
 
     function closeUpdate(){
@@ -40,27 +41,40 @@ export default function CommentCard(props) {
             comment:inputUpdateCommentRef.current.value
         } 
 
-        dispatch(updateComment({id:id, data:value, token:token}))
+        dispatch(updateComment({id:idCard, data:value, token:token}))
     }
 
 
 
   return (
     <div id='containerCardComments'>
-        <div id='container2'>
-            <div id='containerPhotoName'>
-                <img className='photoCardComments' src={photo} />
-                <h5 className='nameCardComment'>{name}</h5>
+        {id == userId?
+                <div id='container2'>
+                <div id='containerPhotoName'>
+                    <img className='photoCardComments' src={photo} />
+                    <h5 className='nameCardComment1'>{name}</h5>
+                </div>
+                <div id='containerCommentText'>
+                    <p className='commentCard'>{comment}</p>
+                    <p className='dateCardComment'>{date}</p>
+                </div>
+                <div id='containerButtonsCardComment'>
+                    <button className='btnCardComment' onClick={deleteCommentFun}><img className='imageButon' src="https://cdn-icons-png.flaticon.com/512/6794/6794645.png" alt="" /></button>
+                    <button className='btnCardComment' onClick={showUpdateComment}><img className='imageButon' src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" alt="" /></button>
+                </div>
             </div>
-            <div id='containerCommentText'>
-                <p className='commentCard'>{comment}</p>
-                <p className='dateCardComment'>{date}</p>
+            : 
+            <div id='container2'>
+                <div id='containerPhotoName'>
+                    <img className='photoCardComments' src={photo} />
+                    <h5 className='nameCardComment'>{name}</h5>
+                </div>
+                <div id='containerCommentText'>
+                    <p className='commentCard'>{comment}</p>
+                    <p className='dateCardComment'>{date}</p>
+                </div>
             </div>
-            <div id='containerButtonsCardComment'>
-                <button className='btnCardComment' onClick={deleteCommentFun}><img className='imageButon' src="https://cdn-icons-png.flaticon.com/512/6794/6794645.png" alt="" /></button>
-                <button className='btnCardComment' onClick={showUpdateComment}><img className='imageButon' src="https://cdn-icons-png.flaticon.com/512/1828/1828911.png" alt="" /></button>
-            </div>
-        </div>
+        }
         {hideUpdateComment && 
             <div id='containerUpdateComment'>
                 <input type="text" id='inputUpdateComment' placeholder='Update Comment..' ref={inputUpdateCommentRef} />

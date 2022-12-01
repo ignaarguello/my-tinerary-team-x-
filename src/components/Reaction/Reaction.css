@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cont-Reaction{
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+    align-items: center;
+    padding: 1rem;
+}
+
+.iconReaction{
+    width: 30px;
+    height: 30px;
+}
+
+.iconReaction img{
+    width: 100%;
+    cursor: pointer;
+}
+
+.iconBackReaction{
+    width: 30px;
+    height: 30px;
+}
+
+.iconBackReaction img{
+    width: 100%;
+    cursor: pointer;
+}
+
+.nameReaction{
+    color: #fed89f;
+    border-radius: 50%;
+    padding: 4px 8px;
+    background-color:black;
+}

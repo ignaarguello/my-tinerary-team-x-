@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import commentActions from '../actions/commentActions'
 
-const {getCommentFilter, createComment} = commentActions
+const {getCommentFilter, createComment, deleteComment,updateComment} = commentActions
 
 const inicialState = {
     shows: [],
@@ -23,8 +23,18 @@ const commentReducer = createReducer(inicialState,
         })
 
         .addCase(createComment.fulfilled, (state,action)=>{
-            console.log('Comment Reducer',action.payload)
+            /* console.log('Comment Reducer',action.payload) */
             return{...state, comment:action.payload}
+        })
+
+        .addCase(deleteComment.fulfilled, (state,action)=>{
+           /*  console.log('Comment Reducer',action.payload) */
+            return{...state, action}
+        })
+
+        .addCase(updateComment.fulfilled, (state,action)=>{
+            /* console.log('Comment Reducer',action.payload) */
+            return{...state, action}
         })
 
 })

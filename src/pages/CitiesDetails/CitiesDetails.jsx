@@ -3,46 +3,49 @@ import CitiesDet from '../../components/CitiesDet/CitiesDet'
 import './CitiesDetails.css'
 import { useParams } from 'react-router-dom'
 import ActivitiesDetails from '../../components/ActivitiesDetails/ActivitiesDetails'
-import { useState, useEffect } from 'react'
-import { BASE_URL } from '../../api/url'
-import axios from 'axios'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import cityActions from '../../redux/actions/cityAction'
+import tineraryActions from '../../redux/actions/tineraryAction'
 
 
 function CitiesDetails() {
 
+  let dispatch = useDispatch()
   let {cityid} = useParams()
-  let [cityFound, setCityFound] = useState([])
-  let [itineraries, setItineraries] = useState([])
 
+
+  const {getOneCity} = cityActions
+  const {getTineraryByCity} = tineraryActions
+  
+  let {oneCity} = useSelector(store => store.cityReducer)
+  let {cityTineraries} = useSelector(store => store.tineraryReducer)
+  console.log(cityTineraries)
+  
   useEffect( () => {
-    axios.get(`${BASE_URL}/api/cities/${cityid}`)
-    .then(response => setCityFound(response.data.response[0]))
-    .catch(err => console.log(err.message))
+    dispatch(getOneCity(cityid))
+    dispatch(getTineraryByCity(cityid))
   }, [])
+  
 
-  useEffect( () => {
-    axios.get(`${BASE_URL}/api/itineraries?cityId=${cityid}`)
-    .then(response => setItineraries(response.data.response))
-    .catch(err => console.log(err.message))
-  }, [])
-
-
+  
   return (
-
     <div id='containerAllDetails'>
-      <h1 className='titleCityDetails'>{cityFound.name} - Details</h1>
-      <CitiesDet key={cityFound.id} name={cityFound.name} continent={cityFound.continent} img={cityFound.photo} population={cityFound.population}/>
-      {itineraries.length !== 0 ?
+      <h1 className='titleCityDetails'>{oneCity.name} - Details</h1>
+      <CitiesDet key={oneCity.id} name={oneCity.name} continent={oneCity.continent} img={oneCity.photo} population={oneCity.population}/>
+      {cityTineraries.length !== 0 ?
       <>
       <h2 className='titleItineraries'>Popular Tineraries</h2>
       <div className='containerActivities'>
-      {itineraries.map( each => 
-        <ActivitiesDetails photo={each.photo[0]} price={each.price} duration={each.duration} description={each.description} name={each.name} />
+      {cityTineraries.map( each =>
+      <>
+        <ActivitiesDetails photo={each.photo[0]} key={each._id} itinerary={each} id={each._id} price={each.price} duration={each.duration} description={each.description} name={each.name} />
+      </> 
       )}
       </div>
       </>
       :
-      <h2 className='titleNotHaveShows'>Ooops, this city does not have activities :(</h2>
+      <h2 className='titleNotHaveTineraries'>Ooops &#128532; This city does not have tineraries &#9978; &#127946;</h2>
     }
     </div>
   )

@@ -1,4 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk} from "@reduxjs/toolkit";
 import axios from "axios";
 import { BASE_URL } from "../../api/url";
 import { ToastContainer, toast } from 'react-toastify';
@@ -17,6 +17,23 @@ const getMyShow= createAsyncThunk('getMyShow', async({user}) => {
         return { payload: "error" }
     }
 })
+
+const getShowsHotelId = createAsyncThunk('getShowsHotelId', async(id) => {
+    let url = `${BASE_URL}/api/shows?hotelId=${id}`
+    try{
+        const res = await axios.get(url)
+        /* console.log('action de shows',res) */
+        const shows = res.data.response
+        return {
+            showsHotelId: shows
+        }
+    } catch(error){
+        console.log(error)
+        return { payload: "error" }
+    }
+})
+
+
 
 const deleteMyShow= createAsyncThunk('deleteMyShow', async ({token, idShow}) => {
     let headers = { headers: { Authorization: `Bearer ${token}` } }
@@ -92,6 +109,7 @@ const showActions = {
     getMyShow,
     deleteMyShow,
     editMyShow,
+    getShowsHotelId,
 }
 
 export default showActions;

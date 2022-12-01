@@ -69,8 +69,6 @@ const log_out = createAsyncThunk('log_out', async(token)=>{
     
 })
 
-
-
 const userActions = {
     log_in,
     re_log_in,

@@ -17,7 +17,6 @@ export default function EditMyShow() {
     const hotelIdRef = useRef()
     const navigate = useNavigate()
 
-    let [dataUlt, setDataUlt] = useState(null)
     let [hotels, setHotels] = useState([])
 
     
@@ -26,7 +25,7 @@ export default function EditMyShow() {
       .then(res => setHotels(res.data.response))
     }, [])
 
-    const handleSubmit = async (event)=>{
+    const handleSubmit = (event)=>{
       
       event.preventDefault()
       const data = {

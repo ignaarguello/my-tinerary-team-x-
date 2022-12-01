@@ -12,6 +12,16 @@ const getCities = createAsyncThunk('getCities', async() => {
     }
 })
 
+const getOneCity = createAsyncThunk('getOneCity', async(idCity) => {
+    try{
+        const respuesta = await axios.get(`${BASE_URL}/api/cities/${idCity}`)
+        return { oneCity: respuesta.data.response[0] }
+    } catch(error){
+        console.log(error)
+        return { payload: "error" }
+    }
+})
+
 const filterCities = createAsyncThunk('filterCities', async({continent, value}) => {
     let url = `${BASE_URL}/api/cities?${continent}&name=${value}`
     try{
@@ -60,7 +70,8 @@ const cityActions = {
     getCities,
     filterCities,
     getMyCities,
-    deleteMyCity
+    deleteMyCity,
+    getOneCity
 }
 
 export default cityActions;

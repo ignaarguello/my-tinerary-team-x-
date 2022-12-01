@@ -4,12 +4,26 @@ import { BASE_URL } from "../../api/url";
 
 const getMyTinerary = createAsyncThunk('getMyTinerary', async({user}) => {
     let url = `${BASE_URL}/api/itineraries?userId=${user}`
-    console.log(url)
     try{
         const res = await axios.get(url)
         const allTineraries = res.data.response.map(e => e)
         return {
             myItineraries: allTineraries
+        }
+    } catch(error){
+        console.log(error.response)
+        return { payload: "error" }
+    }
+})
+
+const getTineraryByCity = createAsyncThunk('getTineraryByCity', async(cityid) => {
+    let url = `${BASE_URL}/api/itineraries?cityId=${cityid}`
+    try{
+        const res = await axios.get(url)
+        const allTineraries = res.data.response.map(e => e)
+        //console.log("RES ACTION",allTineraries);
+        return {
+            cityTineraries: allTineraries
         }
     } catch(error){
         console.log(error.response)
@@ -34,7 +48,8 @@ const deleteMyTinerary = createAsyncThunk('deleteMyTinerary', async ({idTinerary
 
 const tineraryActions = {
     getMyTinerary,
-    deleteMyTinerary
+    deleteMyTinerary,
+    getTineraryByCity
 }
 
 export default tineraryActions;

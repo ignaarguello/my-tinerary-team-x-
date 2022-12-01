@@ -73,6 +73,14 @@
     transition: .5s ease;
 }
 
+.reactionsDetails{
+    display: flex;
+    justify-content: center;
+    background-color: #fce8c9;
+    border-bottom-right-radius: 3rem;
+    border: 5px solid black;
+}
+
 @media screen and (max-width:1150px){
     .cardActivity{
         width: 60%;

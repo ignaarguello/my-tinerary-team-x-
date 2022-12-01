@@ -25,6 +25,11 @@
     font-style: oblique;
 }
 
+.titleNotHaveTineraries{
+    text-align: center;
+    color: var(--color-primario);
+}
+
 @media screen and (max-width:1150px){
     .containerActivities{
         display: flex;

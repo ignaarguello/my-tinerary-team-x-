@@ -6,8 +6,8 @@ import commentActions from '../../redux/actions/commentActions'
 
 export default function CommentCard(props) {
     let [hideUpdateComment, setHideUpdateComment] = useState(false) 
-    const { photo, name,token } = useSelector( store => store.signIn)
-    let {comment, date, id} = props
+    const {token } = useSelector( store => store.signIn)
+    let {comment, date, id,name,photo} = props
     const dispatch = useDispatch()
     const inputUpdateCommentRef = useRef()
     

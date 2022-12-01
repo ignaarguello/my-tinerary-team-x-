@@ -1,17 +1,14 @@
 import React from 'react'
-import { ToastContainer, toast } from 'react-toastify';
 import { useRef, useState, useEffect } from 'react'
 import './NewReaction.css'
 import axios from 'axios';
 import { BASE_URL } from '../../api/url';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 function NewReaction() {
 
     const { token } = useSelector(store => store.signIn)
-
 
     const itineraryRef = useRef()
     const nameRef = useRef()
@@ -23,10 +20,6 @@ function NewReaction() {
         axios.get(`${BASE_URL}/api/itineraries/`)
         .then(res => setItineraries(res.data.response))
     }, [])
-
-/*     console.log(itineraries)
-    let allIti = itineraries.map(it => it._id)
-    console.log(allIti); */
 
     const handleSubmit = async (event)=>{
         event.preventDefault()
@@ -104,9 +97,8 @@ return (
                 </form>
             </div>
         </div>
-        <ToastContainer />
     </div>
-  )
+    )
 }
 
 export default NewReaction

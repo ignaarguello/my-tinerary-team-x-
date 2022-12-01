@@ -15,6 +15,7 @@ function Reaction(props) {
 
     useEffect(() => {
         reactions()
+            // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [refresh])
 
     async function reactions() {
@@ -60,7 +61,7 @@ function Reaction(props) {
                                 userFound ? (
                                     <div className='cont-Reaction'>
                                         <div className='iconReaction'>
-                                            <img onClick={press} width='30px' name={react.name} src={react.icon} alt="icon" />
+                                            <img onClick={press} name={react.name} src={react.icon} alt="icon" />
                                         </div>
                                         <div className='nameReaction'>
                                             <p>{reaction.howManyReactions[react.name]}</p>
@@ -69,7 +70,7 @@ function Reaction(props) {
                                 ) : (
                                     <div className='cont-Reaction'>
                                         <div className='iconBackReaction'>
-                                            <img onClick={press} width='30px' name={react.name} src={react.iconBack} alt="icon" />
+                                            <img onClick={press} name={react.name} src={react.iconBack} alt="icon" />
                                         </div>
                                         <div className='nameReaction'>
                                             <p>{reaction.howManyReactions[react.name]}</p>

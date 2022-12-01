@@ -1,3 +1,4 @@
+
 import React from 'react'
 import CitiesDet from '../../components/CitiesDet/CitiesDet'
 import './CitiesDetails.css'
@@ -25,6 +26,7 @@ function CitiesDetails() {
   useEffect( () => {
     dispatch(getOneCity(cityid))
     dispatch(getTineraryByCity(cityid))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   
 

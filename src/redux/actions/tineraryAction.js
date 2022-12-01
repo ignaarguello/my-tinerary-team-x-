@@ -46,10 +46,25 @@ const deleteMyTinerary = createAsyncThunk('deleteMyTinerary', async ({idTinerary
     }
 })
 
+const getOneTinerary = createAsyncThunk('getOneTinerary', async(id) => {
+    let url = `${BASE_URL}/api/itineraries/${id}`
+    try{
+        const res = await axios.get(url)
+        console.log("RES ACTION", res)
+        return {
+            oneTinerary: res.data.response
+        }
+    } catch(error){
+        console.log(error.response)
+        return { payload: "error" }
+    }
+})
+
 const tineraryActions = {
     getMyTinerary,
     deleteMyTinerary,
-    getTineraryByCity
+    getTineraryByCity,
+    getOneTinerary
 }
 
 export default tineraryActions;

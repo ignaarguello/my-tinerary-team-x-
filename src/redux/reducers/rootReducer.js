@@ -8,6 +8,7 @@ import commentReducer from "./commentReducer";
 
 
 
+
 const rootReducer = {
     cityReducer,
     tineraryReducer,

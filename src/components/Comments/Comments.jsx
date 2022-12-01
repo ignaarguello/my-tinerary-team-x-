@@ -22,8 +22,9 @@ export default function Comments() {
 
   useEffect(()=>{
     setDataUlt(commentsFilter)
-    console.log('DataUlt',dataUlt)
-  })
+  },[commentsFilter])
+
+  
 
 
   async function getShows(){
@@ -31,13 +32,16 @@ export default function Comments() {
       /* console.log('Use Params',hotelId) */
       let res = await dispatch(getShowsHotelId(hotelId))
       let showsId = (res.payload?.showsHotelId?.map(e => e._id))
-      console.log('nada',showsId)
+      /* console.log('nada',showsId) */
       dispatch(getCommentFilter(showsId[0]))
     }
     
     useEffect(()=>{
       getShows()
-    },[])
+    })
+
+
+   
 
 
   
@@ -45,7 +49,7 @@ export default function Comments() {
     <div id='containerComments'>
        <NewComment />
        <div id='containerCommentsId'>
-          {dataUlt.length > 0 ? dataUlt.map(each => <CommentCard key={each._id} comment={each?.comment} date={each?.date.slice(0,10)} />) : <h2 className='titleNoComments'>There are no comments..</h2>}
+          {dataUlt.length > 0 ? dataUlt.map(each => <CommentCard id={each._id} comment={each?.comment} date={each?.date.slice(0,10)} />) : <h2 className='titleNoComments'>There are no comments..</h2>}
        </div>
     </div>
   )

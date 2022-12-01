@@ -11,15 +11,10 @@ export default function NewComment() {
     const {showsHotelId} = useSelector(store => store.shows)
     const commentRef = useRef()
     const dateNow = new Date()
-    /* const date = Date().slice(3,16) */
     const date = dateNow.toLocaleDateString("en-us")
     const {createComment} = commentActions
     const dispatch = useDispatch()
-
-
-      console.log('New comment',showsHotelId)
-
-
+  
     function showNewComment(){
       if(!hideNewComment){
         setHideNewComment(true)
@@ -54,7 +49,7 @@ export default function NewComment() {
                     <textarea id='textNewComment' placeholder='Leave your comment...' ref={commentRef}></textarea>
                       <div id='containerButtons'>
                         <button className='btnSend' onSubmit={deleteComment}><img className='imageButon' src="https://cdn-icons-png.flaticon.com/512/6794/6794645.png" alt="" /></button>
-                        <button className='btnSend' onClick={sendComment}><img className='imageButon' src="https://cdn-icons-png.flaticon.com/128/3019/3019010.png" alt="" /></button>
+                        <button className='btnSend' onClick={sendComment}><img className='imageButon' src="https://cdn-icons-png.flaticon.com/512/1828/1828925.png" alt="" /></button>
                       </div>
                   </form>
                 </div>

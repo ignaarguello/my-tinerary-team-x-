@@ -31,6 +31,7 @@ import EditMyShows from './pages/EditMyShows'
 import MyProfile from './components/MyProfile/MyProfile';
 import EditMyProfile from './components/EditMyProfile/EditMyProfile'
 import NewShow from './pages/NewShow/NewShow'
+import NewReaction from './pages/NewReaction/NewReaction';
 
 
 //importo el componente para proteger las rutas
@@ -84,6 +85,7 @@ function App() {
           <Route path="/mycities/edit/:id" element={<EditMyCities />}/>
           <Route path="/myhotels" element={<MyHotels />}/>
           <Route path="/myhotels/edit/:id" element={<EditMyHotels />}/>
+          <Route path="/newreaction" element={<NewReaction />}/>
         </Route>
       </Routes>
     </Layout>

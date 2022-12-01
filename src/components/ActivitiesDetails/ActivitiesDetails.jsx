@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import reactionActions from '../../redux/actions/reactionAction'
 import Reaction from '../Reaction/Reaction'
 import './ActivitiesDetails.css'
@@ -8,9 +8,10 @@ export default function CardItinerary(props) {
     let { itinerary } = props
     const dispatch = useDispatch()
     const { getReactions } = reactionActions
+    let {token} = useSelector(store => store.signIn)
 
     useEffect(() => {
-        dispatch(getReactions(itinerary._id))
+        dispatch(getReactions({id: itinerary._id, token: token}))
     }, [])
 
     return (

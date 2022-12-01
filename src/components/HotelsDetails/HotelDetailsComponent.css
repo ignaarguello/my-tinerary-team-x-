@@ -12,6 +12,13 @@
 }
 
 @media screen and (min-width:320px) {
+
+    #containerGeneralAll{
+        /* border: 2px solid red; */
+        display: flex;
+        flex-direction: column;
+    }
+
     #containerCardDetails{
         /* border: 2px solid red; */
         min-height: 61vh;

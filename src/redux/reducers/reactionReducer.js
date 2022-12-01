@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import reactionActions from "../actions/reactionAction";
 
-const { getReactions, updateReaction } = reactionActions;
+const { getReactions, updateReaction, getMyReactions } = reactionActions;
 
 const initialState = {
     reactioned: [
@@ -22,6 +22,7 @@ const initialState = {
             reactioned: false,
         }
     ],
+    myReactions: [],
 
 };
 
@@ -41,6 +42,9 @@ const reactionReducer = createReducer(initialState,
                         reaction.reactioned = !reaction.reactioned
                     }
                 })
+            })
+            .addCase(getMyReactions.fulfilled, (state, action) => {
+                return {...state, myReactions: action.payload}
             })
     }
 );

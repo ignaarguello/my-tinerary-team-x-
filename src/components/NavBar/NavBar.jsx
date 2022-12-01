@@ -118,7 +118,10 @@ export default function NavBar() {
                 <LinkRouter to={`/me/${id}`} className='link'>
                   <p>Profile</p>
                 </LinkRouter>
-                <div className="link" onClick={ () => logout(token) }><p>Logout</p></div> 
+                <div className="link" onClick={ () => logout(token) }><p>Logout</p></div>
+                <LinkRouter to={`/myreactions`} className='link'>
+                  <p>My reactions</p>
+                </LinkRouter>
                 {role === "admin" &&
                 <LinkRouter to='/newreaction' className="link">
                   <p>New Reaction</p>

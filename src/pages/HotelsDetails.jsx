@@ -29,7 +29,7 @@ export default function HotelsDetails() {
 
   <div id='containerAllDetails'>
       <h1 className='titleHotelDetails'>Hotel Details</h1>
-      <HotelDetailsComponent image={hotelFound.photo} name={hotelFound.name} description={hotelFound.description} capacity={hotelFound.capacity}  />
+      <HotelDetailsComponent key={hotelFound._id} image={hotelFound.photo} name={hotelFound.name} description={hotelFound.description} capacity={hotelFound.capacity}  />
     {showFound.length !== 0 ? 
      <>
      <h2 className='titlePopuparTinearies'>Popular Tineraries</h2>

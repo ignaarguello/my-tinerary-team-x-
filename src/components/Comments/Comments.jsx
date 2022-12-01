@@ -23,7 +23,7 @@ export default function Comments() {
   useEffect(()=>{
     setDataUlt(commentsFilter)
     console.log(dataUlt)
-  },[commentsFilter])
+  },[])
 
   
 
@@ -39,7 +39,7 @@ export default function Comments() {
     
     useEffect(()=>{
       getShows()
-    })
+    }, [])
 
 
    

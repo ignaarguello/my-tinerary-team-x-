@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cont-general{
+    background: url(https://img.freepik.com/foto-gratis/ala-aeroplano_209303-54.jpg?w=1380&t=st=1669951153~exp=1669951753~hmac=c1bf01ece1671378bb48173961f5a5df2753346f571a73e22367b55b33f6fcf1);
+    background-color: rgba(0, 0, 0, 0.294);
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-size:cover;
+    width: 100%;
+    min-height: 69vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    flex-wrap: wrap;
+}
+
+.cont-general>h1{
+    text-align: center;
+}
+
+.cont-myReaction{
+    width: 20rem;
+    height: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.cont-myReaction:hover{
+    transform: scale(1.1);
+    transition: ease-in-out .8s;
+}
+
+.cont-myReaction>h2{
+    font-size: 15px;
+    text-align: center;
+}
+
+.cont-myReaction>img{
+    width: 90%;
+    border-radius: 20px;
+}
+
+.reactionLike{
+    border: 1px solid #4242d5c3;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 7px 7px 8px #0f0fcdc3;
+}
+
+.reactionNot-Like{
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 7px 7px 8px black;
+}
+
+.reactionSurprise{
+    border: 1px solid #abd733;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 7px 7px 8px #abd733;
+}
+
+.reactionLove{
+    border: 1px solid #d52121;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 7px 7px 8px #d52121;
+}
+
+.info-myReaction{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.trash{
+    cursor: pointer;
+}
+
+.trash:hover{
+    transform: scale(1.2);
+    transition: ease-in-out .3s;
+}
+
+.info-myReaction>img{
+    width: 2rem;
+}

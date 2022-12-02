@@ -39,10 +39,24 @@ const getMyReactions = createAsyncThunk("getMyReactions", async ({id, token}) =>
     }
 })
 
+const deleteReaction = createAsyncThunk("deleteReaction", async ({id, token}) => {
+    let headers = { headers: { 'Authorization': `Bearer ${token}` } }
+    try{
+        const res = await axios.put(`${BASE_URL}/api/reactions/${id}`, null, headers)
+        console.log(res)
+        return res.data.response
+    } catch(error){
+        return{
+            payload: error.response.data
+        }
+    }
+})
+
 const reactionActions = {
     getReactions,
     updateReaction,
     getMyReactions,
+    deleteReaction,
 }
 
 export default reactionActions

@@ -9,7 +9,7 @@ import CommentCard from '../CommentCard/CommentCard'
 import { useParams } from 'react-router-dom'
 
 export default function Comments() {
-  const dispatch = useDispatch()
+ const dispatch = useDispatch()
   const {getCommentFilter} = commentActions
   const {getShowsHotelId} = showActions
   const {hotelId} = useParams()
@@ -22,13 +22,10 @@ export default function Comments() {
 
   useEffect(()=>{
     setDataUlt(commentsFilter)
-    /* console.log('ULT',dataUlt) */
-    getShows()
+    console.log('ULT',dataUlt)
   },[])
 
   
-
-
   async function getShows(){
       await hotelId
       /* console.log('Use Params',hotelId) */
@@ -43,6 +40,9 @@ export default function Comments() {
       }
     }
     
+    useEffect(()=>{
+      getShows()
+    },[])
    
 
 
@@ -52,7 +52,7 @@ return (
     <div id='containerComments'>
        <NewComment />
        <div id='containerCommentsId'>
-          {dataUlt.length > 0 ? dataUlt.map(each => <CommentCard idCard={each._id} comment={each?.comment} date={each?.date.slice(0,10)} photo={each?.photo} name={each?.name} userId={each?.userId} showId={each?.showId} />) : <h2 className='titleNoComments'>There are no comments..</h2>}
+          {dataUlt.length > 0 ? dataUlt.map(each => <CommentCard idCard={each._id} comment={each?.comment} date={each?.date.slice(0,10)} photo={each?.photo} name={each?.name} userId={each?.userId} />) : <h2 className='titleNoComments'>There are no comments..</h2>}
        </div>
     </div>
   )

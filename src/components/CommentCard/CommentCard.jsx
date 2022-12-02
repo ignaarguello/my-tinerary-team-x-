@@ -13,10 +13,6 @@ export default function CommentCard(props) {
     
     const {deleteComment, updateComment, getCommentFilter} = commentActions
     
-    useEffect(()=>{
-        console.log('x')
-    },[])
-    
     function showUpdateComment(){
         if(!hideUpdateComment){
             setHideUpdateComment(true)
@@ -80,7 +76,7 @@ export default function CommentCard(props) {
         }
         {hideUpdateComment && 
             <div id='containerUpdateComment'>
-                <input type="text" id='inputUpdateComment' placeholder='Update Comment..' ref={inputUpdateCommentRef} />
+                <input type="text" id='inputUpdateComment' placeholder='Update Comment..' ref={inputUpdateCommentRef}  minlength="3"/>
                 <div id='containerButtonUpdateComment' onClick={updateCommentFun} >
                     <div className='buttonUpdateComment'>
                         <img className='imgButtonUpdateComment' src="https://cdn-icons-png.flaticon.com/512/625/625163.png" alt="" />

@@ -1,7 +1,8 @@
 import { createReducer } from "@reduxjs/toolkit";
 import reactionActions from "../actions/reactionAction";
+import { useSelector } from "react-redux";
 
-const { getReactions, updateReaction } = reactionActions;
+const { getReactions, updateReaction, getMyReactions, deleteReaction } = reactionActions;
 
 const initialState = {
     reactioned: [
@@ -22,6 +23,7 @@ const initialState = {
             reactioned: false,
         }
     ],
+    myReactions: [],
 
 };
 
@@ -29,6 +31,7 @@ const reactionReducer = createReducer(initialState,
     (builder) => {
         builder
             .addCase(getReactions.fulfilled, (state, action) => {
+                //console.log("STATE REACTION1", state);
                 if (action.payload.success) {
                     return { ...state, reactions: action.payload.data, cantReactions: action.payload.howManyReactions, idReaction: action.payload.id };
                 } else {
@@ -41,6 +44,14 @@ const reactionReducer = createReducer(initialState,
                         reaction.reactioned = !reaction.reactioned
                     }
                 })
+            })
+            .addCase(getMyReactions.fulfilled, (state, action) => {
+                return {...state, myReactions: action.payload}
+            })
+            .addCase(deleteReaction.fulfilled, (state, action) => {
+                
+                console.log("ACTION PAYLOAD REACTION", action.payload);
+                return{...state, }
             })
     }
 );

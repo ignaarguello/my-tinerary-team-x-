@@ -19,7 +19,7 @@ function Reaction(props) {
     }, [refresh])
 
     async function reactions() {
-        let res = await dispatch(getReactions(idItinerary))
+        let res = await dispatch(getReactions({id: idItinerary, token: token}))
         setReaction(res.payload)
     }
 

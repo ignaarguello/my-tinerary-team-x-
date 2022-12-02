@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -16,10 +18,48 @@
 @media screen and (min-width:320px){
     #containerCardComments{
         /* border: 2px solid red; */
-        height: 20vh;
+        min-height: 18vh;
         display: flex;
-        padding: .3rem;
+        padding: .6rem;
         margin: 1rem 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    #container2{
+        /* border: 2px solid yellow; */
+        height: 15vh;
+        display: flex;
+    }
+
+    #containerUpdateComment{
+        /* border: 2px solid violet; */
+        display: flex;
+    }
+
+    #inputUpdateComment{
+        margin: 10px 0;
+        padding: .2rem;
+        width: 70%;
+        border-radius: 20px;
+        border: none;
+        font-size: 12px;
+    }
+
+    #containerButtonUpdateComment{
+        /* border: 2px solid blue; */
+        width: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .imgButtonUpdateComment{
+        width: 17px;
+        cursor: pointer;
     }
 
     #containerPhotoName{
@@ -37,7 +77,8 @@
     }
 
     .photoCardComments{
-        width: 40px;
+        width: 60px;
+        height: 60px;
         border-radius: 50%;
         object-fit: cover;
     }
@@ -46,17 +87,23 @@
         font-size: 13px;
     }
 
+    .nameCardComment1{
+        color: green;
+    }
+
     #containerCommentText{
        /*  border: 2px solid green; */
         width: 100%;
         color: white;
         background-color: rgba(0, 0, 0, 0.849);
         border-radius: 0px 0px 20px 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     #containerButtonsCardComment{
         /* border: 2px solid skyblue; */
-        width: 6%;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -70,7 +117,7 @@
     }
 
     .commentCard{
-        height: 80%;
+        height: 70%;
         text-align: center;
         font-size: 13px;
         font-weight: 300;
@@ -87,17 +134,17 @@
 
 @media screen and (min-width:1024px){
     #containerCardComments{
-        width: 30%;
+        width: 50%;
     }
 
     #containerCommentText{
          /* border: 2px solid green; */
-         width: 70%;
+         width: 90%;
      }
 
      #containerButtonsCardComment{
         /* border: 2px solid skyblue; */
-        width: 15%;
+     
     }
 
     .photoCardComments{
@@ -115,15 +162,36 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 80%;
+        height: 70%;
         text-align: center;
         font-size: 13px;
         font-weight: 300;
         font-size: 17px;
+      
     }
 
     .dateCardComment{
         font-size: 15px;
+    }
+
+    .btnCardComment{
+        /* border: 2px solid red; */
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        margin-left: 1rem;
+    }
+
+    .imageButon{
+        /* border: 2px solid red; */
+        width: 2rem;
+        padding: 5px;
+        cursor: pointer;
+        transition: .3s ease;
+    }
+
+    .imageButon:hover{
+        transform: scale(1.1);
     }
 }
 

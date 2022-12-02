@@ -13,7 +13,7 @@
 
 @media screen and (min-width:320px){
     #containerComments{
-        /* border: 2px solid green; */
+       /*  border: 2px solid green; */
         min-height: 40vh;
         display: flex;
         flex-direction: column;

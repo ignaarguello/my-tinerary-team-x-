@@ -22,30 +22,37 @@ export default function Comments() {
 
   useEffect(()=>{
     setDataUlt(commentsFilter)
-    console.log('DataUlt',dataUlt)
-  })
+    console.log('ULT',dataUlt)
+    getShows()
+  },[])
+
+  
 
 
   async function getShows(){
       await hotelId
       /* console.log('Use Params',hotelId) */
       let res = await dispatch(getShowsHotelId(hotelId))
-      let showsId = (res.payload?.showsHotelId?.map(e => e._id))
-      console.log('nada',showsId)
-      dispatch(getCommentFilter(showsId[0]))
+      if(res.payload.showsHotelId.length !== 0){
+        let showsId = (res.payload?.showsHotelId?.map(e => e._id))
+        /* console.log('nada',showsId) */
+        dispatch(getCommentFilter(showsId[0]))
+      }
+      else{
+        setDataUlt([])
+      }
     }
     
-    useEffect(()=>{
-      getShows()
-    },[])
+   
 
 
-  
-  return (
+   
+
+return (
     <div id='containerComments'>
        <NewComment />
        <div id='containerCommentsId'>
-          {dataUlt.length > 0 ? dataUlt.map(each => <CommentCard key={each._id} comment={each?.comment} date={each?.date.slice(0,10)} />) : <h2 className='titleNoComments'>There are no comments..</h2>}
+          {dataUlt.length > 0 ? dataUlt.map(each => <CommentCard idCard={each._id} comment={each?.comment} date={each?.date.slice(0,10)} photo={each?.photo} name={each?.name} userId={each?.userId} />) : <h2 className='titleNoComments'>There are no comments..</h2>}
        </div>
     </div>
   )

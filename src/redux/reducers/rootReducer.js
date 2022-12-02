@@ -17,6 +17,6 @@ const rootReducer = {
     signIn: signInReducer,
     reactionReducer,
     comment: commentReducer,
-   }
+}
 
 export default rootReducer

@@ -22,7 +22,7 @@ export default function Comments() {
 
   useEffect(()=>{
     setDataUlt(commentsFilter)
-    console.log('ULT',dataUlt)
+    /* console.log('ULT',dataUlt) */
     getShows()
   },[])
 
@@ -52,7 +52,7 @@ return (
     <div id='containerComments'>
        <NewComment />
        <div id='containerCommentsId'>
-          {dataUlt.length > 0 ? dataUlt.map(each => <CommentCard idCard={each._id} comment={each?.comment} date={each?.date.slice(0,10)} photo={each?.photo} name={each?.name} userId={each?.userId} />) : <h2 className='titleNoComments'>There are no comments..</h2>}
+          {dataUlt.length > 0 ? dataUlt.map(each => <CommentCard idCard={each._id} comment={each?.comment} date={each?.date.slice(0,10)} photo={each?.photo} name={each?.name} userId={each?.userId} showId={each?.showId} />) : <h2 className='titleNoComments'>There are no comments..</h2>}
        </div>
     </div>
   )

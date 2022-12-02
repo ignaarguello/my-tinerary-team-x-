@@ -81,14 +81,22 @@
         height: 60px;
         border-radius: 50%;
         object-fit: cover;
+        border: 2px solid green;
+    }
+
+    .photoCardComments2{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
     }
 
     .nameCardComment{
-        font-size: 13px;
+        font-size: 10px;
     }
 
     .nameCardComment1{
-        color: green;
+        font-size: 15px;
     }
 
     #containerCommentText{
@@ -144,7 +152,7 @@
 
      #containerButtonsCardComment{
         /* border: 2px solid skyblue; */
-     
+        width: 10%;
     }
 
     .photoCardComments{
@@ -154,7 +162,7 @@
     }
 
     .nameCardComment{
-        font-size: 16px;
+        font-size: 14px;
     }
 
     .commentCard{
@@ -165,7 +173,7 @@
         height: 70%;
         text-align: center;
         font-size: 13px;
-        font-weight: 300;
+        font-weight: 330;
         font-size: 17px;
       
     }

@@ -7,17 +7,16 @@ import commentActions from '../../redux/actions/commentActions'
 export default function CommentCard(props) {
     let [hideUpdateComment, setHideUpdateComment] = useState(false) 
     const {token, id } = useSelector( store => store.signIn)
-    let {comment, date, idCard, name, photo, userId} = props
+    let {comment, date, idCard, name, photo, userId, showId} = props
     const dispatch = useDispatch()
     const inputUpdateCommentRef = useRef()
     
-    const {deleteComment, updateComment} = commentActions
-
+    const {deleteComment, updateComment, getCommentFilter} = commentActions
+    
     useEffect(()=>{
-        console.log(props)
-        console.log(id)
+        console.log('x')
     },[])
-
+    
     function showUpdateComment(){
         if(!hideUpdateComment){
             setHideUpdateComment(true)
@@ -30,6 +29,7 @@ export default function CommentCard(props) {
       
       function deleteCommentFun(){
         dispatch(deleteComment({id:idCard, token:token}))
+        
     }
 
     function closeUpdate(){
@@ -66,12 +66,15 @@ export default function CommentCard(props) {
             : 
             <div id='container2'>
                 <div id='containerPhotoName'>
-                    <img className='photoCardComments' src={photo} />
+                    <img className='photoCardComments2' src={photo} />
                     <h5 className='nameCardComment'>{name}</h5>
                 </div>
                 <div id='containerCommentText'>
                     <p className='commentCard'>{comment}</p>
                     <p className='dateCardComment'>{date}</p>
+                </div>
+                <div id='containerButtonsCardComment'>
+                    
                 </div>
             </div>
         }

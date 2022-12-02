@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-primario: #24265D;
+    --naranja: #F68712;
+    --celeste: #51ADE5;
+    --azul-claro: #2C3892;
+}
+
+
+
+@media screen and (min-width:320px){
+    #containerCardComments{
+        /* border: 2px solid red; */
+        min-height: 18vh;
+        display: flex;
+        padding: .6rem;
+        margin: 1rem 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    #container2{
+        /* border: 2px solid yellow; */
+        height: 15vh;
+        display: flex;
+    }
+
+    #containerUpdateComment{
+        /* border: 2px solid violet; */
+        display: flex;
+    }
+
+    #inputUpdateComment{
+        margin: 10px 0;
+        padding: .2rem;
+        width: 70%;
+        border-radius: 20px;
+        border: none;
+        font-size: 12px;
+    }
+
+    #containerButtonUpdateComment{
+        /* border: 2px solid blue; */
+        width: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .imgButtonUpdateComment{
+        width: 17px;
+        cursor: pointer;
+    }
+
+    #containerPhotoName{
+        /* border: 2px solid blue; */
+        width: 25%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        color: var(--naranja);
+        background-color: rgba(0, 0, 0, 0.849);
+        border-radius: 20px 0px 0px 0px;
+    }
+
+    .photoCardComments{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid green;
+    }
+
+    .photoCardComments2{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .nameCardComment{
+        font-size: 10px;
+    }
+
+    .nameCardComment1{
+        font-size: 15px;
+    }
+
+    #containerCommentText{
+       /*  border: 2px solid green; */
+        width: 100%;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.849);
+        border-radius: 0px 0px 20px 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #containerButtonsCardComment{
+        /* border: 2px solid skyblue; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 7px;
+    }
+
+    .btnCardComment{
+        padding: 3px;
+        background: none;
+        border: none;
+    }
+
+    .commentCard{
+        height: 70%;
+        text-align: center;
+        font-size: 13px;
+        font-weight: 300;
+    }
+
+    .dateCardComment{
+        text-align: center;
+        color: white;
+        font-weight: 300;
+        font-size: 12px;
+        height: 20%;
+    }
+}
+
+@media screen and (min-width:1024px){
+    #containerCardComments{
+        width: 50%;
+    }
+
+    #containerCommentText{
+         /* border: 2px solid green; */
+         width: 90%;
+     }
+
+     #containerButtonsCardComment{
+        /* border: 2px solid skyblue; */
+        width: 10%;
+    }
+
+    .photoCardComments{
+        width: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .nameCardComment{
+        font-size: 14px;
+    }
+
+    .commentCard{
+        /* border: 2px solid red; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 70%;
+        text-align: center;
+        font-size: 13px;
+        font-weight: 330;
+        font-size: 17px;
+      
+    }
+
+    .dateCardComment{
+        font-size: 15px;
+    }
+
+    .btnCardComment{
+        /* border: 2px solid red; */
+        width: 30px;
+        display: flex;
+        justify-content: center;
+        margin-left: 1rem;
+    }
+
+    .imageButon{
+        /* border: 2px solid red; */
+        width: 2rem;
+        padding: 5px;
+        cursor: pointer;
+        transition: .3s ease;
+    }
+
+    .imageButon:hover{
+        transform: scale(1.1);
+    }
+}
+

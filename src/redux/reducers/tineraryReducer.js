@@ -1,11 +1,13 @@
 import { createReducer } from "@reduxjs/toolkit";
 import tineraryActions from "../actions/tineraryAction";
 
-const { getMyTinerary, deleteMyTinerary} = tineraryActions
+const { getMyTinerary, deleteMyTinerary, getTineraryByCity, getOneTinerary} = tineraryActions
 
 const initialState = {
     myItineraries: [],
-    mensaje: 'Tinerary removed succesfully'
+    mensaje: 'Tinerary removed succesfully',
+    cityTineraries: [],
+    oneTinerary: '',
 }
 
 const tineraryReducer = createReducer(initialState,
@@ -21,6 +23,22 @@ const tineraryReducer = createReducer(initialState,
             return{
                 ...state,
                 mensaje: action.payload.mensaje
+            }
+        })
+
+        .addCase(getTineraryByCity.fulfilled, (state, action) => {
+            //console.log(action);
+            return{
+                ...state,
+                ...action.payload
+            }
+        })
+
+        .addCase(getOneTinerary.fulfilled, (state, action) => {
+            console.log("actionde one city:", action)
+            return{
+                ...state,
+                oneTinerary: action.payload
             }
         })
     })

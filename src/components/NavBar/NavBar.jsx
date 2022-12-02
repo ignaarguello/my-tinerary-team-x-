@@ -1,17 +1,18 @@
 import React from 'react'
-import { Link as LinkRouter, Navigate } from 'react-router-dom'
+import { Link as LinkRouter } from 'react-router-dom'
 import '../NavBar/NavBar.css'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import userActions from '../../redux/actions/userActions'
 import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom'
 
 export default function NavBar() {
-
+  let navigate = useNavigate()
   let dispatch = useDispatch()
   let {log_out} = userActions
   let { logged, role, token, photo, name, id } = useSelector(store => store.signIn)
-  console.log(role)
+  //console.log(role)
 
   async function logout(event) {
     Swal.fire({
@@ -25,7 +26,7 @@ export default function NavBar() {
     }).then((result) => {
       if (result.isConfirmed) {
         let res = dispatch(log_out(token));
-        <Navigate to='/home'/>
+        navigate('/home', { replace: true })
       }
     })
 }
@@ -110,14 +111,22 @@ export default function NavBar() {
             </div>
           </div>
           { logged && 
-          <div className='dropdown'>
+          <div className='profile-dropdown'>
               <img className='picture-Navbar' src={`${photo}`} alt={`${name}`} />
               <p id='logout-link'>{`${name}`}</p>
               <div className="dropdown-content">
                 <LinkRouter to={`/me/${id}`} className='link'>
                   <p>Profile</p>
                 </LinkRouter>
-                <div className="link" onClick={ () => logout(token) }><p>Logout</p></div> 
+                <div className="link" onClick={ () => logout(token) }><p>Logout</p></div>
+                <LinkRouter to={`/myreactions`} className='link'>
+                  <p>My reactions</p>
+                </LinkRouter>
+                {role === "admin" &&
+                <LinkRouter to='/newreaction' className="link">
+                  <p>New Reaction</p>
+                </LinkRouter> 
+                }
               </div>
           </div>
           }

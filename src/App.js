@@ -31,6 +31,8 @@ import EditMyShows from './pages/EditMyShows'
 import MyProfile from './components/MyProfile/MyProfile';
 import EditMyProfile from './components/EditMyProfile/EditMyProfile'
 import NewShow from './pages/NewShow/NewShow'
+import NewReaction from './pages/NewReaction/NewReaction';
+import MyReactions from './pages/MyReactions/MyReactions';
 
 
 //importo el componente para proteger las rutas
@@ -75,7 +77,7 @@ function App() {
           <Route path="/me/:id" element={<MyProfile/>}/>
           <Route path="/editprofile/:id" element={<EditMyProfile/>}/>
           <Route path="/newshow" element={<NewShow/>}/>
-
+          <Route path="/myreactions" element={<MyReactions />}/>
         </Route>
         <Route element={<ProtectedRoute isAllowed={!!logged && role==="admin"} reDirect={"/home"}/>}>
           <Route path="/newhotel" element={<NewHotel />}/>
@@ -84,6 +86,7 @@ function App() {
           <Route path="/mycities/edit/:id" element={<EditMyCities />}/>
           <Route path="/myhotels" element={<MyHotels />}/>
           <Route path="/myhotels/edit/:id" element={<EditMyHotels />}/>
+          <Route path="/newreaction" element={<NewReaction />}/>
         </Route>
       </Routes>
     </Layout>

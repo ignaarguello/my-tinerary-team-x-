@@ -1,7 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import cityActions from "../actions/cityAction"
 
-const {getCities, filterCities, getMyCities, deleteMyCity } = cityActions
+const {getCities, filterCities, getMyCities, deleteMyCity, getOneCity } = cityActions
 
 const initialState = {
     valor: '',
@@ -9,6 +9,7 @@ const initialState = {
     categories: [],
     continent: [],
     myCities: [],
+    oneCity: [],
     mensaje: 'Ok. City was deleted succesfully.'
 }
 
@@ -21,6 +22,14 @@ const cityReducer = createReducer(initialState,
                 ...state,
                 cities: action.payload.cities,
                 categories: eachContinent
+            }
+        })
+
+        .addCase(getOneCity.fulfilled, (state, action) => {
+            //console.log(action)
+            return {
+                ...state,
+                oneCity: action.payload?.oneCity,
             }
         })
 

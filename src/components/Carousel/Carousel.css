@@ -138,7 +138,7 @@
       border-radius: 20px;
       background-color: black;
       color: var(--naranja);
-      transition: .7s ease;
+      transition: .7s ease-in-out;
   }
 
   .titleCard:hover{

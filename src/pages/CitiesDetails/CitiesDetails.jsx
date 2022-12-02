@@ -8,6 +8,8 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import cityActions from '../../redux/actions/cityAction'
 import tineraryActions from '../../redux/actions/tineraryAction'
+import commentActions from '../../redux/actions/commentActions'
+import { useState } from 'react'
 
 
 function CitiesDetails() {
@@ -15,17 +17,27 @@ function CitiesDetails() {
   let dispatch = useDispatch()
   let {cityid} = useParams()
 
-
+  const {getCommentFilter} = commentActions
   const {getOneCity} = cityActions
   const {getTineraryByCity} = tineraryActions
   
   let {oneCity} = useSelector(store => store.cityReducer)
   let {cityTineraries} = useSelector(store => store.tineraryReducer)
-  console.log(cityTineraries)
+  let [ult, setUlt] = useState([])
+
+  async function getData(){
+    let hola = await cityTineraries.map( e=> dispatch(getCommentFilter(e.id)))
+    setUlt(hola)
+  }
+  
+
+  console.log('hola', ult)
   
   useEffect( () => {
     dispatch(getOneCity(cityid))
     dispatch(getTineraryByCity(cityid))
+    dispatch(getCommentFilter(cityid))
+    getData()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   

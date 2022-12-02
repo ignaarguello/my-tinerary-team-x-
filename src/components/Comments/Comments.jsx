@@ -9,7 +9,7 @@ import CommentCard from '../CommentCard/CommentCard'
 import { useParams } from 'react-router-dom'
 
 export default function Comments() {
-  const dispatch = useDispatch()
+ const dispatch = useDispatch()
   const {getCommentFilter} = commentActions
   const {getShowsHotelId} = showActions
   const {hotelId} = useParams()
@@ -23,12 +23,9 @@ export default function Comments() {
   useEffect(()=>{
     setDataUlt(commentsFilter)
     console.log('ULT',dataUlt)
-    getShows()
   },[])
 
   
-
-
   async function getShows(){
       await hotelId
       /* console.log('Use Params',hotelId) */
@@ -43,6 +40,9 @@ export default function Comments() {
       }
     }
     
+    useEffect(()=>{
+      getShows()
+    },[])
    
 
 

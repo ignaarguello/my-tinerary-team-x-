@@ -1,4 +1,3 @@
-
 import React from 'react'
 import CitiesDet from '../../components/CitiesDet/CitiesDet'
 import './CitiesDetails.css'

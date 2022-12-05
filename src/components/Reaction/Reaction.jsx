@@ -25,13 +25,9 @@ function Reaction(props) {
 
     async function changeIcon(element) {
         let name
-        let icon
-        let iconBack
         reaction.data.map(item => {
             if (item.name === element.target.name) {
                 name = item.name
-                icon = item.icon
-                iconBack = item.iconBack
             }
         })
 

@@ -32,11 +32,10 @@ export default function CommentCard(props) {
         setHideUpdateComment(false)
     }
 
-    function updateCommentFun(){
+    function updateCommentFun(event){
         let value = {
             comment:inputUpdateCommentRef.current.value
         } 
-
         dispatch(updateComment({id:idCard, data:value, token:token}))
     }
 

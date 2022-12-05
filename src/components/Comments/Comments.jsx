@@ -23,7 +23,7 @@ export default function Comments() {
   useEffect(()=>{
     setDataUlt(commentsFilter)
     console.log('ULT',dataUlt)
-  },[])
+  },[commentsFilter])
 
   
   async function getShows(){
@@ -42,11 +42,9 @@ export default function Comments() {
     
     useEffect(()=>{
       getShows()
-    },[])
+    },[dataUlt])
    
 
-
-   
 
 return (
     <div id='containerComments'>
